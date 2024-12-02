@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Salary - Nature Ceylon</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/form.css">
+</head>
+<body>
+    <header>
+        <button id="backButton" onclick="goBack()" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left"></i> Back
+        </button>
+        <h1>Nature Ceylon</h1>
+    </header>
+    <main class="container mt-4">
+        <h2>Calculate Salary</h2>
+        <form id="calculateSalaryForm" onsubmit="calculateSalary(); return false;">
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="bi bi-cash"></i></span>
+                <input type="number" class="form-control" id="baseSalary" name="baseSalary" placeholder="Base Salary" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="bi bi-gift"></i></span>
+                <input type="number" class="form-control" id="bonus" name="bonus" placeholder="Bonus" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="bi bi-dash-circle"></i></span>
+                <input type="number" class="form-control" id="deduction" name="deduction" placeholder="Deduction" required>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success w-100">Calculate</button>
+            </div>
+
+            <div class="alert alert-success d-none" id="resultContainer">
+                <strong>Final Salary: </strong> <span id="finalSalary"></span>
+            </div>
+        </form>
+    </main>
+    <footer class="text-center mt-4">
+        <!-- <p>&copy; 2024 Nature Ceylon. All Rights Reserved.</p> -->
+    </footer>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function calculateSalary() {
+            const baseSalary = parseFloat(document.getElementById("baseSalary").value);
+            const bonus = parseFloat(document.getElementById("bonus").value);
+            const deduction = parseFloat(document.getElementById("deduction").value);
+
+            if (isNaN(baseSalary) || isNaN(bonus) || isNaN(deduction)) {
+                alert("Please enter valid numbers for Base Salary, Bonus, and Deduction.");
+                return;
+            }
+
+            const finalSalary = baseSalary + bonus - deduction;
+
+            // Show the result
+            const resultContainer = document.getElementById("resultContainer");
+            const finalSalarySpan = document.getElementById("finalSalary");
+
+            finalSalarySpan.textContent = `$${finalSalary.toFixed(2)}`;
+            resultContainer.classList.remove("d-none");
+        }
+    </script>
+</body>
+</html>
