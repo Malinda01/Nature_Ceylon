@@ -1,4 +1,4 @@
-<!-- employee dashboard -->
+<!-- Inventory Manager dashboard -->
 <?php
 
 session_start();
@@ -11,6 +11,8 @@ if (!isset($_SESSION['EUsername'])) {
 // Retrieve the username from the session
 $username = $_SESSION['EUsername'];
 ?>
+
+<!-- HTML section here -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -223,14 +225,18 @@ $username = $_SESSION['EUsername'];
                             </h2>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Inventory/catagory/addcatogory.html';">
+
+                                    <!-- Add Category -->
+                                    <button class="custom-btn" onclick="window.location.href='Inventory/catagory/addcategory.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-folder-plus"></i>
                                         </div>
                                         <span>Add new category</span>
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
-                                    <button class="custom-btn" onclick="window.location.href='Inventory/catagory/viewcat.html';">
+
+                                    <!-- View Category -->
+                                    <button class="custom-btn" onclick="window.location.href='Inventory/catagory/viewcat.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-folder-open"></i>
                                         </div>
@@ -239,20 +245,25 @@ $username = $_SESSION['EUsername'];
                                     </button>
                                 </div>
                                 <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Inventory/catagory/EditCategory.html';">
+
+                                    <!-- Edit Category -->
+                                    <button class="custom-btn" onclick="window.location.href='Inventory/catagory/EditCategory.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-edit"></i>
                                         </div>
                                         <span>Edit category</span>
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
-                                    <button class="custom-btn" onclick="window.location.href='Inventory/catagory/Deletecategory.html';">
+
+                                    <!-- Delete Category -->
+                                    <button class="custom-btn" onclick="window.location.href='Inventory/catagory/Deletecategory.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-trash-alt"></i>
                                         </div>
                                         <span>Delete category</span>
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
+                                    <!--  -->
                                 </div>
                             </div>
                         </div>

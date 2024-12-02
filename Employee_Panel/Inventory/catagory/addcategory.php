@@ -1,3 +1,39 @@
+<!------------------------------------------------- PHP section ------------------------------------------------->
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Database connection
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "malinda_db";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Set parameters and execute
+    $categoryName = $_POST["categoryName"];
+    $categoryDescription = $_POST["categoryDescription"];
+
+    // Prepare and bind
+    $stmt = $conn->prepare("INSERT INTO category (Category_Name, Category_Description) VALUES (?, ?)");
+    $stmt->bind_param("ss", $categoryName, $categoryDescription);
+
+    if ($stmt->execute()) {
+        echo "New category added successfully";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
+<!------------------------------------------------- HTML section ------------------------------------------------->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,15 +57,15 @@
     </header>
     <main>
         <!-- Form for add categories -->
-        <form id="categoryForm" onsubmit="return validateForm()">
+        <form method="POST" action="" id="categoryForm" onsubmit="return validateForm()">
             <h2>Add Category</h2>
 
             <!-- Category ID -->
-            <div class="input-group">
+            <!-- <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-tag"></i></span>
                 <input type="text" class="form-control" id="categoryId" name="categoryId" placeholder="Category ID"
                     required>
-            </div>
+            </div> -->
 
             <!-- Category Name -->
             <div class="input-group">
@@ -61,9 +97,8 @@
         <p>&copy; 2024 Nature Ceylon. All Rights Reserved.</p>
     </footer>
 
+    <!-- JS section -->
     <script>
-        
-
         function validateForm() {
             const checkbox = document.getElementById("confirmationCheckbox");
             if (!checkbox.checked) {

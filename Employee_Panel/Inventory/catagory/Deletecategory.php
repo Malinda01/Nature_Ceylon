@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,17 +16,19 @@
         .btn-danger {
             background-color: #dc3545;
         }
+
         .btn-danger:hover {
             background-color: #c82333;
         }
     </style>
 </head>
+
 <body>
     <header>
-        <button id="backButton" onclick="goBack()">Back</button>
+        <button id="backButton" onclick="location.href='../../Inventory.php'">Back</button>
         <h1>Nature Ceylon</h1>
     </header>
-    
+
     <main>
         <div class="container">
             <!-- Tab Content -->
@@ -33,9 +36,11 @@
                 <!-- Delete Category Tab -->
                 <div class="tab-pane fade show active" id="delete" role="tabpanel">
                     <div class="form-container">
+
+                        <!-- Delete Category Form -->
                         <form id="deleteCategoryForm" onsubmit="return deleteCategory(event)">
                             <h2>Delete Category</h2>
-                        
+
                             <div class="input-group">
                                 <span class="input-group-text"><i class="bi bi-list"></i></span>
                                 <select class="form-control" id="deleteCategorySelect" name="categoryId" required>
@@ -46,14 +51,14 @@
                                     <!-- Additional categories dynamically populated -->
                                 </select>
                             </div>
-                        
+
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="deleteConfirmationCheckbox" name="deleteConfirmationCheckbox" required>
                                 <label class="form-check-label" for="deleteConfirmationCheckbox">
                                     I confirm that I want to delete this category permanently.
                                 </label>
                             </div>
-                        
+
                             <input type="submit" value="Delete Category" class="btn btn-danger mt-3">
                         </form>
                     </div>
@@ -80,12 +85,12 @@
 
             const categorySelect = document.getElementById("deleteCategorySelect").value;
             const confirmCheckbox = document.getElementById("deleteConfirmationCheckbox");
-            
+
             if (categorySelect === "") {
                 alert("Please select a category to delete.");
                 return false;
             }
-            
+
             if (!confirmCheckbox.checked) {
                 alert("Please confirm the deletion by checking the checkbox.");
                 return false;
@@ -104,4 +109,5 @@
         document.getElementById('deleteCategoryForm').addEventListener('submit', deleteCategory);
     </script>
 </body>
+
 </html>
