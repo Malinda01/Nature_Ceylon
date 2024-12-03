@@ -287,7 +287,7 @@ $username = $_SESSION['EUsername'];
                                     </button>
 
                                     <!-- View Item -->
-                                    <button class="custom-btn" onclick="window.location.href='Inventory/Item/View item.html';">
+                                    <button class="custom-btn" onclick="window.location.href='Inventory/Item/viewItem.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-search"></i>
                                         </div>

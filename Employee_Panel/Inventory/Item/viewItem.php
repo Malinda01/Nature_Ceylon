@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../Admin_Panel/Managements/assets/css/form.css">
 </head>
+
 <body>
     <header>
         <button id="backButton" onclick="goBack()">Back</button>
@@ -24,47 +26,49 @@
                 <tr>
                     <th>Item ID</th>
                     <th>Item Name</th>
-                    <th>Image</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Description</th>
-                    <th>Category ID</th>
+                    <th>Item Description</th>
+                    <th>Unit Price</th>
+
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>IT001</td>
-                    <td>Green Tea</td>
-                    <td class="text-center">
-                        <img src="../../assets/images/green-tea.jpg" alt="Green Tea" class="img-thumbnail" style="max-width: 100px;">
-                    </td>
-                    <td>100</td>
-                    <td>$5.99</td>
-                    <td>Premium Green Tea leaves.</td>
-                    <td>C001</td>
-                </tr>
-                <tr>
-                    <td>IT002</td>
-                    <td>Black Tea</td>
-                    <td class="text-center">
-                        <img src="../../assets/images/black-tea.jpg" alt="Black Tea" class="img-thumbnail" style="max-width: 100px;">
-                    </td>
-                    <td>200</td>
-                    <td>$4.49</td>
-                    <td>Classic Black Tea blend.</td>
-                    <td>C002</td>
-                </tr>
-                <tr>
-                    <td>IT003</td>
-                    <td>Herbal Tea</td>
-                    <td class="text-center">
-                        <img src="../../assets/images/herbal-tea.jpg" alt="Herbal Tea" class="img-thumbnail" style="max-width: 100px;">
-                    </td>
-                    <td>50</td>
-                    <td>$6.99</td>
-                    <td>Special Herbal Tea mix.</td>
-                    <td>C003</td>
-                </tr>
+                <!-- PHP section -->
+                <?php
+                // Database connection
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "malinda_db";
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                // Fetch category data
+                $sql = "SELECT Prod_ID, Prod_Name, Prod_Description, Prod_Unit_Price FROM product";
+                $result = $conn->query($sql);
+
+                // Display data in table
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>
+                                <td>" . htmlspecialchars($row["Prod_ID"]) . "</td>
+                                <td>" . htmlspecialchars($row["Prod_Name"]) . "</td>
+                                <td>" . htmlspecialchars($row["Prod_Description"]) . "</td>
+                                <td>" . htmlspecialchars($row["Prod_Unit_Price"]) . "</td>
+                              </tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='3' class='text-center'>No categories found</td></tr>";
+                }
+
+                // Close connection
+                $conn->close();
+                ?>
             </tbody>
         </table>
     </main>
@@ -78,4 +82,5 @@
         }
     </script>
 </body>
+
 </html>
