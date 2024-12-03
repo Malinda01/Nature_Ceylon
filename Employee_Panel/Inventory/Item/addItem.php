@@ -1,3 +1,50 @@
+<?php
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    // Database connection
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "malinda_db";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Set parameters and execute
+    $itemId = $_POST['itemId'];
+    $itemName = $_POST['itemName'];
+    $itemQty = $_POST['itemQty'];
+    $itemPrice = $_POST['itemPrice'];
+    $itemDescription = $_POST['itemDescription'];
+    $categoryId = $_POST['categoryId'];
+    $itemImage = $_FILES['itemImage']['name'];
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($itemImage);
+
+    // Upload image
+    if (move_uploaded_file($_FILES['itemImage']['tmp_name'], $target_file)) {
+        $sql = "INSERT INTO items (item_id, item_name, item_qty, item_price, item_description, category_id, item_image) 
+                VALUES ('$itemId', '$itemName', '$itemQty', '$itemPrice', '$itemDescription', '$categoryId', '$target_file')";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "New item added successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+
+    mysqli_close($conn);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,11 +133,8 @@
         <p>&copy; 2024 Nature Ceylon. All Rights Reserved.</p>
     </footer>
 
+    <!-- JS Section -->
     <script>
-        function goBack() {
-            window.history.back();
-        }
-
         function validateItemForm() {
             const checkbox = document.getElementById("confirmationCheckbox");
             if (!checkbox.checked) {
