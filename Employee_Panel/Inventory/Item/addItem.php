@@ -16,30 +16,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Set parameters and execute
+    // Fetch input values
     $itemId = $_POST['itemId'];
     $itemName = $_POST['itemName'];
     $itemQty = $_POST['itemQty'];
     $itemPrice = $_POST['itemPrice'];
     $itemDescription = $_POST['itemDescription'];
     $categoryId = $_POST['categoryId'];
-    $itemImage = $_FILES['itemImage']['name'];
-    $target_dir = "uploads/";
-    $target_file = $target_dir . basename($itemImage);
+    // $itemImage = $_FILES['itemImage']['name'];
+    // $target_dir = "/C:/wamp64/www/Nature_Ceylon/images/"; // Directory to save images
+    // $target_file = $target_dir . basename($itemImage);
 
-    // Upload image
-    if (move_uploaded_file($_FILES['itemImage']['tmp_name'], $target_file)) {
-        $sql = "INSERT INTO items (item_id, item_name, item_qty, item_price, item_description, category_id, item_image) 
-                VALUES ('$itemId', '$itemName', '$itemQty', '$itemPrice', '$itemDescription', '$categoryId', '$target_file')";
 
-        if (mysqli_query($conn, $sql)) {
-            echo "New item added successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
+
+
+    // Insert into product table
+    $sql_product = "INSERT INTO product (Prod_ID, Prod_Name, Prod_Description, Prod_Unit_Price, Category_ID) 
+                        VALUES ('$itemId', '$itemName', '$itemDescription','$itemPrice', '$categoryId')";
+
+    // Insert into inventory table
+    $sql_inventory = "INSERT INTO inventory (Prod_ID, Prod_Qty) VALUES ('$itemId', '$itemQty')";
+
+    if (mysqli_query($conn, $sql_product) && mysqli_query($conn, $sql_inventory)) {
+        echo "New item added successfully";
     } else {
-        echo "Sorry, there was an error uploading your file.";
+        echo "Error: " . mysqli_error($conn);
     }
+
 
     mysqli_close($conn);
 }
@@ -104,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <!-- Category ID selection -->
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-tag"></i></span>
-                <select class="form-control" id="categoryId" name="categoryId" required>
+                <select class="form-control" id="categoryId" name="categoryId">
                     <option value="">-- Select Category ID --</option>
                     <option value="C001">C001</option>
                     <option value="C002">C002</option>
@@ -113,12 +116,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </select>
             </div>
 
-            <!-- File input for uploading item image -->
-            <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-image"></i></span>
-                <input type="file" class="form-control" id="itemImage" name="itemImage" accept="image/*" required>
-            </div>
+            
 
+
+        <!-- Check Input section -->
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="confirmationCheckbox" name="confirmationCheckbox" required>
                 <label class="form-check-label" for="confirmationCheckbox">
@@ -135,15 +136,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <!-- JS Section -->
     <script>
+        // Check box selection
         function validateItemForm() {
             const checkbox = document.getElementById("confirmationCheckbox");
             if (!checkbox.checked) {
                 alert("You must confirm that the information is true.");
-                return false;
-            }
-            const fileInput = document.getElementById("itemImage");
-            if (fileInput.files.length === 0) {
-                alert("Please upload an image for the item.");
                 return false;
             }
             return true;
