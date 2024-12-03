@@ -38,16 +38,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Login for the admin
             $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Admin_Panel/Managements/AdminDash/admindash.php');
-
         } elseif ($role == 'EmpRelManager') {
             // Login for the Employee Relation Manager  
             // $_SESSION['EUsername'] = $E_Username; 
             header('Location: ../Employee_Panel/Employee.php');
-
-        }elseif ($role == 'INVManager') {
+        } elseif ($role == 'INVManager') {
             // Login for the Inventory Manager
             $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Employee_Panel/Inventory.php');
+        } elseif ($role == 'SupManager') {
+            // Login for the Supplier Manager
+            $_SESSION['EUsername'] = $E_Username;
+            header('Location: ../Employee_Panel/Supplier.php');
 
         } else {
             echo "Invalid role";
@@ -56,4 +58,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Invalid username or password";
     }
 }
-?>

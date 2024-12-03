@@ -1,5 +1,43 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // DB connect php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "malinda_db";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Set parameters and execute
+    $supplierName = $_POST["supplierName"];
+    $supplierCompany = $_POST["supplierCompany"];
+    $suplierID = $_POST["employeeId"];
+
+    // Prepare and bind
+    $stmt = $conn->prepare("INSERT INTO supplier (Supplier_Name, Supplier_Company, SUPManager_ID) VALUES (?, ?, ?)");
+    $stmt->bind_param("ssi", $supplierName, $supplierCompany, $employeeId);
+
+    if ($stmt->execute()) {
+        echo "New supplier added successfully";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,39 +50,40 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../Admin_Panel/Managements/assets/css/form.css">
 </head>
+
 <body>
     <header>
-        <button id="backButton" onclick="goBack()" class="btn btn-outline-secondary">
-            <i class="bi bi-arrow-left"></i> Back
-        </button>
+        <button id="backButton" onclick="location.href='../../Supplier.php'">Back</button>
         <h1>Nature Ceylon</h1>
     </header>
     <main class="container mt-4">
+
+        <!-- Form section -->
         <h2>Supplier Registration</h2>
-        <form id="supplierForm" onsubmit="return validateForm()">
-            
+        <form id="supplierForm" onsubmit="return validateForm()" method="POST" action="">
+
             <!-- Supplier ID -->
-            <div class="input-group mb-3">
+            <!-- <div class="input-group mb-3">
                 <span class="input-group-text"><i class="bi bi-file-earmark"></i></span>
-                <input type="text" class="form-control" id="supplierId" name="supplierId" placeholder="Supplier ID" required>
-            </div>
+                <input type="text" class="form-control" id="supplierId" name="supplierId" value="" readonly>
+            </div> -->
 
             <!-- Supplier Name -->
             <div class="input-group mb-3">
                 <span class="input-group-text"><i class="bi bi-person"></i></span>
-                <input type="text" class="form-control" id="supplierName" name="supplierName" placeholder="Supplier Name" required>
+                <input type="text" class="form-control" id="supplierName" name="supplierName" placeholder="Supplier Name">
             </div>
 
             <!-- Supplier Company -->
             <div class="input-group mb-3">
                 <span class="input-group-text"><i class="bi bi-building"></i></span>
-                <input type="text" class="form-control" id="supplierCompany" name="supplierCompany" placeholder="Supplier Company" required>
+                <input type="text" class="form-control" id="supplierCompany" name="supplierCompany" placeholder="Supplier Company">
             </div>
 
             <!-- Employee ID -->
             <div class="input-group mb-3">
                 <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
-                <input type="text" class="form-control" id="employeeId" name="employeeId" placeholder="Employee ID" required>
+                <input type="text" class="form-control" id="employeeId" name="employeeId" placeholder="Employee ID">
             </div>
 
             <!-- Confirmation Checkbox -->
@@ -92,4 +131,5 @@
         }
     </script>
 </body>
+
 </html>
