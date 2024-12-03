@@ -297,7 +297,7 @@ $username = $_SESSION['EUsername'];
                                 </div>
                                 <div class="col-md-6">
                                     <!-- Edit Item -->
-                                    <button class="custom-btn" onclick="window.location.href='Inventory/Item/Edit item.html';">
+                                    <button class="custom-btn" onclick="window.location.href='Inventory/Item/editItem.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-edit"></i>
                                         </div>
@@ -306,7 +306,7 @@ $username = $_SESSION['EUsername'];
                                     </button>
 
                                     <!-- Delete Item -->
-                                    <button class="custom-btn" onclick="window.location.href='Inventory/Item/Delete item.html';">
+                                    <button class="custom-btn" onclick="window.location.href='Inventory/Item/deleteItem.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-trash-alt"></i>
                                         </div>
