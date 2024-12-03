@@ -326,14 +326,14 @@ $username = $_SESSION['EUsername'];
                             </h2>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Inventory/GRN/ADD grn.html';">
+                                    <button class="custom-btn" onclick="window.location.href='Inventory/GRN/addGRN.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-folder-plus"></i>
                                         </div>
                                         <span>Add new GRN</span>
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
-                                    <button class="custom-btn" onclick="window.location.href='Inventory/GRN/View grn.html';">
+                                    <button class="custom-btn" onclick="window.location.href='Inventory/GRN/viewGRN.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-folder-open"></i>
                                         </div>
@@ -342,14 +342,14 @@ $username = $_SESSION['EUsername'];
                                     </button>
                                 </div>
                                 <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Inventory/GRN/Edit grn.html';">
+                                    <button class="custom-btn" onclick="window.location.href='Inventory/GRN/editGRN.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-file-edit"></i>
                                         </div>
                                         <span>Edit GRN</span>
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
-                                    <button class="custom-btn" onclick="window.location.href='Inventory/GRN/Delete grn.html';">
+                                    <button class="custom-btn" onclick="window.location.href='Inventory/GRN/deleteGRN.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-trash-alt"></i>
                                         </div>

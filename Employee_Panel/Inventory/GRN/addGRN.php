@@ -1,5 +1,42 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Database connection
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "malinda_db";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Set parameters and execute
+    $categoryName = $_POST["categoryName"];
+    $categoryDescription = $_POST["categoryDescription"];
+
+    // Prepare and bind
+    $stmt = $conn->prepare("INSERT INTO GRN (Category_Name, Category_Description) VALUES (?, ?)");
+    $stmt->bind_param("ss", $categoryName, $categoryDescription);
+
+    if ($stmt->execute()) {
+        echo "New category added successfully";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
+
+<!------------------------------------------------- HTML section ------------------------------------------------->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,20 +49,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../Admin_Panel/Managements/assets/css/form.css">
 </head>
+
 <body>
     <header>
         <button id="backButton" onclick="goBack()">Back</button>
         <h1>Nature Ceylon</h1>
     </header>
     <main>
-        <form id="grnForm" onsubmit="return validateGRNForm()">
+        <form id="grnForm" onsubmit="return validateGRNForm()" method="POST" action="">
             <h2>Add GRN</h2>
 
+            <!-- GRN ID -->
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-upc-scan"></i></span>
                 <input type="text" class="form-control" id="grnId" name="grnId" placeholder="GRN ID" required>
             </div>
 
+            <!-- GRN Date -->
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-calendar-date"></i></span>
                 <input type="date" class="form-control" id="grnDate" name="grnDate" placeholder="GRN Date" required>
@@ -57,7 +97,7 @@
         </form>
     </main>
     <footer>
-        <p>&copy; 2024 Nature Ceylon. All Rights Reserved.</p> 
+        <p>&copy; 2024 Nature Ceylon. All Rights Reserved.</p>
     </footer>
 
     <script>
@@ -75,4 +115,5 @@
         }
     </script>
 </body>
+
 </html>
