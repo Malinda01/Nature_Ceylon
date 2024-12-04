@@ -26,16 +26,12 @@
         <form id="deleteSupplierForm" onsubmit="return validateForm()">
 
             <!-- Supplier ID (Selection Box) -->
+            <!-- Supplier ID -->
             <div class="input-group mb-3">
-                <span class="input-group-text"><i class="bi bi-file-earmark"></i></span>
-                <select class="form-control" id="supplierId" name="supplierId" required>
-                    <option value="" disabled selected>Select Supplier ID</option>
-                    <!-- Example Supplier IDs (these can be dynamically generated from a database) -->
-                    <option value="SUP123">SUP123 - ABC Supplies</option>
-                    <option value="SUP124">SUP124 - XYZ Enterprises</option>
-                    <option value="SUP125">SUP125 - PQR Traders</option>
-                </select>
+                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                <input type="text" class="form-control" id="supplierId" name="supplierId" placeholder="Supplier ID">
             </div>
+
 
             <!-- Confirmation Checkbox -->
             <div class="form-check mb-3">
@@ -44,6 +40,7 @@
                     I confirm that I want to delete this supplier.
                 </label>
             </div>
+            
 
             <!-- Submit Button -->
             <input type="submit" value="Delete Supplier" class="btn btn-danger w-100 mt-3">
