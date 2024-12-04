@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Location: ../Admin_Panel/Managements/AdminDash/admindash.php');
         } elseif ($role == 'EmpRelManager') {
             // Login for the Employee Relation Manager  
-            // $_SESSION['EUsername'] = $E_Username; 
+            $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Employee_Panel/Employee.php');
         } elseif ($role == 'INVManager') {
             // Login for the Inventory Manager
@@ -50,7 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Login for the Supplier Manager
             $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Employee_Panel/Supplier.php');
-
         } else {
             echo "Invalid role";
         }
