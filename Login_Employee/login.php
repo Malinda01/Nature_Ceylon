@@ -50,6 +50,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Login for the Supplier Manager
             $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Employee_Panel/Supplier.php');
+        } elseif ($role == 'SupManager') {
+            // POS for the cashier
+            $_SESSION['EUsername'] = $E_Username;
+            header('Location: ../Employee_Panel/POS.php');
         } else {
             echo "Invalid role";
         }
