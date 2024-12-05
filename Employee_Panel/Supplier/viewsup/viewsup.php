@@ -30,6 +30,7 @@
                     <th scope="col">Supplier ID</th>
                     <th scope="col">Supplier Name</th>
                     <th scope="col">Supplier Company</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -60,6 +61,11 @@
                                 <td>" . htmlspecialchars($row["Supplier_ID"]) . "</td>
                                 <td>" . htmlspecialchars($row["Supplier_Name"]) . "</td>
                                 <td>" . htmlspecialchars($row["Supplier_Company"]) . "</td>
+                                <td>
+                                    <button class='btn btn-primary btn-sm' onclick=\"location.href='../upsup/upsup.php?id=" . htmlspecialchars($row["Supplier_ID"]) . "'\">Update</button> 
+                                    
+                                    <button class='btn btn-danger btn-sm' onclick=\"location.href='../delsup/delsup.php?id="  . htmlspecialchars($row["Supplier_ID"]) . "'\">Delete</button>
+                                </td>
                               </tr>";
                     }
                 } else {

@@ -205,6 +205,7 @@ $username = $_SESSION['EUsername'];
                             </h2>
                             <div class="row">
                                 <div class="col-md-6">
+                                    <!-- Add new Supplier button -->
                                     <button class="custom-btn" onclick="window.location.href='Supplier/addsup/addsup.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-user-plus"></i>
@@ -212,19 +213,23 @@ $username = $_SESSION['EUsername'];
                                         <span>Add new supplier</span>
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
+                                    <!-- End of add new supplier -->
                                 </div>
+
                                 <div class="col-md-6">
+                                    <!-- View Supplier Buttton -->
                                     <button class="custom-btn" onclick="window.location.href='Supplier/viewsup/viewsup.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-eye"></i>
                                         </div>
-                                        <span>View supplier</span>
+                                        <span>View (Update / Delete)</span>
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
+                                    <!-- End of view supplier -->
                                 </div>
                             </div>
 
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-md-6">
                                     <button class="custom-btn" onclick="window.location.href='Supplier/upsup/upsup.php';">
                                         <div class="icon-container">
@@ -243,12 +248,16 @@ $username = $_SESSION['EUsername'];
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
                     </div>
                 </div>
             </div>
+            <a href="logout.php" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </a>
         </div>
     </div>
 

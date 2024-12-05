@@ -1,4 +1,6 @@
 <?php
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // DB connect php
@@ -18,11 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Set parameters and execute
     $supplierName = $_POST["supplierName"];
     $supplierCompany = $_POST["supplierCompany"];
-    $suplierID = $_POST["employeeId"];
+    //$suplierID = $_POST["employeeId"];
 
     // Prepare and bind
-    $stmt = $conn->prepare("INSERT INTO supplier (Supplier_Name, Supplier_Company, SUPManager_ID) VALUES (?, ?, ?)");
-    $stmt->bind_param("ssi", $supplierName, $supplierCompany, $employeeId);
+    $stmt = $conn->prepare("INSERT INTO supplier (Supplier_Name, Supplier_Company) VALUES (?, ?)");
+    $stmt->bind_param("ss", $supplierName, $supplierCompany);
 
     if ($stmt->execute()) {
         echo "New supplier added successfully";
@@ -81,10 +83,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <!-- Employee ID -->
-            <div class="input-group mb-3">
+            <!-- <div class="input-group mb-3">
                 <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
                 <input type="text" class="form-control" id="employeeId" name="employeeId" placeholder="Employee ID">
-            </div>
+            </div> -->
 
             <!-- Confirmation Checkbox -->
             <div class="form-check mb-3">
@@ -105,9 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </footer>
 
     <script>
-        function goBack() {
-            window.history.back();
-        }
+        
 
         function validateForm() {
             const supplierId = document.getElementById("supplierId").value;
@@ -130,6 +130,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             return true;
         }
     </script>
+
+    
 </body>
 
 </html>
