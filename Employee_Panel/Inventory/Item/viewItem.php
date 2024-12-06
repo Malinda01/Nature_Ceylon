@@ -28,6 +28,7 @@
                     <th>Item Name</th>
                     <th>Item Description</th>
                     <th>Unit Price</th>
+                    <th>Quantity</th>
                     <th>Action</th>
 
                 </tr>
@@ -50,7 +51,7 @@
                 }
 
                 // Fetch category data
-                $sql = "SELECT Prod_ID, Prod_Name, Prod_Description, Prod_Unit_Price FROM product";
+                $sql = "SELECT Prod_ID, Prod_Name, Prod_Description, Prod_Unit_Price, Prod_Qty FROM product";
                 $result = $conn->query($sql);
 
                 // Display data in table
@@ -61,6 +62,7 @@
                                 <td>" . htmlspecialchars($row["Prod_Name"]) . "</td>
                                 <td>" . htmlspecialchars($row["Prod_Description"]) . "</td>
                                 <td>" . htmlspecialchars($row["Prod_Unit_Price"]) . "</td>
+                                <td>" . htmlspecialchars($row["Prod_Qty"]) . "</td>
                                                                 <td>
                                     <button class='btn btn-primary btn-sm' onclick=\"location.href='editItem.php?id=" . htmlspecialchars($row["Prod_ID"]) . "'\"> Update </button> 
                                     

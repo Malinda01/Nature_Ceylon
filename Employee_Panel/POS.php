@@ -3,283 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nature Cylon Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../Admin_Panel/Managements/assets/css/main.css">
+    <title>POS System</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* (CSS styles unchanged) */
-        header, footer {
-    background: linear-gradient(90deg, #3d8c40, #7ab23a);
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-}
-
-header {
-    position: relative;
-}
-
-        .main-content {
-            margin-left: 0%;
-        }
-        .custom-card {
+        .product-btn {
+            margin: 5px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
             border: none;
-            border-radius: 25px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            cursor: pointer;
         }
-        
-        .custom-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+        .product-btn:hover {
+            background-color: #45a049;
         }
-        
-        .custom-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        #order-summary {
+            margin-top: 20px;
         }
-        
-        .card-title {
-            color: #2c3e50;
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 1.8rem;
+        .table th, .table td {
             text-align: center;
-            position: relative;
-            padding-bottom: 15px;
         }
-        
-        .card-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(90deg, #4CAF50, #8BC34A);
-            border-radius: 2px;
-        }
-        
-        .custom-btn {
-            background: linear-gradient(90deg, #4CAF50, #8BC34A);
-            color: white;
-            border: none;
-            border-radius: 15px;
-            padding: 1rem 2rem;
-            margin-bottom: 1rem;
-            width: 100%;
-            text-align: left;
-            position: relative;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            overflow: hidden;
-        }
-        
-        .custom-btn:hover {
-            background: linear-gradient(90deg, #3d8c40, #7ab23a);
-            transform: translateX(5px);
-            color: white;
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
-        }
-        
-        .custom-btn i {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .custom-btn:hover i {
-            transform: translateX(5px);
-        }
-        
-        .icon-container {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 10px;
-        }
-        
-        .custom-btn span {
-            flex-grow: 1;
-        }
-        
-        .employee-container {
-            padding: 2rem;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .custom-card {
-            animation: fadeIn 0.5s ease forwards;
-        }
-        
-        .custom-card:nth-child(1) { animation-delay: 0.1s; }
-        .custom-card:nth-child(2) { animation-delay: 0.2s; }
-        .custom-card:nth-child(3) { animation-delay: 0.3s; }
     </style>
 </head>
-<body>
-    <header>
-        <h1>Nature Ceylon</h1>
-    </header>
+<body class="bg-light">
     <div class="container">
-        <div class="main-content">
-            <div class="header">
-                <h1 class="welcome-text">
-                    POS
-                    <span class="loading-dots">
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                    </span>
-                </h1>
-                <div class="admin-profile">
-                    <img src="../Admin_Panel/Managements/assets/pic/admin.png" alt="Admin Profile" class="admin-pic">
-                    <span class="admin-name">New User</span>
-                </div>
-            </div>
-    
-            <div class="employee-container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="custom-card">
-                            <h2 class="card-title">
-                                <i class="fas fa-shopping-cart me-2"></i>
-                                Order
-                            </h2>
-    
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='POS/Order/Add item.html';">
-                                        <div class="icon-container">
-                                            <i class="fas fa-plus-circle"></i>
-                                        </div>
-                                        <span>Add new item</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                                <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='POS/Order/Remove item.html';">
-                                        <div class="icon-container">
-                                            <i class="fas fa-minus-circle"></i>
-                                        </div>
-                                        <span>Remove item</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-    
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='POS/Order/Apply promo.html';">
-                                        <div class="icon-container">
-                                            <i class="fas fa-ticket-alt"></i>
-                                        </div>
-                                        <span>Apply promo codes</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                                <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='POS/Order/Take payment.html';">
-                                        <div class="icon-container">
-                                            <i class="fas fa-credit-card"></i>
-                                        </div>
-                                        <span>Take payment</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-    
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='POS/Order/Request cancel.html';">
-                                        <div class="icon-container">
-                                            <i class="fas fa-times-circle"></i>
-                                        </div>
-                                        <span>Request cancel order</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+        <h1 class="my-4 text-center text-success">POS System</h1>
+        <div id="product-list" class="d-flex flex-wrap justify-content-center">
+            <?php
+            // Database connection
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "malinda_db";
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="custom-card">
-                                    <button class="custom-btn" onclick="window.location.href='POS/Other/View availability.html';">
-                                        <div class="icon-container">
-                                            <i class="fas fa-box"></i>
-                                        </div>
-                                        <span>View product availability</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="custom-card">           
-                                    <button class="custom-btn" onclick="window.location.href='POS/Other/Search items.html';">
-                                        <div class="icon-container">
-                                            <i class="fas fa-search"></i>
-                                        </div>
-                                        <span>Search items</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
 
-                        
-                        
-    
-                        
-                        
-    
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="custom-card">
-                                    <button class="custom-btn" onclick="window.location.href='POS/Other/Take order.html';">
-                                        <div class="icon-container">
-                                            <i class="fas fa-clipboard-list"></i>
-                                        </div>
-                                        <span>Take orders</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            // Fetch products from the database
+            $query = "SELECT Prod_ID, Prod_Name, Prod_Unit_Price FROM Product";
+            $result = $conn->query($query);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<button class='product-btn btn btn-success' data-id='" . htmlspecialchars($row['Prod_ID']) . "' 
+                        data-price='" . htmlspecialchars($row['Prod_Unit_Price']) . "'>
+                        " . htmlspecialchars($row['Prod_Name']) . "
+                    </button>";
+                }
+            } else {
+                echo "<p>No products available.</p>";
+            }
+            ?>
         </div>
-    </div>
-    
-   <footer>
-         <p>&copy; 2024 Nature Ceylon. All Rights Reserved.</p> 
-    </footer>
 
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+        <div id="order-summary" class="mt-4">
+            <h2 class="text-center text-success">Order Summary</h2>
+            <table id="order-table" class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <p class="text-right">Total Amount: $<span id="total-amount-display">0.00</span></p>
+        </div>
+
+        <form id="billing-form" method="POST" class="text-center">
+            <input type="hidden" name="order" id="order-data">
+            <input type="hidden" name="total_amount" id="total-amount">
+            <button type="submit" class="btn btn-success">Bill</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function updateTotalAmount() {
+            let totalAmount = 0;
+            document.querySelectorAll('#order-table tbody tr').forEach(row => {
+                totalAmount += parseFloat(row.querySelector('.total').textContent);
+            });
+            document.querySelector('#total-amount-display').textContent = totalAmount.toFixed(2);
+            document.querySelector('#total-amount').value = totalAmount.toFixed(2);
+        }
+
+        // Handle product button clicks
+        document.querySelectorAll('.product-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const prodId = button.dataset.id;
+                const price = parseFloat(button.dataset.price);
+                const prodName = button.textContent;
+
+                let orderRow = document.querySelector(`tr[data-id="${prodId}"]`);
+                if (orderRow) {
+                    let qtyCell = orderRow.querySelector('.quantity');
+                    let qty = parseInt(qtyCell.textContent) + 1;
+                    qtyCell.textContent = qty;
+                    orderRow.querySelector('.total').textContent = (qty * price).toFixed(2);
+                } else {
+                    const tableBody = document.querySelector('#order-table tbody');
+                    tableBody.innerHTML += `
+                        <tr data-id="${prodId}">
+                            <td>${prodName}</td>
+                            <td>${price.toFixed(2)}</td>
+                            <td class="quantity">1</td>
+                            <td class="total">${price.toFixed(2)}</td>
+                        </tr>
+                    `;
+                }
+                updateTotalAmount();
+            });
+        });
+
+        // Prepare billing data on form submission
+        document.querySelector('#billing-form').addEventListener('submit', (e) => {
+            const rows = document.querySelectorAll('#order-table tbody tr');
+            const order = [];
+            let totalAmount = 0;
+
+            rows.forEach(row => {
+                const prodId = row.dataset.id;
+                const quantity = parseInt(row.querySelector('.quantity').textContent);
+                const total = parseFloat(row.querySelector('.total').textContent);
+                totalAmount += total;
+
+                order.push({ id: prodId, quantity });
+            });
+
+            if (order.length === 0) {
+                alert("No items in the order. Please add products.");
+                e.preventDefault();
+                return;
+            }
+
+            document.querySelector('#order-data').value = JSON.stringify(order);
+            document.querySelector('#total-amount').value = totalAmount.toFixed(2);
+
+            // Reset total amount display after submission
+            document.querySelector('#total-amount-display').textContent = '0.00';
+        });
+    </script>
+
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $orderData = json_decode($_POST['order'], true);
+        $totalAmount = floatval($_POST['total_amount']);
+        $currentDate = date('Y-m-d');
+
+        if ($totalAmount <= 0) {
+            die("Invalid total amount.");
+        }
+
+        // Begin transaction
+        $conn->begin_transaction();
+
+        try {
+            // Insert into offline_order table
+            $orderQuery = "INSERT INTO Offline_Order (Order_Date) VALUES ('$currentDate')";
+            if (!$conn->query($orderQuery)) {
+                throw new Exception("Error inserting order: " . $conn->error);
+            }
+
+            // Insert into payment table
+            $paymentQuery = "INSERT INTO Payment (Total_Amount, Payment_Date) VALUES ('$totalAmount', '$currentDate')";
+            if (!$conn->query($paymentQuery)) {
+                throw new Exception("Error inserting payment: " . $conn->error);
+            }
+
+            // Update product quantities
+            foreach ($orderData as $product) {
+                $prodId = intval($product['id']);
+                $quantity = intval($product['quantity']);
+
+                // Check stock availability
+                $stockCheckQuery = "SELECT Prod_Qty FROM Product WHERE Prod_ID = $prodId";
+                $stockResult = $conn->query($stockCheckQuery);
+                $stock = $stockResult->fetch_assoc()['Prod_Qty'];
+
+                if ($quantity > $stock) {
+                    throw new Exception("Insufficient stock for product ID: $prodId");
+                }
+
+                // Update stock
+                $updateProductQuery = $conn->prepare("UPDATE Product SET Prod_Qty = Prod_Qty - ? WHERE Prod_ID = ?");
+                $updateProductQuery->bind_param("ii", $quantity, $prodId);
+                if (!$updateProductQuery->execute()) {
+                    throw new Exception("Error updating stock for product ID: $prodId");
+                }
+            }
+
+            // Commit transaction
+            $conn->commit();
+           // echo "<p>Order successfully processed! Total amount: " . htmlspecialchars($totalAmount) . "</p>";
+        } catch (Exception $e) {
+            $conn->rollback();
+            echo "<p>Error: " . $e->getMessage() . "</p>";
+        }
+    }
+
+    $conn->close();
+    ?>
 </body>
 </html>

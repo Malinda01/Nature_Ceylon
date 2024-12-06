@@ -51,6 +51,11 @@
                         <label for="prodPrice" class="form-label">Unit Price</label>
                         <input type="number" class="form-control" id="prodPrice" name="prodPrice" value="<?= htmlspecialchars($row['Prod_Unit_Price']) ?>" required>
                     </div>
+
+                    <div class="mb-3">
+                        <label for="prodQty" class="form-label">Product Quantity</label>
+                        <input type="number" class="form-control" id="prodQty" name="prodqty" value="<?= htmlspecialchars($row['Prod_Qty']) ?>" required>
+                    </div>
                     <button type="submit" name="update" class="btn btn-success">Update</button>
                     <!-- <a href="viewItems.php" class="btn btn-secondary">Cancel</a> -->
                 </form>
@@ -64,10 +69,11 @@
             $name = $_POST['prodName'];
             $description = $_POST['prodDescription'];
             $price = $_POST['prodPrice'];
+            $prdqty = $_POST['prodqty'];
 
-            $updateSQL = "UPDATE product SET Prod_Name = ?, Prod_Description = ?, Prod_Unit_Price = ? WHERE Prod_ID = ?";
+            $updateSQL = "UPDATE product SET Prod_Name = ?, Prod_Description = ?, Prod_Unit_Price = ?, Prod_Qty = ? WHERE Prod_ID = ?";
             $stmt = $conn->prepare($updateSQL);
-            $stmt->bind_param("ssdi", $name, $description, $price, $prodID);
+            $stmt->bind_param("ssdis", $name, $description, $price, $prdqty, $prodID);
 
             if ($stmt->execute()) {
                 echo "<div class='alert alert-success'>Product updated successfully.</div>";
