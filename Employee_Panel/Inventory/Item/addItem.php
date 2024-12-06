@@ -1,48 +1,52 @@
 <?php
 
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "malinda_db";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch category IDs and names
+try {
+    // Create a new PDO connection
+    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Query to fetch category IDs and names
+    $query = "SELECT Category_ID, Category_Name FROM category";
+    $stmt = $pdo->query($query);
+
+    // Fetch all categories
+    $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Error: " . $e->getMessage());
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    // Database connection
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "malinda_db";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
     // Fetch input values
-    $itemId = $_POST['itemId'];
     $itemName = $_POST['itemName'];
-    $itemQty = $_POST['itemQty'];
-    $itemPrice = $_POST['itemPrice'];
     $itemDescription = $_POST['itemDescription'];
+    $itemPrice = $_POST['itemPrice'];
+    $itemQty = $_POST['itemQty'];
     $categoryId = $_POST['categoryId'];
-    // $itemImage = $_FILES['itemImage']['name'];
-    // $target_dir = "/C:/wamp64/www/Nature_Ceylon/images/"; // Directory to save images
-    // $target_file = $target_dir . basename($itemImage);
-
-
-
 
     // Insert into product table
-    $sql_product = "INSERT INTO product (Prod_ID, Prod_Name, Prod_Description, Prod_Unit_Price, Category_ID) 
-                        VALUES ('$itemId', '$itemName', '$itemDescription','$itemPrice', '$categoryId')";
+    $sql_product = "INSERT INTO product (Prod_Name, Prod_Description, Prod_Unit_Price, Prod_Qty, Category_ID) 
+                    VALUES ('$itemName', '$itemDescription','$itemPrice', '$itemQty', '$categoryId')";
 
-    // Insert into inventory table
-    $sql_inventory = "INSERT INTO inventory (Prod_ID, Prod_Qty) VALUES ('$itemId', '$itemQty')";
-
-    if (mysqli_query($conn, $sql_product) && mysqli_query($conn, $sql_inventory)) {
+    if (mysqli_query($conn, $sql_product)) {
         echo "New item added successfully";
     } else {
         echo "Error: " . mysqli_error($conn);
     }
-
 
     mysqli_close($conn);
 }
@@ -72,54 +76,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <main>
         <!-- Form for Add new item -->
         <form method="post" action="" id="itemForm" onsubmit="return validateItemForm()" enctype="multipart/form-data">
-            <h2>Add Item</h2>
 
-            <!-- Item ID -->
-            <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-upc-scan"></i></span>
-                <input type="text" class="form-control" id="itemId" name="itemId" placeholder="Item ID" required>
-            </div>
+            <h2>Add Product</h2>
 
-            <!-- Item Name -->
+            <!-- Product Name -->
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-box"></i></span>
-                <input type="text" class="form-control" id="itemName" name="itemName" placeholder="Item Name" required>
+                <input type="text" class="form-control" id="itemName" name="itemName" placeholder="Product Name" required>
             </div>
 
-            <!-- Item Quantity -->
-            <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-stack"></i></span>
-                <input type="number" class="form-control" id="itemQty" name="itemQty" placeholder="Item Quantity" min="1" required>
-            </div>
-
-            <!-- Item Price -->
-            <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-currency-dollar"></i></span>
-                <input type="number" class="form-control" id="itemPrice" name="itemPrice" placeholder="Item Price" step="0.01" min="0.01" required>
-            </div>
-
-            <!-- Item Description -->
+            <!-- Product Description -->
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-textarea-t"></i></span>
-                <textarea class="form-control" id="itemDescription" name="itemDescription" placeholder="Item Description" rows="3" required></textarea>
+                <textarea class="form-control" id="itemDescription" name="itemDescription" placeholder="Product Description" rows="3" required></textarea>
+            </div>
+
+            <!-- Product Price -->
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-currency-dollar"></i></span>
+                <input type="number" class="form-control" id="itemPrice" name="itemPrice" placeholder="Product Price" step="0.01" min="0.01" required>
+            </div>
+
+            <!-- Product Quantity -->
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-stack"></i></span>
+                <input type="number" class="form-control" id="itemQty" name="itemQty" placeholder="Product Quantity" min="1" required>
             </div>
 
             <!-- Category ID selection -->
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-tag"></i></span>
                 <select class="form-control" id="categoryId" name="categoryId">
-                    <option value="">-- Select Category ID --</option>
-                    <option value="C001">C001</option>
-                    <option value="C002">C002</option>
-                    <option value="C003">C003</option>
-                    <!-- Additional categories dynamically populated -->
+                    <option value="">-- Select Category --</option>
+                    <?php foreach ($categories as $category): ?>
+                        <option value="<?= htmlspecialchars($category['Category_ID']); ?>">
+                            <?= htmlspecialchars($category['Category_Name']); ?>
+                        </option>
+                    <?php endforeach; ?>
                 </select>
             </div>
 
-            
-
-
-        <!-- Check Input section -->
+            <!-- Check Input section -->
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="confirmationCheckbox" name="confirmationCheckbox" required>
                 <label class="form-check-label" for="confirmationCheckbox">

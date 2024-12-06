@@ -4,110 +4,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Categories - Nature Ceylon</title>
+    <title>Edit Category - Nature Ceylon</title>
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../Admin_Panel/Managements/assets/css/form.css">
-    <style>
-        .btn-danger {
-            background-color: #dc3545;
-        }
-
-        .btn-danger:hover {
-            background-color: #c82333;
-        }
-    </style>
 </head>
 
 <body>
     <header>
-        <button id="backButton" onclick="location.href='../../Inventory.php'">Back</button>
-        <h1>Nature Ceylon</h1>
+        <button id="backButton" class="btn btn-secondary" onclick="location.href='viewcat.php'">Back</button>
+        <h1>Delete Category</h1>
     </header>
+    <main class="container mt-4">
+        <?php
+        // Database connection
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "malinda_db";
 
-    <main>
-        <div class="container">
-            <!-- Tab Content -->
-            <div class="tab-content" id="categoryManagementTabContent">
-                <!-- Delete Category Tab -->
-                <div class="tab-pane fade show active" id="delete" role="tabpanel">
-                    <div class="form-container">
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
 
-                        <!-- Delete Category Form -->
-                        <form id="deleteCategoryForm" onsubmit="return deleteCategory(event)">
-                            <h2>Delete Category</h2>
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-list"></i></span>
-                                <select class="form-control" id="deleteCategorySelect" name="categoryId" required>
-                                    <option value="">-- Select Category --</option>
-                                    <option value="C001">C001</option>
-                                    <option value="C002">C002</option>
-                                    <option value="C003">C003</option>
-                                    <!-- Additional categories dynamically populated -->
-                                </select>
-                            </div>
+        // Get Category ID
+        if (isset($_GET['id'])) {
+            $category_id = $_GET['id'];
 
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="deleteConfirmationCheckbox" name="deleteConfirmationCheckbox" required>
-                                <label class="form-check-label" for="deleteConfirmationCheckbox">
-                                    I confirm that I want to delete this category permanently.
-                                </label>
-                            </div>
+            // Fetch category details
+            $sql = "SELECT * FROM category WHERE Category_ID = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("i", $category_id);
+            $stmt->execute();
+            $result = $stmt->get_result();
 
-                            <input type="submit" value="Delete Category" class="btn btn-danger mt-3">
-                        </form>
-                    </div>
-                </div>
+            if ($result->num_rows > 0) {
+                $category = $result->fetch_assoc();
+            } else {
+                echo "<p class='text-danger'>Category not found.</p>";
+                exit();
+            }
+        } else {
+            echo "<p class='text-danger'>Invalid request.</p>";
+            exit();
+        }
+
+        // Handle form submission
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $category_name = $_POST['category_name'];
+            $description = $_POST['description'];
+
+            // Delete category in the database
+            $update_sql = "UPDATE category SET Category_Name = ?, Category_Description = ? WHERE Category_ID = ?";
+            $delete_sql = "DELETE FROM category WHERE Category_ID = ?";
+            $delete_stmt = $conn->prepare($delete_sql);
+            $delete_stmt->bind_param("i", $category_id);
+
+            if ($delete_stmt->execute()) {
+                echo "<p class='text-success'>Category deleted successfully.</p>";
+                header("Location: viewcat.php");
+                exit();
+            } else {
+                echo "<p class='text-danger'>Error deleting category: " . $conn->error . "</p>";
+            }
+        }
+
+        $conn->close();
+        ?>
+
+        <!-- Delete Category Form -->
+        <form method="POST">
+            <div class="mb-3">
+                <label for="category_name" class="form-label">Category Name</label>
+                <input type="text" class="form-control" id="category_name" name="category_name" value="<?= htmlspecialchars($category['Category_Name']) ?>" readonly>
             </div>
-        </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="3" readonly><?= htmlspecialchars($category['Category_Description']) ?></textarea>
+            </div>
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
     </main>
-
-    <footer>
+    <footer class="text-center mt-4">
         <p>&copy; 2024 Nature Ceylon. All Rights Reserved.</p>
     </footer>
-
-    <!-- Bootstrap JS and Popper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
-
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-
-        function deleteCategory(event) {
-            if (event) event.preventDefault(); // Prevent form submission
-
-            const categorySelect = document.getElementById("deleteCategorySelect").value;
-            const confirmCheckbox = document.getElementById("deleteConfirmationCheckbox");
-
-            if (categorySelect === "") {
-                alert("Please select a category to delete.");
-                return false;
-            }
-
-            if (!confirmCheckbox.checked) {
-                alert("Please confirm the deletion by checking the checkbox.");
-                return false;
-            }
-
-            const confirmDelete = confirm(`Are you sure you want to permanently delete category ${categorySelect}?`);
-            if (confirmDelete) {
-                // Code to handle deletion (e.g., send request to the server)
-                alert(`Category with ID ${categorySelect} has been deleted.`);
-                return true;
-            }
-            return false;
-        }
-
-        // Add event listener for form submission
-        document.getElementById('deleteCategoryForm').addEventListener('submit', deleteCategory);
-    </script>
 </body>
 
 </html>

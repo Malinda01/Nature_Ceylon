@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     //SQL query to retrieve the role of the employee table
-    $query = "SELECT Role FROM employee WHERE E_Username = '$E_Username' AND E_Password = '$E_Password'";
+    $query = "SELECT Role, Emp_ID FROM employee WHERE E_Username = '$E_Username' AND E_Password = '$E_Password'";
 
     // Execution
     $result = $conn->query($query);
@@ -32,6 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $row = $result->fetch_assoc();
         $role = $row['Role'];
+        $id = $row['Emp_ID']; // Employee ID for fk
+        // die(var_dump($id));
+        $_SESSION['Emp_ID'] = $id;
 
         // Redirect based on the user's role
         if ($role == 'Admin') {

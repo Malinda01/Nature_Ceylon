@@ -171,19 +171,19 @@ $username = $_SESSION['EUsername'];
                     <img src="../assets/pic/logo2.png" alt="Company Logo" class="logo">
                 </div>
             </div>
-            <a href="../AdminDash/admindash.html" class="nav-item">
+            <a href="../AdminDash/admindash.php" class="nav-item">
                 <i class="fas fa-gauge"></i>
                 <span class="nav-text">Dashboard</span>
             </a>
-            <a href="../EmpManagement/Employee.html" class="nav-item">
+            <a href="../EmpManagement/Employee.php" class="nav-item">
                 <i class="fas fa-user-tie"></i>
                 <span class="nav-text">Employee</span>
             </a>
-            <a href="../InvManagement/Inventory.html" class="nav-item">
+            <a href="../InvManagement/Inventory.php" class="nav-item">
                 <i class="fas fa-boxes"></i>
                 <span class="nav-text">Inventory</span>
             </a>
-            <a href="../SupManagement/Supplier.html" class="nav-item">
+            <a href="../SupManagement/Supplier.php" class="nav-item">
                 <i class="fas fa-truck-loading"></i>
                 <span class="nav-text">Suppliers</span>
             </a>
@@ -242,56 +242,7 @@ $username = $_SESSION['EUsername'];
             </div>
 
             <div class="employee-container">
-                <div class="container-fluid p-4">
-
-                    <!-- Overview Cards -->
-                    <div class="row g-4 mb-4">
-                        <div class="col-md-3">
-                            <div class="card card-custom text-center p-3">
-                                <i class="fas fa-users icon-large"></i>
-                                <h5>Total Employees</h5>
-                                <h2 class="fw-bold">124</h2>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card card-custom text-center p-3">
-                                <i class="fas fa-box icon-large"></i>
-                                <h5>Total Products</h5>
-                                <h2 class="fw-bold">456</h2>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card card-custom text-center p-3">
-                                <i class="fas fa-truck icon-large"></i>
-                                <h5>Total Suppliers</h5>
-                                <h2 class="fw-bold">78</h2>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card card-custom text-center p-3">
-                                <i class="fas fa-shopping-cart icon-large"></i>
-                                <h5>Completed Orders</h5>
-                                <h2 class="fw-bold">1205</h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Charts Section -->
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="chart-container">
-                                <h3 class="mb-4">Monthly Performance</h3>
-                                <canvas id="performanceChart" class="chart-small"></canvas>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="chart-container">
-                                <h3 class="mb-4">Product Category Distribution</h3>
-                                <canvas id="productPieChart" class="chart-small"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Charts and cards -->
             </div>
         </div>
     </div>

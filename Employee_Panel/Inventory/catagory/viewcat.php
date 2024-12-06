@@ -27,6 +27,7 @@
                     <th>Category ID</th>
                     <th>Category Name</th>
                     <th>Description</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -57,6 +58,11 @@
                                 <td>" . htmlspecialchars($row["Category_ID"]) . "</td>
                                 <td>" . htmlspecialchars($row["Category_Name"]) . "</td>
                                 <td>" . htmlspecialchars($row["Category_Description"]) . "</td>
+                                <td>
+                                    <button class='btn btn-primary btn-sm' onclick=\"location.href='EditCategory.php?id=" . htmlspecialchars($row["Category_ID"]) . "'\"> Update </button> 
+                                    
+                                    <button class='btn btn-danger btn-sm' onclick=\"location.href='DeleteCategory.php?id="  . htmlspecialchars($row["Category_ID"]) . "'\"> Delete </button>
+                                </td>
                               </tr>";
                     }
                 } else {

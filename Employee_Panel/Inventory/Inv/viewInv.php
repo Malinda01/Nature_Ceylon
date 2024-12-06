@@ -24,10 +24,10 @@
         <table class="table table-bordered table-striped table-hover">
             <thead class="table-dark">
                 <tr>
-                    <th>Item ID</th>
-                    <th>Item Name</th>
-                    <th>Item Description</th>
-                    <th>Unit Price</th>
+                    <th>Inventory ID</th>
+                    <th>Product ID</th>
+                    <th>Date Added</th>
+                    <th>Supplier ID</th>
                     <th>Action</th>
 
                 </tr>
@@ -50,21 +50,21 @@
                 }
 
                 // Fetch category data
-                $sql = "SELECT Prod_ID, Prod_Name, Prod_Description, Prod_Unit_Price FROM product";
+                $sql = "SELECT Inv_ID, Prod_ID, Date_Added, Supplier_ID FROM inventory";
                 $result = $conn->query($sql);
 
                 // Display data in table
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>
+                                <td>" . htmlspecialchars($row["Inv_ID"]) . "</td>
                                 <td>" . htmlspecialchars($row["Prod_ID"]) . "</td>
-                                <td>" . htmlspecialchars($row["Prod_Name"]) . "</td>
-                                <td>" . htmlspecialchars($row["Prod_Description"]) . "</td>
-                                <td>" . htmlspecialchars($row["Prod_Unit_Price"]) . "</td>
+                                <td>" . htmlspecialchars($row["Date_Added"]) . "</td>
+                                <td>" . htmlspecialchars($row["Supplier_ID"]) . "</td>
                                                                 <td>
-                                    <button class='btn btn-primary btn-sm' onclick=\"location.href='editItem.php?id=" . htmlspecialchars($row["Prod_ID"]) . "'\"> Update </button> 
+                                    <button class='btn btn-primary btn-sm' onclick=\"location.href='EditCategory.php?id=" . htmlspecialchars($row["Prod_ID"]) . "'\"> Update </button> 
                                     
-                                    <button class='btn btn-danger btn-sm' onclick=\"location.href='deleteItem.php?id="  . htmlspecialchars($row["Prod_ID"]) . "'\"> Delete </button>
+                                    <button class='btn btn-danger btn-sm' onclick=\"location.href='DeleteCategory.php?id="  . htmlspecialchars($row["Prod_ID"]) . "'\"> Delete </button>
                                 </td>
                               </tr>";
                     }
@@ -81,12 +81,6 @@
     <footer class="text-center mt-4">
         <p>&copy; 2024 Nature Ceylon. All Rights Reserved.</p>
     </footer>
-
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-    </script>
 </body>
 
 </html>

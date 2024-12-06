@@ -3,6 +3,7 @@
 <!-- Is it? -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +24,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .custom-card::before {
             content: '';
             position: absolute;
@@ -33,12 +34,12 @@
             height: 5px;
             background: linear-gradient(90deg, #4CAF50, #8BC34A);
         }
-        
+
         .custom-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
-        
+
         .card-title {
             color: #2c3e50;
             font-size: 1.8rem;
@@ -48,7 +49,7 @@
             position: relative;
             padding-bottom: 15px;
         }
-        
+
         .card-title::after {
             content: '';
             position: absolute;
@@ -60,7 +61,7 @@
             background: linear-gradient(90deg, #4CAF50, #8BC34A);
             border-radius: 2px;
         }
-        
+
         .custom-btn {
             background: linear-gradient(90deg, #4CAF50, #8BC34A);
             color: white;
@@ -79,23 +80,23 @@
             justify-content: space-between;
             overflow: hidden;
         }
-        
+
         .custom-btn:hover {
             background: linear-gradient(90deg, #3d8c40, #7ab23a);
             transform: translateX(5px);
             color: white;
             box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
         }
-        
+
         .custom-btn i {
             font-size: 1.2rem;
             transition: transform 0.3s ease;
         }
-        
+
         .custom-btn:hover i {
             transform: translateX(5px);
         }
-        
+
         .icon-container {
             width: 40px;
             height: 40px;
@@ -106,29 +107,45 @@
             justify-content: center;
             margin-right: 10px;
         }
-        
+
         .custom-btn span {
             flex-grow: 1;
         }
-        
+
         .employee-container {
             padding: 2rem;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         .custom-card {
             animation: fadeIn 0.5s ease forwards;
         }
-        
-        .custom-card:nth-child(1) { animation-delay: 0.1s; }
-        .custom-card:nth-child(2) { animation-delay: 0.2s; }
-        .custom-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .custom-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .custom-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .custom-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
 
@@ -144,7 +161,7 @@
                 <span class="nav-text">Dashboard</span>
             </a>
 
-            <a href="../EmpManagement/Employee.html" class="nav-item">
+            <a href="../EmpManagement/Employee.php" class="nav-item">
                 <i class="fas fa-user-tie"></i>
                 <span class="nav-text">Employee</span>
             </a>
@@ -179,13 +196,14 @@
             <a href="../FinanceManagement/Finance.html" class="nav-item">
                 <i class="fas fa-money-bill-alt"></i>
                 <span class="nav-text">Finance</span>
-            </a>    
+            </a>
             <button class="logout-btn">
                 <i class="fas fa-sign-out-alt"></i>
                 Logout
             </button>
         </div>
-    
+        <!-- End of the sidebar -->
+
         <div class="main-content">
             <div class="header">
                 <h1 class="welcome-text">
@@ -201,62 +219,12 @@
                     <span class="admin-name">New User</span>
                 </div>
             </div>
-    
+
             <div class="employee-container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="custom-card">
-                            <h2 class="card-title">
-                                <i class="fas fa-calendar-alt me-2"></i>
-                                Leave
-                            </h2>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='leave/viewleave.html';">
-                                        <div class="icon-container">
-                                            <i class="fas fa-eye"></i>
-                                        </div>
-                                        <span>View Leave</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                                <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='leave/approveleave.html'">
-                                        <div class="icon-container">
-                                            <i class="fas fa-check-circle"></i>
-                                        </div>
-                                        <span>Approve Leave</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                            </div>       
-                        </div>
-                        <div class="custom-card">
-                            <h2 class="card-title">
-                                <i class="fas fa-money-bill-wave me-2"></i>
-                                Salary
-                            </h2>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='salary/viewsal.html';">
-                                        <div class="icon-container">
-                                            <i class="fas fa-file-invoice-dollar"></i>
-                                        </div>
-                                        <span>View Salary</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                                <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='salary/calsal.html';">
-                                        <div class="icon-container">
-                                            <i class="fas fa-calculator"></i>
-                                        </div>
-                                        <span>Calculate Salary</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+
+                        <!-- Employee -->
                         <div class="col-md-12 ">
                             <div class="custom-card">
                                 <h2 class="card-title">
@@ -264,6 +232,7 @@
                                     Employee
                                 </h2>
                                 <div class="row">
+                                    <!-- Emp registraition -->
                                     <div class="col-md-6">
                                         <button class="custom-btn" onclick="window.location.href='emp/empreg.php';">
                                             <div class="icon-container">
@@ -273,6 +242,9 @@
                                             <i class="fas fa-arrow-right"></i>
                                         </button>
                                     </div>
+                                    <!-- End of emp registration -->
+
+                                    <!-- Emp view/ update and delete -->
                                     <div class="col-md-6">
                                         <button class="custom-btn" onclick="window.location.href='emp/empupdel.php';">
                                             <div class="icon-container">
@@ -282,27 +254,19 @@
                                             <i class="fas fa-arrow-right"></i>
                                         </button>
                                     </div>
+                                    <!-- end of emp editing and deletion -->
                                 </div>
-                                <!-- <div class="row">
-                                    <div class="col-md-6">
-                                        <button class="custom-btn">
-                                            <div class="icon-container">
-                                                <i class="fas fa-user-minus"></i>
-                                            </div>
-                                            <span>Delete</span>
-                                            <i class="fas fa-arrow-right"></i>
-                                        </button>
-                                    </div>
-                                </div> -->
                             </div>
                         </div>
+                        <!-- End of Employee -->
+
                     </div>
-                       
                 </div>
             </div>
         </div>
     </div>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
