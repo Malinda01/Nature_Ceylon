@@ -1,5 +1,14 @@
+<?php
+session_start();
+
+// Retrieve the username from the session
+$email = $_SESSION['mail'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +17,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="ASSETS/CSS/main.css">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
@@ -18,7 +28,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="main.html"><i class="bi bi-house"></i> Home</a>
@@ -38,36 +48,39 @@
                     </li>
                     <!-- Profile Icon -->
                     <li class="nav-item">
-                        <a class="nav-link" href="profile.html"><i class="bi bi-person-circle"></i> Profile</a>
+                        <a class="nav-link" href="profile.php"><i class="bi bi-person-circle"></i> Profile</a>
                     </li>
                 </ul>
             </div>
-            </div>
+        </div>
         </div>
     </nav>
 
-   <!-- Hero Section -->
-<section class="hero-section position-relative">
-    <!-- Background Video -->
-    <video autoplay muted loop class="bg-video">
-        <source src="ASSETS/MEDIA/landing.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <!-- Hero Section -->
+    <section class="hero-section position-relative">
+        <!-- Background Video -->
+        <video autoplay muted loop class="bg-video">
+            <source src="ASSETS/MEDIA/landing.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
 
-    <!-- Content Overlay -->
-    <div class="container hero-content text-center text-light position-relative">
-        <h1>Nature Ceylon</h1>
-        <p>Discover the essence of pure Ceylon tea, crafted from the finest leaves of Sri Lanka.</p>
-        <a href="ourtea.html" class="btn btn-lg btn-outline-light mt-4">
-            <i class="bi bi-cup-hot"></i> Explore Our Teas
-        </a>
-    </div>
-</section>
+        <!-- Content Overlay -->
+        <div class="container hero-content text-center text-light position-relative">
+            <h1>Nature Ceylon</h1>
+            <p>Discover the essence of pure Ceylon tea, crafted from the finest leaves of Sri Lanka.</p>
+            <a href="ourtea.html" class="btn btn-lg btn-outline-light mt-4">
+                <i class="bi bi-cup-hot"></i> Explore Our Teas
+            </a>
+        </div>
+    </section>
 
 
-      <!-- Gallery Section -->
-      <section id="gallery" class="gallery-section">
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
         <div class="container">
+
+        <span class="admin-name">Hello, <?php echo htmlspecialchars($email); ?></span>
+
             <h2 class="text-center mb-5">
                 <i class="bi bi-images text-muted me-3"></i>Our Featured Collection
             </h2>
@@ -124,4 +137,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

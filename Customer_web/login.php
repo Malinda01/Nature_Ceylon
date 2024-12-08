@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -234,33 +236,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="tab-content" id="authTabsContent">
                         <!-- Sign In Tab -->
                         <div class="tab-pane fade show active" id="signin" role="tabpanel">
-                            <form>
+                            <!-- Sign In Form -->
+                            <form action="signin.php" method="POST">
+
+                                <!-- Email -->
                                 <div class="mb-3">
                                     <label for="signinEmail" class="form-label">
                                         <i class="bi bi-envelope"></i> Email address
                                     </label>
-                                    <input type="email" class="form-control" id="signinEmail" placeholder="Enter your email">
+                                    <input type="email" class="form-control" id="signinEmail" placeholder="Enter your email" name="mail">
                                 </div>
+
+                                <!-- Password -->
                                 <div class="mb-3">
                                     <label for="signinPassword" class="form-label">
                                         <i class="bi bi-lock"></i> Password
                                     </label>
-                                    <input type="password" class="form-control" id="signinPassword" placeholder="Enter your password">
+                                    <input type="password" class="form-control" id="signinPassword" placeholder="Enter your password" name="passw">
                                 </div>
-                                <div class="d-flex justify-content-between mb-3">
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="rememberMe">
-                                        <label class="form-check-label" for="rememberMe">Remember me</label>
-                                    </div>
-                                    <a href="#" class="text-muted">Forgot password?</a>
-                                </div>
+
+
+
+                                <!-- Submit button -->
                                 <button type="submit" class="btn btn-primary w-100">Sign In</button>
 
                                 <div class="text-center my-3">
                                     <span class="text-muted">or sign in with</span>
                                 </div>
 
-                                <div class="social-login">
+                                <!-- <div class="social-login">
                                     <button class="btn btn-outline-success">
                                         <i class="bi bi-google"></i>
                                     </button>
@@ -270,9 +274,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <button class="btn btn-outline-success">
                                         <i class="bi bi-apple"></i>
                                     </button>
-                                </div>
+                                </div> -->
                             </form>
+                            <!-- end of sign in -->
                         </div>
+                        
 
                         <!-- Sign Up Tab -->
                         <div class="tab-pane fade" id="signup" role="tabpanel">
