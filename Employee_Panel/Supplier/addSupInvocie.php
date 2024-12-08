@@ -17,21 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Set parameters and execute
-    $supplierName = $_POST["supplierName"];
-    $supplierCompany = $_POST["supplierCompany"];
-    //$suplierID = $_POST["employeeId"];
-
-    // Prepare and bind
-    $stmt = $conn->prepare("INSERT INTO supplier (Supplier_Name, Supplier_Company) VALUES (?, ?)");
-    $stmt->bind_param("ss", $supplierName, $supplierCompany);
-
-    if ($stmt->execute()) {
-        echo "New supplier added successfully";
-    } else {
-        echo "Error: " . $stmt->error;
-    }
 }
+
 
 
 
@@ -78,10 +65,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" class="form-control" id="supplierCompany" name="supprodprice" placeholder="Supplier Product Price">
             </div>
 
+            <!-- Supplier Prod Qty -->
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                <input type="number" class="form-control" id="supplierName" name="supplierId" placeholder="Supplier ID">
+            </div>
+
             <!-- Supplier ID -->
             <div class="input-group mb-3">
-                <span class="input-group-text"><i class="bi bi-file-earmark"></i></span>
-                <input type="text" class="form-control" id="supplierId" name="supplierId" value="Supplier ID" >
+                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                <input type="number" class="form-control" id="supplierName" name="supqty" placeholder="Supplier Quantity">
             </div>
 
 
@@ -97,6 +90,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="submit" value="Register Supplier" class="btn btn-success w-100 mt-3">
 
         </form>
+
+
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $supplierProduct = $_POST["supprod"];
+            $supplierProductPrice = $_POST["supprodprice"];
+            $supplierId = $_POST["supplierId"];
+            $supqty = $_POST["supqty"];
+
+            // Prepare and bind
+            $stmt = $conn->prepare("INSERT INTO supplier_invoice (Supplier_ID, Sup_Product, Sup_Product_Price, Sup_Qty) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("issi", $supplierId, $supplierProduct, $supplierProductPrice, $supqty);
+
+            if ($stmt->execute()) {
+                echo "New supplier invoice added successfully";
+            } else {
+                echo "Error: " . $stmt->error;
+            }
+        }
+        ?>
     </main>
 
     <footer class="text-center mt-4">

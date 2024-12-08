@@ -351,7 +351,7 @@ $username = $_SESSION['EUsername'];
                         </h2>
                         <div class="row">
                             <div class="col-md-6">
-                                <button class="custom-btn" onclick="window.location.href='Inventory/PurchaseO/addGRN.php';">
+                                <button class="custom-btn" onclick="window.location.href='Inventory/GRN/addGRN.php';">
                                     <div class="icon-container">
                                         <i class="fas fa-folder-plus"></i>
                                     </div>
