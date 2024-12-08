@@ -226,7 +226,7 @@ $username = $_SESSION['EUsername'];
                             <div class="row">
                                 <!-- Begining of View Leave -->
                                 <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Employee/leave/viewleave.html';">
+                                    <button class="custom-btn" onclick="window.location.href='Employee/leave/viewleave.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-eye"></i>
                                         </div>

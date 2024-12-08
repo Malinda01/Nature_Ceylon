@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +24,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <button id="backButton" onclick="goBack()" class="btn btn-outline-secondary">
@@ -32,25 +34,61 @@
     </header>
     <main class="container mt-4">
         <h2>Approve or Decline Leave</h2>
-        <form id="leaveDecisionForm" onsubmit="return handleFormSubmit(event);">
+
+        <form id="leaveDecisionForm" method="POST" action="">
             <div class="input-group mb-4">
                 <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
                 <input type="text" class="form-control" id="leaveId" name="leaveId" placeholder="Leave ID" required>
             </div>
 
-            <!-- Alternative Method using Radio Buttons -->
+            <!-- Leave decision section -->
             <div class="mb-4">
-                <label class="form-label">Select Action</label><br>
-                <input type="radio" id="approve" name="leaveDecision" value="approve" class="form-check-input">
-                <label for="approve" class="form-check-label">Approve</label><br>
-                <input type="radio" id="decline" name="leaveDecision" value="decline" class="form-check-input">
-                <label for="decline" class="form-check-label">Decline</label><br>
+                <label for="leaveDecision" class="form-label">Select Action</label>
+                <select id="leaveDecision" name="leaveDecision" class="form-select" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="approve">Approve</option>
+                    <option value="decline">Decline</option>
+                </select>
             </div>
 
             <div class="text-center">
                 <button type="submit" class="btn btn-success">Submit Decision</button>
             </div>
         </form>
+        <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "malinda_db";
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $leaveId = $_POST['leaveId'];
+            $leaveDecision = $_POST['leaveDecision'];
+
+            // Database connection
+            $conn = new mysqli('localhost', 'root', '', 'malinda_db');
+
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            // Update query
+            $sql = "UPDATE empleave SET leavestatus = ? WHERE leave_id = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param('si', $leaveDecision, $leaveId);
+
+            if ($stmt->execute()) {
+                echo "<div class='alert alert-success'>Leave ID: $leaveId has been $leaveDecision.</div>";
+            } else {
+                echo "<div class='alert alert-danger'>Error updating record: " . $conn->error . "</div>";
+            }
+
+            $stmt->close();
+            $conn->close();
+        }
+        ?>
     </main>
     <footer class="text-center mt-4">
         <!-- <p>&copy; 2024 Nature Ceylon. All Rights Reserved.</p> -->
@@ -62,28 +100,8 @@
         }
 
         // Handle the form submission
-        function handleFormSubmit(event) {
-            event.preventDefault();  // Prevent default form submission
-
-            const leaveId = document.getElementById("leaveId").value;
-            const decision = document.querySelector('input[name="leaveDecision"]:checked');
-
-            if (!leaveId) {
-                alert("Please enter a Leave ID.");
-                return;
-            }
-
-            if (!decision) {
-                alert("Please select an action (Approve/Decline).");
-                return;
-            }
-
-            if (decision.value === "approve") {
-                alert(`Leave ID: ${leaveId} has been Approved.`);
-            } else if (decision.value === "decline") {
-                alert(`Leave ID: ${leaveId} has been Declined.`);
-            }
-        }
+        
     </script>
 </body>
+
 </html>

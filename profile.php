@@ -60,8 +60,9 @@ $id = $_SESSION['Emp_ID'];
                     </div>
 
                     <button type="submit" class="btn btn-primary w-100 mb-2">Save Changes</button>
-                    <button type="button" class="btn btn-danger w-100" onclick="deleteProfile()">Delete Profile</button>
+
                 </form>
+                <!-- PHP for form loading and update the relevant details -->
                 <?php
                 $servername = "localhost";
                 $username = "root";
@@ -100,7 +101,7 @@ $id = $_SESSION['Emp_ID'];
                     $address = $_POST['address'];
                     $email = $_POST['email'];
 
-                    $sql = "UPDATE employee SET first_name='$firstName', last_name='$lastName', phone_number='$phoneNumber', address='$address', email='$email' WHERE emp_id=$emp_id";
+                    $sql = "UPDATE employee SET E_Fname='$firstName', E_Lname='$lastName', E_Phone='$phoneNumber', E_Address='$address', E_Mail='$email' WHERE Emp_ID=$id";
 
                     if ($conn->query($sql) === TRUE) {
                         echo "<script>alert('Profile updated successfully');</script>";
@@ -116,7 +117,8 @@ $id = $_SESSION['Emp_ID'];
             <!-- Apply for Leave Section -->
             <div class="col-md-6">
                 <h2>Apply for Leave</h2>
-                <form id="leaveForm" onsubmit="return validateLeaveForm()">
+
+                <form id="leaveForm" method="POST" action="leave.php">
                     <!-- Leave Type -->
                     <div class="mb-3">
                         <label for="leaveType" class="form-label">Leave Type</label>
@@ -127,6 +129,8 @@ $id = $_SESSION['Emp_ID'];
                             <option value="Study Leave">Study Leave</option>
                             <option value="Other">Other</option>
                         </select>
+
+
                     </div>
 
                     <!-- Leave Reason -->
@@ -158,6 +162,7 @@ $id = $_SESSION['Emp_ID'];
                     <!-- Submit Button -->
                     <button type="submit" class="btn btn-success w-100">Apply for Leave</button>
                 </form>
+            
             </div>
         </div>
     </main>
