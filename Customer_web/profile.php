@@ -1,3 +1,10 @@
+<?php
+// Retrieve the username from the session
+$email = $_SESSION['mail'];
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,7 +109,7 @@
         <div class="container">
             <h3 class="mb-3">Ready to leave?</h3>
             <p class="text-muted">Click below to safely log out of your account.</p>
-            <a href="logout.html" class="btn btn-danger btn-lg">
+            <a href="logout.php" class="btn btn-danger btn-lg">
                 <i class="bi bi-box-arrow-right"></i> Logout
             </a>
         </div>
