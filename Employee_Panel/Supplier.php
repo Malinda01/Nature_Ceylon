@@ -229,6 +229,21 @@ $username = $_SESSION['EUsername'];
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <!-- Add new Supplier invoice -->
+                                    <button class="custom-btn" onclick="window.location.href='Supplier/addSupInvocie.php';">
+                                        <div class="icon-container">
+                                            <i class="fas fa-user-plus"></i>
+                                        </div>
+                                        <span>Add new supplier Invoice</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                    <!-- End of Supplier invoicer -->
+                                </div>
+
+                            </div>
+
                             <!-- <div class="row">
                                 <div class="col-md-6">
                                     <button class="custom-btn" onclick="window.location.href='Supplier/upsup/upsup.php';">

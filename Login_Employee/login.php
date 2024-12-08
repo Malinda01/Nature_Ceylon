@@ -57,11 +57,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Login for the Supplier Manager
             $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Employee_Panel/Supplier.php');
+
+        } elseif ($role == 'SalesManager') {
+            //Login for the Sales manager
+            $_SESSION['EUsername'] = $E_Username;
+            header('Location: ../Employee_Panel/Sales.html');
+
+        } elseif ($role == 'SalesPerson') {
+            //Login for the Sales manager
+            $_SESSION['EUsername'] = $E_Username;
+            header('Location: ../Employee_Panel/Order.html');
+
+        } elseif ($role == 'Owner') {
+            //Login for the Sales manager
+            $_SESSION['EUsername'] = $E_Username;
+            header('Location: ../Employee_Panel/Report.html');
             
         } elseif ($role == 'Cashier') {
             // POS for the cashier
             $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Employee_Panel/POS.php');
+
+        } elseif ($role == 'InvCoord') {
+            //Login for the Sales manager
+            $_SESSION['EUsername'] = $E_Username;
+            header('Location: ../Employee_Panel/Returns.html');
+
+        } elseif ($role == 'FinManager') {
+            //Login for the Sales manager
+            $_SESSION['EUsername'] = $E_Username;
+            header('Location: ../Employee_Panel/Finance.html');
 
         } else {
             echo "Invalid role";
