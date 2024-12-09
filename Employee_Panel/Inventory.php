@@ -358,30 +358,7 @@ $username = $_SESSION['EUsername'];
                                     <span>Add new GRN</span>
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
-                                <button class="custom-btn" onclick="window.location.href='Inventory/GRN/viewGRN.php';">
-                                    <div class="icon-container">
-                                        <i class="fas fa-folder-open"></i>
-                                    </div>
-                                    <span>View GRN</span>
-                                    <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </div>
-                            <div class="col-md-6">
-                                <button class="custom-btn" onclick="window.location.href='Inventory/GRN/editGRN.php';">
-                                    <div class="icon-container">
-                                        <i class="fas fa-file-edit"></i>
-                                    </div>
-                                    <span>Edit GRN</span>
-                                    <i class="fas fa-arrow-right"></i>
-                                </button>
-                                <button class="custom-btn" onclick="window.location.href='Inventory/GRN/deleteGRN.php';">
-                                    <div class="icon-container">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </div>
-                                    <span>Delete GRN</span>
-                                    <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </div>
+                                
                         </div>
                     </div>
                     <!-- End of GRN section -->
