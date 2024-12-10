@@ -176,6 +176,8 @@ header {
                     <span class="admin-name">New User</span>
                 </div>
             </div>
+
+            <!-- Employee Container -->
             <div class="employee-container">
                 
                 <div class="row">
@@ -185,9 +187,11 @@ header {
                                 <i class="fas fa-money-check-alt me-2"></i>
                                 Make payment
                             </h2>
+                            <!-- Make Payment section -->
                             <div class="row">
+                                <!-- Supplier Payment -->
                                 <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Finance/Make payment/Supplier.html';">
+                                    <button class="custom-btn" onclick="window.location.href='Finance/Make payment/Supplier.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-truck"></i>
                                         </div>
@@ -195,8 +199,10 @@ header {
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
                                 </div>
+
+                                <!-- Employee Payment -->
                                 <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Finance/Make payment/Employee.html';">
+                                    <button class="custom-btn" onclick="window.location.href='Finance/Make payment/Employee.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-user-tie"></i>
                                         </div>
@@ -205,21 +211,13 @@ header {
                                     </button>
                                 </div>
                             </div>
+                            <!-- End of make payment -->
                             
                         </div>
                     </div> 
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="custom-card">
-                            <button class="custom-btn" onclick="window.location.href='Finance/Other/GRN.html';">
-                                <div class="icon-container">
-                                    <i class="fas fa-receipt"></i>
-                                </div>
-                                <span>GRN</span>
-                                <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
+                    
                     <div class="col-md-6">
                         <div class="custom-card">
                             <button class="custom-btn" onclick="window.location.href='Finance/Other/Payroll reports.html';">

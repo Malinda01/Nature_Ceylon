@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         ?>
 
-        <!-- For table -->
+        <!-- Supplier Invoice table -->
         <?php
         // Database connection
         $servername = "localhost";
@@ -132,6 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $conn->close();
         ?>
+        <!-- End of Supplier Invoice table -->
     </main>
     <footer>
         <p>&copy; 2024 Nature Ceylon. All Rights Reserved.</p>
