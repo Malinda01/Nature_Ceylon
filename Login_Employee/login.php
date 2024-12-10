@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } elseif ($role == 'FinManager') {
             //Login for the Sales manager
             $_SESSION['EUsername'] = $E_Username;
-            header('Location: ../Employee_Panel/Finance.html');
+            header('Location: ../Employee_Panel/Finance.php');
 
         } else {
             echo "Invalid role";
