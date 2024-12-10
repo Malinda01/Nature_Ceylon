@@ -191,7 +191,9 @@ $username = $_SESSION['EUsername'];
                     </span>
                 </h1>
                 <div class="admin-profile">
-                    <img src="../Admin_Panel/Managements/assets/pic/admin.png" alt="Admin Profile" class="admin-pic">
+                    <a href="../profile.php">
+                        <img src="../Admin_Panel/Managements/assets/pic/admin.png" alt="Admin Profile" class="admin-pic">
+                    </a>
                     <span class="admin-name">Hello, <?php echo htmlspecialchars($username); ?></span>
                 </div>
             </div>
