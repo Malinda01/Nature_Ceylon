@@ -16,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-
 }
 
 
@@ -92,6 +91,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
 
 
+
+
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $supplierProduct = $_POST["supprod"];
@@ -110,6 +111,58 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
         ?>
+
+        <!-- Table section -->
+        <!-- Table to View Supplier Details -->
+        <table class="table table">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Supplier ID</th>
+                    <th scope="col">Supplier Name</th>
+                    <th scope="col">Supplier Company</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <!-- PHP section -->
+                <?php
+                // Database connection
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "malinda_db";
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                // Fetch category data
+                $sql = "SELECT Supplier_ID, Supplier_Name, Supplier_Company FROM supplier";
+                $result = $conn->query($sql);
+
+                // Display data in table
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>
+                                <td>" . htmlspecialchars($row["Supplier_ID"]) . "</td>
+                                <td>" . htmlspecialchars($row["Supplier_Name"]) . "</td>
+                                <td>" . htmlspecialchars($row["Supplier_Company"]) . "</td>
+
+                              </tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='3' class='text-center'>No categories found</td></tr>";
+                }
+
+                // Close connection
+                $conn->close();
+                ?>
+            </tbody>
+        </table>
     </main>
 
     <footer class="text-center mt-4">
