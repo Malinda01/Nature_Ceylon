@@ -13,22 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Set parameters and execute
-    $categoryName = $_POST["categoryName"];
-    $categoryDescription = $_POST["categoryDescription"];
 
-    // Prepare and bind
-    $stmt = $conn->prepare("INSERT INTO GRN (Category_Name, Category_Description) VALUES (?, ?)");
-    $stmt->bind_param("ss", $categoryName, $categoryDescription);
-
-    if ($stmt->execute()) {
-        echo "New category added successfully";
-    } else {
-        echo "Error: " . $stmt->error;
-    }
-
-    $stmt->close();
-    $conn->close();
+    
 }
 ?>
 
@@ -59,11 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form id="grnForm" onsubmit="return validateGRNForm()" method="POST" action="">
             <h2>Add GRN</h2>
 
-            <!-- GRN ID -->
-            <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-upc-scan"></i></span>
-                <input type="text" class="form-control" id="grnId" name="grnId" placeholder="GRN ID" required>
-            </div>
+
 
             <!-- GRN Date -->
             <div class="input-group">
@@ -71,20 +53,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="date" class="form-control" id="grnDate" name="grnDate" placeholder="GRN Date" required>
             </div>
 
-            <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-person"></i></span>
-                <input type="text" class="form-control" id="supplierName" name="supplierName" placeholder="Supplier Name" required>
-            </div>
-
+            <!-- Supplier Invoice ID -->
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-file-text"></i></span>
                 <input type="text" class="form-control" id="supplierInvoiceId" name="supplierInvoiceId" placeholder="Supplier Invoice ID" required>
             </div>
 
-            <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-box-seam"></i></span>
-                <input type="text" class="form-control" id="supplierOrderId" name="supplierOrderId" placeholder="Supplier Order ID" required>
-            </div>
 
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="confirmationCheckbox" name="confirmationCheckbox" required>
@@ -95,6 +69,70 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <input type="submit" value="Add GRN" class="btn btn-success w-100 mt-3">
         </form>
+
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Retrieve form data
+            $grnDate = $_POST['grnDate'];
+            $supplierInvoiceId = $_POST['supplierInvoiceId'];
+
+            // Prepare and bind
+            $stmt = $conn->prepare("INSERT INTO grn (GRN_Date, Sup_Invoice_ID) VALUES (?, ?)");
+            $stmt->bind_param("ss", $grnDate, $supplierInvoiceId);
+
+            // Execute the statement
+            if ($stmt->execute()) {
+                echo "<p class='alert alert-success'>GRN added successfully!</p>";
+            } else {
+                echo "<p class='alert alert-danger'>Error: " . $stmt->error . "</p>";
+            }
+
+            // Close the statement
+           
+        }
+        ?>
+
+        <!-- Supplier Invoice table -->
+        <?php
+        // Database connection
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "malinda_db";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        // Fetch supplier invoices
+        $sql = "SELECT * FROM supplier_invoice";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            echo '<table class="table table-striped mt-5">';
+            echo '<thead> <tr> <th>Invoice ID</th> <th>Supplier Product</th ><th>Supplier Product Price</th> <th>Quantity</th> <th>Supplier ID</th> </tr></thead>';
+            echo '<tbody>';
+            while ($row = $result->fetch_assoc()) {
+                echo '<tr>';
+                echo '<td>' . $row["Sup_Invoice_ID"] . '</td>';
+                echo '<td>' . $row["Sup_Product"] . '</td>';
+                echo '<td>' . $row["Sup_Product_Price"] . '</td>';
+                echo '<td>' . $row["Sup_Qty"] . '</td>';
+                echo '<td>' . $row["Supplier_ID"] . '</td>';
+                echo '</tr>';
+            }
+            echo '</tbody>';
+            echo '</table>';
+        } else {
+            echo '<p>No supplier invoices found.</p>';
+        }
+
+        $conn->close();
+        ?>
+        <!-- End of Supplier Invoice table -->
     </main>
     <footer>
         <p>&copy; 2024 Nature Ceylon. All Rights Reserved.</p>

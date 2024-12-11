@@ -78,6 +78,12 @@
             <input type="hidden" name="total_amount" id="total-amount">
             <button type="submit" class="btn btn-success">Bill</button>
         </form>
+
+        <div class="text-center mt-4">
+            <form action="logout.php" method="POST">
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

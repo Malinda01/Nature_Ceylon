@@ -53,7 +53,6 @@ $email = $_SESSION['mail'];
                 </ul>
             </div>
         </div>
-        </div>
     </nav>
 
     <!-- Hero Section -->
@@ -66,6 +65,9 @@ $email = $_SESSION['mail'];
 
         <!-- Content Overlay -->
         <div class="container hero-content text-center text-light position-relative">
+
+            <b><span class="admin-name">Hello, <?php echo htmlspecialchars($email); ?></span></b>
+
             <h1>Nature Ceylon</h1>
             <p>Discover the essence of pure Ceylon tea, crafted from the finest leaves of Sri Lanka.</p>
             <a href="ourtea.html" class="btn btn-lg btn-outline-light mt-4">
@@ -79,7 +81,7 @@ $email = $_SESSION['mail'];
     <section id="gallery" class="gallery-section">
         <div class="container">
 
-        <span class="admin-name">Hello, <?php echo htmlspecialchars($email); ?></span>
+
 
             <h2 class="text-center mb-5">
                 <i class="bi bi-images text-muted me-3"></i>Our Featured Collection

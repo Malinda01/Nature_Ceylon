@@ -23,7 +23,7 @@ $id = $_SESSION['Emp_ID'];
 <body>
     <header>
         <h1 class="text-center my-3">Nature Ceylon</h1>
-        <button id="backButton" onclick="location.href='Employee_Panel/Inventory.php'">Back</button>
+        <!-- <button id="backButton" onclick="location.href='Employee_Panel/Inventory.php'">Back</button> -->
 
     </header>
 

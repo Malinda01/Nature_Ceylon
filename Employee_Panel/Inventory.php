@@ -315,6 +315,34 @@ $username = $_SESSION['EUsername'];
                         </div>
                     </div>
 
+                    <!-- Begining of Purchase Order section -->
+                    <div class="custom-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-truck-loading me-2"></i>
+                            Purchase Order
+                        </h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button class="custom-btn" onclick="window.location.href='Inventory/PurchaseOrder/addPurchOrd.php';">
+                                    <div class="icon-container">
+                                        <i class="fas fa-folder-plus"></i>
+                                    </div>
+                                    <span>Add new Purchase Order</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                                <button class="custom-btn" onclick="window.location.href='Inventory/PurchaseOrder/viewPurchOrd.php';">
+                                    <div class="icon-container">
+                                        <i class="fas fa-folder-open"></i>
+                                    </div>
+                                    <span>View Purchase Order</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- End of purchae Order section -->
+
                     <!-- Begining of GRN section -->
                     <div class="custom-card">
                         <h2 class="card-title">
@@ -330,30 +358,7 @@ $username = $_SESSION['EUsername'];
                                     <span>Add new GRN</span>
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
-                                <button class="custom-btn" onclick="window.location.href='Inventory/GRN/viewGRN.php';">
-                                    <div class="icon-container">
-                                        <i class="fas fa-folder-open"></i>
-                                    </div>
-                                    <span>View GRN</span>
-                                    <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </div>
-                            <div class="col-md-6">
-                                <button class="custom-btn" onclick="window.location.href='Inventory/GRN/editGRN.php';">
-                                    <div class="icon-container">
-                                        <i class="fas fa-file-edit"></i>
-                                    </div>
-                                    <span>Edit GRN</span>
-                                    <i class="fas fa-arrow-right"></i>
-                                </button>
-                                <button class="custom-btn" onclick="window.location.href='Inventory/GRN/deleteGRN.php';">
-                                    <div class="icon-container">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </div>
-                                    <span>Delete GRN</span>
-                                    <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </div>
+                                
                         </div>
                     </div>
                     <!-- End of GRN section -->

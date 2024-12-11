@@ -207,7 +207,9 @@ $username = $_SESSION['EUsername'];
                     </span>
                 </h1>
                 <div class="admin-profile">
-                    <img src="../Admin_Panel/Managements/assets/pic/admin.png" alt="Admin Profile" class="admin-pic">
+                    <a href="../profile.php">
+                        <img src="../Admin_Panel/Managements/assets/pic/admin.png" alt="Admin Profile" class="admin-pic">
+                    </a>
                     <!-- Username loading using PHP -->
                     <span class="admin-name">Hello! , <?php echo htmlspecialchars($username); ?></span>
                 </div>
@@ -230,23 +232,13 @@ $username = $_SESSION['EUsername'];
                                         <div class="icon-container">
                                             <i class="fas fa-eye"></i>
                                         </div>
-                                        <span>View Leave</span>
+                                        <span>View Leave (Update / Delete)</span>
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
                                 </div>
                                 <!-- End of View Leave -->
 
-                                <!-- Begining of Approve Leave -->
-                                <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Employee/leave/approveleave.html'">
-                                        <div class="icon-container">
-                                            <i class="fas fa-check-circle"></i>
-                                        </div>
-                                        <span>Approve Leave</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                                <!-- End of Approve Leave -->
+
 
                             </div>
                         </div>
