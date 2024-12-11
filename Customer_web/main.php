@@ -53,7 +53,6 @@ $email = $_SESSION['mail'];
                 </ul>
             </div>
         </div>
-        
     </nav>
 
     <!-- Hero Section -->
