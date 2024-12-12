@@ -1,6 +1,78 @@
 @ -0,0 +1,248 @@
 <!-- PHP for Role asigning -->
 <?php
+
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "malinda_db";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Query to count total employees
+$sql = "SELECT COUNT(*) as total_employees FROM employee";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Fetch the result
+    $row = $result->fetch_assoc();
+    $total_employees = $row['total_employees'];
+} else {
+    $total_employees = 0;
+}
+// End of query to count total employees
+
+// Query to count total employees
+$sql = "SELECT COUNT(*) as total_prod FROM product";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Fetch the result
+    $row = $result->fetch_assoc();
+    $total_prod = $row['total_prod'];
+} else {
+    $total_prod = 0;
+}
+// End of query to count total employees
+
+
+// start of total Suppliers
+$sql = "SELECT COUNT(*) as total_sup FROM supplier";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Fetch the result
+    $row = $result->fetch_assoc();
+    $total_supplier = $row['total_sup'];
+} else {
+    $total_supplier = 0;
+}
+// end of total suppleirs
+
+// start of total orders
+$sql = "SELECT COUNT(*) as total_order FROM online_order";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Fetch the result
+    $row = $result->fetch_assoc();
+    $total_order = $row['total_order'];
+} else {
+    $total_supplier = 0;
+}
+// end of total orders
+
+
+
+$conn->close();
+
 session_start();
 // Check if the user is logged in
 if (!isset($_SESSION['EUsername'])) {
@@ -235,7 +307,7 @@ $username = $_SESSION['EUsername'];
                 <!-- Begining Admin profile and the username -->
                 <div class="admin-profile">
                     <img src="../assets/pic/admin.png" alt="Admin Profile" class="admin-pic">
-                    <span class="admin-name">Hello,  <?php echo htmlspecialchars($username); ?></span>
+                    <span class="admin-name">Hello, <?php echo htmlspecialchars($username); ?></span>
                 </div>
                 <!-- End Admin profile and the username -->
 
@@ -243,6 +315,60 @@ $username = $_SESSION['EUsername'];
 
             <div class="employee-container">
                 <!-- Charts and cards -->
+                <div class="container-fluid p-4">
+
+                    <!-- Overview Cards -->
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-3">
+                            <!-- Employees -->
+                            <div class="card card-custom text-center p-3">
+                                <i class="fas fa-users icon-large"></i>
+                                <h5>Total Employees</h5>
+                                <h2 class="fw-bold"><?php echo $total_employees; ?></h2>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <!-- Products -->
+                            <div class="card card-custom text-center p-3">
+                                <i class="fas fa-box icon-large"></i>
+                                <h5>Total Products</h5>
+                                <h2 class="fw-bold"><?php echo $total_prod; ?></h2>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <!-- Suppliers -->
+                            <div class="card card-custom text-center p-3">
+                                <i class="fas fa-truck icon-large"></i>
+                                <h5>Total Suppliers</h5>
+                                <h2 class="fw-bold"><?php echo $total_supplier; ?></h2>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <!-- Orders -->
+                            <div class="card card-custom text-center p-3">
+                                <i class="fas fa-shopping-cart icon-large"></i>
+                                <h5>Completed Orders</h5>
+                                <h2 class="fw-bold"><?php echo $total_order; ?></h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Section -->
+                    <!-- <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="chart-container">
+                                <h3 class="mb-4">Monthly Performance</h3>
+                                <canvas id="performanceChart" class="chart-small"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="chart-container">
+                                <h3 class="mb-4">Product Category Distribution</h3>
+                                <canvas id="productPieChart" class="chart-small"></canvas>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
             </div>
         </div>
     </div>
