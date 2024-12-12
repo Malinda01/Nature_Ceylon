@@ -62,6 +62,7 @@ $id = $_SESSION['Emp_ID'];
                     <button type="submit" class="btn btn-primary w-100 mb-2">Save Changes</button>
 
                 </form>
+
                 <!-- PHP for form loading and update the relevant details -->
                 <?php
                 $servername = "localhost";
@@ -119,25 +120,39 @@ $id = $_SESSION['Emp_ID'];
                 <h2>Apply for Leave</h2>
 
                 <form id="leaveForm" method="POST" action="leave.php">
+
                     <!-- Leave Type -->
                     <div class="mb-3">
                         <label for="leaveType" class="form-label">Leave Type</label>
-                        <select class="form-select" id="leaveType" name="leaveType" required>
-                            <option value="" disabled selected>Select Leave Type</option>
-                            <option value="Sick Leave">Sick Leave</option>
-                            <option value="Annual Leave">Annual Leave</option>
-                            <option value="Study Leave">Study Leave</option>
-                            <option value="Other">Other</option>
-                        </select>
 
+                        <?php
+                        // Create connection
+                        $conn = new mysqli($servername, $username, $password, $dbname);
 
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+
+                        $sql = "SELECT LeaveType_ID, LeaveName FROM LeaveType";
+                        $result = $conn->query($sql);
+
+                        echo '<select class="form-select" id="leaveType" name="leaveType" required>';
+                        echo '<option value="" disabled selected>Select Leave Type</option>';
+
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo '<option value="' . $row['LeaveName'] . '">' . $row['LeaveName'] . '</option>';
+                            }
+                        }
+
+                        echo '</select>';
+
+                        $conn->close();
+                        ?>
                     </div>
 
-                    <!-- Leave Reason -->
-                    <div class="mb-3">
-                        <label for="leaveReason" class="form-label">Reason for Leave</label>
-                        <textarea class="form-control" id="leaveReason" name="leaveReason" rows="3" placeholder="Provide reason for leave" required></textarea>
-                    </div>
+
 
                     <!-- Leave Dates -->
                     <div class="row">

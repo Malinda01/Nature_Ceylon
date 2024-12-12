@@ -10,27 +10,50 @@ $dbname = "malinda_db";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['leaveType'])) {
-    $leaveType = $_POST['leaveType'];
-    $leaveReason = $_POST['leaveReason'];
-    $leaveStartDate = $_POST['leaveStartDate'];
-    $leaveEndDate = $_POST['leaveEndDate'];
-    $leaveStatus = "Pending";
-    $empId = $id;
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-    // Calculate total leave days
-    $startDate = new DateTime($leaveStartDate);
-    $endDate = new DateTime($leaveEndDate);
-    $interval = $startDate->diff($endDate);
-    $totalLeaveDays = $interval->days + 1;
+// Fetch LeaveType_ID based on leaveType
+$leaveType = $_POST['leaveType']; // Assuming the leave type is sent via POST request
+$empId = $_SESSION['Emp_ID']; // Assuming Emp_ID is stored in session
 
-    // Insert leave application into the database
-    $sql = "INSERT INTO empleave (Emp_ID, leave_start_date, leave_end_date, total_days, reason, leavestatus) 
-                        VALUES ('$id', '$leaveStartDate', '$leaveEndDate', '$totalLeaveDays', '$leaveReason', '$leaveStatus')";
+// Convert POST date strings to DateTime objects
+$leaveStartDate = new DateTime($_POST['leaveStartDate']);
+$leaveEndDate = new DateTime($_POST['leaveEndDate']);
+
+// Calculate total leave days
+$interval = $leaveStartDate->diff($leaveEndDate);
+$totalLeaveDays = $interval->days + 1; // Including the start date
+
+// Convert DateTime objects to string format for the database
+$formattedStartDate = $leaveStartDate->format('Y-m-d'); // Change format if needed
+$formattedEndDate = $leaveEndDate->format('Y-m-d');
+
+// Query to fetch LeaveType_ID
+$leaveTypeQuery = "SELECT LeaveType_ID FROM leavetype WHERE LeaveName = '$leaveType'";
+$result = $conn->query($leaveTypeQuery);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $leaveTypeId = $row['LeaveType_ID'];
+
+    // Insert leave application into the database with LeaveType_ID
+    $sql = "INSERT INTO empeave (Emp_ID, LeaveType_ID, StartDate, EndDate, DaysTaken) 
+            VALUES ('$empId', '$leaveTypeId', '$formattedStartDate', '$formattedEndDate', '$totalLeaveDays')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "<script>alert('Leave application submitted successfully');</script>";
+        //echo "<script>alert('Leave application submitted successfully');</script>";
+        echo "<script>
+        alert('Leave application submitted successfully');
+        window.location.href = 'profile.php';
+          </script>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
+} else {
+    echo "Error: Leave type not found.";
 }
+
+$conn->close();

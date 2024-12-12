@@ -60,10 +60,10 @@
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>
                                 <td>{$row['Payroll_ID']}</td>
-                                <td>\${$row['Base_Salary']}</td>
-                                <td>\${$row['Bonus']}</td>
-                                <td>\${$row['Deductions']}</td>
-                                <td>\${$row['net_salary']}</td>
+                                <td>RS. {$row['Base_Salary']}</td>
+                                <td>RS. {$row['Bonus']}</td>
+                                <td>RS. {$row['Deductions']}</td>
+                                <td>RS. {$row['net_salary']}</td>
                               </tr>";
                     }
                 } else {

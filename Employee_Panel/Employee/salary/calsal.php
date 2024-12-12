@@ -1,128 +1,85 @@
-<?php
-
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Database connection
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "malinda_db";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    // Get form data
-    $baseSalary = $_POST['baseSalary'];
-    $bonus = $_POST['bonus'];
-    $deduction = $_POST['deduction'];
-    $netSalary = $_POST['netsal']; // Already calculated by JS
-    $empid = $_POST['empid'];
-
-    // Prepare SQL query
-    $stmt = $conn->prepare("INSERT INTO payroll (Base_Salary, Bonus, Deductions, net_salary, Emp_ID) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("ddddi", $baseSalary, $bonus, $deduction, $netSalary, $empid);
-
-    // Execute the query
-    if ($stmt->execute()) {
-        echo "Salary calculated and saved successfully!";
-    } else {
-        echo "Error: " . $stmt->error;
-    }
-
-    // Close connection
-    $stmt->close();
-    $conn->close();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculate Salary - Nature Ceylon</title>
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Calculate Salary</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../Admin_Panel/Managements/assets/css/form.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <button id="backButton" onclick="location.href='../../Employee.php'">Back</button>
-        <h1>Nature Ceylon</h1>
-    </header>
-    <main class="container mt-4">
-        <h2>Calculate Salary</h2>
-
-        <!-- Display success or error message -->
-
-
-        <!-- Form for Calculate Salary -->
-        <form id="calculateSalaryForm" method="POST" action="">
-            <!-- Employee ID -->
-            <div class="input-group mb-3">
-                <span class="input-group-text"><i class="bi bi-person"></i></span>
-                <input type="number" class="form-control" id="empid" name="empid" placeholder="Employee ID" required>
+    <div class="container mt-5">
+        <h1 class="mb-4">Calculate Employee Salary</h1>
+        <form action="" method="POST" class="mb-4">
+            <div class="form-group">
+                <label for="emp_id">Employee ID:</label>
+                <input type="number" class="form-control" id="emp_id" name="emp_id" required>
             </div>
-
-            <!-- Base salary -->
-            <div class="input-group mb-3">
-                <span class="input-group-text"><i class="bi bi-cash"></i></span>
-                <input type="number" class="form-control" id="baseSalary" name="baseSalary" placeholder="Base Salary" required oninput="updateNetSalary()">
+            <div class="form-group">
+                <label for="basic_salary">Basic Salary:</label>
+                <input type="number" step="0.01" class="form-control" id="basic_salary" name="basic_salary" required>
             </div>
-
-            <!-- Bonus -->
-            <div class="input-group mb-3">
-                <span class="input-group-text"><i class="bi bi-gift"></i></span>
-                <input type="number" class="form-control" id="bonus" name="bonus" placeholder="Bonus" required oninput="updateNetSalary()">
+            <div class="form-group">
+                <label for="bonus">Bonus:</label>
+                <input type="number" step="0.01" class="form-control" id="bonus" name="bonus">
             </div>
-
-            <!-- Deduction -->
-            <div class="input-group mb-3">
-                <span class="input-group-text"><i class="bi bi-dash-circle"></i></span>
-                <input type="number" class="form-control" id="deduction" name="deduction" placeholder="Deduction" required oninput="updateNetSalary()">
+            <div class="form-group">
+                <label for="deductions">Deductions:</label>
+                <input type="number" step="0.01" class="form-control" id="deductions" name="deductions">
             </div>
-
-            <!-- Net Salary -->
-            <div class="input-group mb-3">
-                <span class="input-group-text"><i class="bi bi-currency-dollar"></i></span>
-                <input type="number" class="form-control" id="netsal" name="netsal" placeholder="Net Salary" readonly>
-            </div>
-
-            <!-- Submit button -->
-            <div class="mb-3">
-                <button type="submit" class="btn btn-success w-100">Save Salary</button>
-            </div>
+            <button type="submit" class="btn btn-primary">Calculate</button>
         </form>
-    </main>
-    <footer class="text-center mt-4">
-        <p>&copy; 2024 Nature Ceylon. All Rights Reserved.</p>
-    </footer>
 
-    <!-- JS Section -->
-    <script>
-        function goBack() {
-            window.history.back();
+        <!-- Back button -->
+        <a href="../../Employee.php" class="btn btn-secondary">Back</a>
+
+        <!-- Data table from employee -->
+        <?php
+        // Database connection
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "malinda_db";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
         }
 
-        function updateNetSalary() {
-            const baseSalary = parseFloat(document.getElementById("baseSalary").value) || 0;
-            const bonus = parseFloat(document.getElementById("bonus").value) || 0;
-            const deduction = parseFloat(document.getElementById("deduction").value) || 0;
+        // Fetch employees
+        $sql = "SELECT Emp_ID, E_FName, Role FROM employee";
+        $result = $conn->query($sql);
 
-            const netSalary = baseSalary + bonus - deduction;
-            document.getElementById("netsal").value = netSalary.toFixed(2);
+        if ($result->num_rows > 0) {
+            echo '<table class="table table-bordered mt-4">';
+            echo '<thead class="thead-dark"><tr><th>Employee ID</th><th>Name</th><th>Position</th></tr></thead>';
+            echo '<tbody>';
+            while ($row = $result->fetch_assoc()) {
+                echo '<tr>';
+                echo '<td>' . $row["Emp_ID"] . '</td>';
+                echo '<td>' . $row["E_FName"] . '</td>';
+                echo '<td>' . $row["Role"] . '</td>';
+                echo '</tr>';
+            }
+            echo '</tbody>';
+            echo '</table>';
+        } else {
+            echo '<div class="alert alert-warning" role="alert">No employees found.</div>';
         }
-    </script>
+
+        // Close connection
+        $conn->close();
+        ?>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

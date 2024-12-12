@@ -56,7 +56,7 @@
                 echo '<td>' . htmlspecialchars($row["Password"]) . '</td>';
                 echo '<td>' . htmlspecialchars($row["E_Mail"]) . '</td>';
                 echo '<td>' . htmlspecialchars($row["Address"]) . '</td>';
-                echo '<td><a href="updateCustomer.php?id=' . $row["Cust_ID"] . '" class="btn btn-primary">Update</a></td>';
+                echo '<td><a href="updateCustomer.php?id=' . htmlspecialchars($row["Cust_ID"]) . '" class="btn btn-primary">Update</a></td>';
                 echo '</tr>';
             }
             echo '</tbody>';

@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } elseif ($role == 'SalesManager') {
             //Login for the Sales manager
             $_SESSION['EUsername'] = $E_Username;
-            header('Location: ../Employee_Panel/Sales.html');
+            header('Location: ../Employee_Panel/Sales.php');
 
         } elseif ($role == 'SalesPerson') {
             //Login for the Sales manager
@@ -69,9 +69,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Location: ../Employee_Panel/Order.html');
 
         } elseif ($role == 'Owner') {
-            //Login for the Sales manager
+            //Login for the Owner
             $_SESSION['EUsername'] = $E_Username;
-            header('Location: ../Employee_Panel/Report.html');
+            header('Location: ../Employee_Panel/Report.php');
             
         } elseif ($role == 'Cashier') {
             // POS for the cashier

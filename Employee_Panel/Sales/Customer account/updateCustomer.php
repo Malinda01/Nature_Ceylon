@@ -4,33 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Customer Details</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h2>Update Customer Details</h2>
-    <form action="processUpdateCustomer.php" method="post">
-        <label for="fname">First Name:</label><br>
-        <input type="text" id="fname" name="fname" required><br><br>
-        
-        <label for="lname">Last Name:</label><br>
-        <input type="text" id="lname" name="lname" required><br><br>
-        
-        <label for="phone">Phone:</label><br>
-        <input type="text" id="phone" name="phone" required><br><br>
-        
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" required><br><br>
-        
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-        
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
-        
-        <label for="address">Address:</label><br>
-        <textarea id="address" name="address" required></textarea><br><br>
-        
-        <input type="submit" value="Update Customer">
-    </form>
+    <div class="container mt-5">
+        <h2>Update Customer Details</h2>
+        <form action="processUpdateCustomer.php" method="post">
+            <div class="form-group">
+                <label for="fname">First Name:</label>
+                <input type="text" class="form-control" id="fname" name="fname" required>
+            </div>
+            <div class="form-group">
+                <label for="lname">Last Name:</label>
+                <input type="text" class="form-control" id="lname" name="lname" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" class="form-control" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea class="form-control" id="address" name="address" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Customer</button>
+            <a href="updateCust.php" class="btn btn-secondary">Back</a> <!-- Add this line for the back button -->
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
 <?php
@@ -49,13 +64,7 @@ if ($conn->connect_error) {
 // Start the session
 session_start();
 
-// Retrieve customer ID from session
-if (isset($_SESSION['Cust_ID'])) {
-    $customer_id = $_SESSION['Cust_ID'];
-} else {
-    echo "Customer ID not found in session";
-    exit;
-}
+
 // Fetch customer details
 $customer_id = $_GET['id']; // Assuming customer ID is passed as a query parameter
 $sql = "SELECT * FROM customer WHERE Cust_ID = $customer_id";
