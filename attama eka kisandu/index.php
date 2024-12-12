@@ -1,5 +1,8 @@
 <?php
 session_start();
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['username'])) {
+    $_SESSION['Username'] = htmlspecialchars($_POST['username']);
+}
 ?>
 
 <!DOCTYPE html>

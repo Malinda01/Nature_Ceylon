@@ -50,8 +50,8 @@ if ($conn->connect_error) {
 session_start();
 
 // Retrieve customer ID from session
-if (isset($_SESSION['cust_id'])) {
-    $customer_id = $_SESSION['cust_id'];
+if (isset($_SESSION['Cust_ID'])) {
+    $customer_id = $_SESSION['Cust_ID'];
 } else {
     echo "Customer ID not found in session";
     exit;
