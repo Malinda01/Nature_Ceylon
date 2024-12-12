@@ -10,20 +10,7 @@ $query = "SELECT * FROM customer WHERE Username = '$username'";
 $result = mysqli_query($conn, $query);
 $user = mysqli_fetch_assoc($result);
 
-// Update user data
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $phone = $_POST['phone'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $email = $_POST['email'];
-    $address = $_POST['address'];
 
-    $update_query = "UPDATE customer SET FName='$fname', LName='$lname', Phone='$phone', Username='$username', Password='$password', E_Mail='$email', Address='$address' WHERE Username='$username'";
-    mysqli_query($conn, $update_query);
-    header("Location: profile.php");
-}
 ?>
 
 <!DOCTYPE html>
@@ -73,43 +60,69 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
     </nav>
-    <div class="container mt-5">
-        <h1 class="mb-4">Edit Profile</h1>
-        <form action="profile.php" method="post">
-            <div class="form-group">
-                <label for="fname">First Name:</label>
-                <input type="text" class="form-control" id="fname" name="fname" value="<?php echo $user['FName']; ?>" required>
+
+
+           <img src="MEDIA/ppic.png" alt="Profile Picture" class="rounded-circle img-fluid mb-4 mt-5" style="width: 150px; height: 150px; margin-left: 100px;">
+
+
+<div class="container mt-2">
+    <h1 class="mb-4">Edit Profile</h1>
+    <form action="profile.php" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="fname">First Name:</label>
+                    <input type="text" class="form-control" id="fname" name="fname" value="<?php echo $user['FName']; ?>" required>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="lname">Last Name:</label>
-                <input type="text" class="form-control" id="lname" name="lname" value="<?php echo $user['LName']; ?>" required>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="lname">Last Name:</label>
+                    <input type="text" class="form-control" id="lname" name="lname" value="<?php echo $user['LName']; ?>" required>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="phone">Phone:</label>
-                <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $user['Phone']; ?>" required>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $user['Phone']; ?>" required>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" class="form-control" id="username" name="username" value="<?php echo $user['Username']; ?>" required>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" id="username" name="username" value="<?php echo $user['Username']; ?>" required>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" name="Password" required>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="Password" required>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" value="<?php echo $user['E_Mail']; ?>" required>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" value="<?php echo $user['E_Mail']; ?>" required>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="address">Address:</label>
-                <input type="text" class="form-control" id="address" name="address" value="<?php echo $user['Address']; ?>" required>
-            </div>
-            <button type="submit" class="btn btn-primary mt-3">Update Profile</button>
-        </form>
-        <form action="logout.php" method="post" class="mt-3 mb-4">
-            <button type="submit" class="btn btn-danger">Logout</button>
-        </form>
+        </div>
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" class="form-control" id="address" name="address" value="<?php echo $user['Address']; ?>" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Update Profile</button>
+    </form>
+    <form action="logout.php" method="post" class="mt-3 mb-4">
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+    
     </div>
+</div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -127,3 +140,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </html>
 
 </div>
+<?php
+// Update user data
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $phone = $_POST['phone'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
+
+    $update_query = "UPDATE customer SET FName='$fname', LName='$lname', Phone='$phone', Username='$username', Password='$password', E_Mail='$email', Address='$address' WHERE Username='$username'";
+   if(mysqli_query($conn, $update_query)){
+    echo '<script>alert("Account updated successfully!"); window.location.href="profile.php";</script>';
+} else {
+    echo '<script>alert("Failed to update account!"); window.location.href="profile.php";</script>';
+}
+    header("Location: profile.php");
+    
+}
+?>
