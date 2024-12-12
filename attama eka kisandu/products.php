@@ -24,19 +24,46 @@ if (!$result) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <title>Our Products</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/new.css">
 </head>
 
 <body>
-    <header>
-        <h1>Our Products</h1>
-        <nav>
-            <a href="index.php">Home</a>
-            <a href="products.php">Shop</a>
-            <a href="cart.php">Cart</a>
-            <a href="profile.php">Profile</a>
-        </nav>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg" style="background: linear-gradient(135deg, var(--deep-green), var(--sage-green));">
+        <div class="container">
+            <a class="navbar-brand" href="#" style="color: var(--white); font-weight: 700;">
+                <i class="bi bi-leaf"></i> Nature Ceylon
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php" style="color: var(--white);">
+                            <i class="bi bi-house"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.php" style="color: var(--white);">
+                            <i class="bi bi-cup"></i> Shop
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.php" style="color: var(--white);">
+                            <i class="bi bi-cart"></i> Cart
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.php" style="color: var(--white);">
+                            <i class="bi bi-person-circle"></i> Profile
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    </header>
 
     <main>
         <div class="product-grid">
@@ -63,7 +90,17 @@ if (!$result) {
 
         </div>
     </main>
-
+<!-- Footer -->
+<footer style="background: var(--deep-green); color: var(--white); padding: 40px 0;">
+        <div class="container text-center">
+            <p>&copy; 2024 Nature Ceylon. All Rights Reserved.</p>
+            <div class="social-links mt-3">
+                <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-white"><i class="bi bi-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
