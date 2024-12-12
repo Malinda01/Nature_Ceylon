@@ -10,20 +10,7 @@ $query = "SELECT * FROM customer WHERE Username = '$username'";
 $result = mysqli_query($conn, $query);
 $user = mysqli_fetch_assoc($result);
 
-// Update user data
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $phone = $_POST['phone'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $email = $_POST['email'];
-    $address = $_POST['address'];
 
-    $update_query = "UPDATE customer SET FName='$fname', LName='$lname', Phone='$phone', Username='$username', Password='$password', E_Mail='$email', Address='$address' WHERE Username='$username'";
-    mysqli_query($conn, $update_query);
-    header("Location: profile.php");
-}
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +60,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
     </nav>
-    <div class="container mt-5">
+
+
+           <img src="MEDIA/ppic.png" alt="Profile Picture" class="rounded-circle img-fluid mb-4 mt-5" style="width: 150px; height: 150px; margin-left: 100px;">
+
+
+    <div class="container mt-2">
         <h1 class="mb-4">Edit Profile</h1>
         <form action="profile.php" method="post">
             <div class="form-group">
@@ -127,3 +119,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </html>
 
 </div>
+<?php
+// Update user data
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $phone = $_POST['phone'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
+
+    $update_query = "UPDATE customer SET FName='$fname', LName='$lname', Phone='$phone', Username='$username', Password='$password', E_Mail='$email', Address='$address' WHERE Username='$username'";
+   if(mysqli_query($conn, $update_query)){
+    echo '<script>alert("Account updated successfully!"); window.location.href="profile.php";</script>';
+} else {
+    echo '<script>alert("Failed to update account!"); window.location.href="profile.php";</script>';
+}
+    header("Location: profile.php");
+    
+}
+?>
