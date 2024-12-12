@@ -79,17 +79,54 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['username'])) {
         </div>
     </section>
 
-    <!-- Best Sellers Section -->
-    <section class="container my-5">
-        <h2 class="text-center" style="color: var(--deep-green);">Our Best Sellers</h2>
-        <ul class="list-group">
-            <li class="list-group-item">Green Tea</li>
-            <li class="list-group-item">Black Tea</li>
-            <li class="list-group-item">Oolong Tea</li>
-            <li class="list-group-item">Herbal Tea</li>
-        </ul>
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2 class="text-center mb-5">
+                <i class="bi bi-images text-muted me-3"></i>Our Featured Collection
+            </h2>
+          <div class="gallery-grid">
+    <div class="gallery-item">
+        <img src="MEDIA/proimg/er.jpg" alt="Earl Grey">
+        <div class="gallery-overlay">
+            <h4>Earl Grey Delight</h4>
+            <p>Bergamot infused black tea for a soothing experience</p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="MEDIA/proimg/en.jpeg" alt="English Breakfast">
+        <div class="gallery-overlay">
+            <h4>English Breakfast</h4>
+            <p>Strong and full-bodied black tea to start your day</p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="MEDIA/proimg/gr.jpeg" alt="Green Tea">
+        <div class="gallery-overlay">
+            <h4>Green Tea Serenity</h4>
+            <p>Light and refreshing green tea for a calming moment</p>
+        </div>
+    </div>
+</div>
     </section>
 
+
+    
+    <!-- Company Location Section -->
+    <section class="location-section text-center py-5" style="background: var(--light-gray); color: var(--deep-green);">
+        <div class="container">
+            <h2 style="font-size: 2.5rem;">Our Location</h2>
+            <p style="font-size: 1.2rem;">Visit us at our headquarters in Sri Lanka.</p>
+            <div class="mapouter">
+                <div class="gmap_canvas">
+                    <iframe width="100%" height="400" id="gmap_canvas" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15843.010060478023!2d79.8559!3d6.9271!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sNature%20Ceylon!5e0!3m2!1sen!2sus!4v1638303545611!5m2!1sen!2sus" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
     <!-- Call to Action Section -->
     <section class="cta-section text-center py-5" style="background: var(--sage-green); color: var(--white);">
         <div class="container">
