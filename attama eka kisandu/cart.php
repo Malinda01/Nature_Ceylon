@@ -2,6 +2,12 @@
 session_start();
 include 'db.php';
 
+// Database connection
+$conn = mysqli_connect('localhost', 'root', '', 'malinda_db');
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
 // Initialize cart if not set
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
