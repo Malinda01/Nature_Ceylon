@@ -34,6 +34,12 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
+        session_start();
+
+        if (isset($_GET['id'])) {
+            $_SESSION['Cust_ID'] = $_GET['id'];
+        }
+
         $sql = "SELECT Cust_ID, FName, LName, Phone, Username, Password, E_Mail, Address FROM customer";
         $result = $conn->query($sql);
 

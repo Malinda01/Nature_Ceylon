@@ -46,6 +46,16 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+// Start the session
+session_start();
+
+// Retrieve customer ID from session
+if (isset($_SESSION['cust_id'])) {
+    $customer_id = $_SESSION['cust_id'];
+} else {
+    echo "Customer ID not found in session";
+    exit;
+}
 // Fetch customer details
 $customer_id = $_GET['id']; // Assuming customer ID is passed as a query parameter
 $sql = "SELECT * FROM customer WHERE Cust_ID = $customer_id";
