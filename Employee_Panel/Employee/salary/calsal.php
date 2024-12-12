@@ -12,19 +12,26 @@
 <body>
     <div class="container mt-5">
         <h1 class="mb-4">Calculate Employee Salary</h1>
-        <form action="" method="POST" class="mb-4">
+        <form action="calculate_salary" method="POST" class="mb-4">
+            <!-- Employee ID -->
             <div class="form-group">
                 <label for="emp_id">Employee ID:</label>
                 <input type="number" class="form-control" id="emp_id" name="emp_id" required>
             </div>
+
+            <!-- Basic Salary -->
             <div class="form-group">
                 <label for="basic_salary">Basic Salary:</label>
                 <input type="number" step="0.01" class="form-control" id="basic_salary" name="basic_salary" required>
             </div>
+
+            <!-- Bonus -->
             <div class="form-group">
                 <label for="bonus">Bonus:</label>
                 <input type="number" step="0.01" class="form-control" id="bonus" name="bonus">
             </div>
+
+            <!-- Deductions -->
             <div class="form-group">
                 <label for="deductions">Deductions:</label>
                 <input type="number" step="0.01" class="form-control" id="deductions" name="deductions">
