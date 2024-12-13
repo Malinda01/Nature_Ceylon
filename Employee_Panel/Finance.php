@@ -198,7 +198,7 @@ $username = $_SESSION['EUsername'];
     <div class="container">
 
         <div class="main-content">
-            <div class="header">
+            <div class="header"> 
                 <h1 class="welcome-text">
                     Finance management system
                     <span class="loading-dots">
