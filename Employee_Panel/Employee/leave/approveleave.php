@@ -75,7 +75,7 @@
             }
 
             // Update query
-            $sql = "UPDATE empleave SET leavestatus = ? WHERE leave_id = ?";
+            $sql = "UPDATE empeave SET leavestatus = ? WHERE Leave_ID = ?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param('si', $leaveDecision, $leaveId);
 

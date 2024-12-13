@@ -29,7 +29,6 @@
                     <th>Leave ID</th>
                     <th>Employee ID</th>
                     <th>Total Days</th>
-                    <th>Reason</th>
                     <th>Leave Status</th>
                     <th>Update Leave Status</th>
                 </tr>
@@ -49,19 +48,18 @@
                     die("Connection failed: " . $conn->connect_error);
                 }
 
-                $sql = "SELECT leave_id, Emp_ID, total_days, reason, leavestatus FROM empleave";
+                $sql = "SELECT Leave_ID, Emp_ID, DaysTaken, leavestatus FROM empeave";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>
-                            <td>" . $row["leave_id"] . "</td>
+                            <td>" . $row["Leave_ID"] . "</td>
                             <td>" . $row["Emp_ID"] . "</td>
-                            <td>" . $row["total_days"] . "</td>
-                            <td>" . $row["reason"] . "</td>
+                            <td>" . $row["DaysTaken"] . "</td>
                             <td>" . $row["leavestatus"] . "</td>
                              <td>
-                                    <button class='btn btn-primary btn-sm' onclick=\"location.href='approveleave.php?id=" . htmlspecialchars($row["leave_id"]) . "'\"> Approve </button> 
+                                    <button class='btn btn-primary btn-sm' onclick=\"location.href='approveleave.php?id=" . htmlspecialchars($row["Leave_ID"]) . "'\"> Approve </button> 
                                 </td>
                           </tr>";
                     }
