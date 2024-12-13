@@ -209,7 +209,7 @@ $username = $_SESSION['EUsername'];
                     </span>
                 </h1>
                 <div class="admin-profile">
-                    <a href="../profile.php">
+                <a href="../Profiles/InvProfile.php">
                         <img src="../Admin_Panel/Managements/assets/pic/admin.png" alt="Admin Profile" class="admin-pic">
                     </a>
                     <!-- Username -->

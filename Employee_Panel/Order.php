@@ -1,5 +1,19 @@
+<?php
+
+session_start();
+// Check if the user is logged in
+if (!isset($_SESSION['EUsername'])) {
+    header('Location: ../Login_Employee/login.html'); // Redirect to login if not logged in
+    exit();
+}
+
+// Retrieve the username from the session
+$username = $_SESSION['EUsername'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,20 +23,22 @@
     <link rel="stylesheet" href="../Admin_Panel/Managements/assets/css/main.css">
     <style>
         /* (CSS styles unchanged) */
-        header, footer {
-    background: linear-gradient(90deg, #3d8c40, #7ab23a);
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-}
+        header,
+        footer {
+            background: linear-gradient(90deg, #3d8c40, #7ab23a);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
 
-header {
-    position: relative;
-}
+        header {
+            position: relative;
+        }
 
         .main-content {
             margin-left: 0%;
         }
+
         .custom-card {
             border: none;
             border-radius: 25px;
@@ -34,7 +50,7 @@ header {
             position: relative;
             overflow: hidden;
         }
-        
+
         .custom-card::before {
             content: '';
             position: absolute;
@@ -44,12 +60,12 @@ header {
             height: 5px;
             background: linear-gradient(90deg, #4CAF50, #8BC34A);
         }
-        
+
         .custom-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
-        
+
         .card-title {
             color: #2c3e50;
             font-size: 1.8rem;
@@ -59,7 +75,7 @@ header {
             position: relative;
             padding-bottom: 15px;
         }
-        
+
         .card-title::after {
             content: '';
             position: absolute;
@@ -71,7 +87,7 @@ header {
             background: linear-gradient(90deg, #4CAF50, #8BC34A);
             border-radius: 2px;
         }
-        
+
         .custom-btn {
             background: linear-gradient(90deg, #4CAF50, #8BC34A);
             color: white;
@@ -90,23 +106,23 @@ header {
             justify-content: space-between;
             overflow: hidden;
         }
-        
+
         .custom-btn:hover {
             background: linear-gradient(90deg, #3d8c40, #7ab23a);
             transform: translateX(5px);
             color: white;
             box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
         }
-        
+
         .custom-btn i {
             font-size: 1.2rem;
             transition: transform 0.3s ease;
         }
-        
+
         .custom-btn:hover i {
             transform: translateX(5px);
         }
-        
+
         .icon-container {
             width: 40px;
             height: 40px;
@@ -117,35 +133,51 @@ header {
             justify-content: center;
             margin-right: 10px;
         }
-        
+
         .custom-btn span {
             flex-grow: 1;
         }
-        
+
         .employee-container {
             padding: 2rem;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         .custom-card {
             animation: fadeIn 0.5s ease forwards;
         }
-        
-        .custom-card:nth-child(1) { animation-delay: 0.1s; }
-        .custom-card:nth-child(2) { animation-delay: 0.2s; }
-        .custom-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .custom-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .custom-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .custom-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Nature Ceylon</h1>
     </header>
     <div class="container">
-        
+
         <div class="main-content">
             <div class="header">
                 <h1 class="welcome-text">
@@ -157,12 +189,15 @@ header {
                     </span>
                 </h1>
                 <div class="admin-profile">
-                    <img src="../Admin_Panel/Managements/assets/pic/admin.png" alt="Admin Profile" class="admin-pic">
-                    <span class="admin-name">New User</span>
+                    <a href="../Profiles/SalProfile.php">
+                        <img src="../Admin_Panel/Managements/assets/pic/admin.png" alt="Admin Profile" class="admin-pic">
+                    </a>
+                    <!-- Username -->
+                    <span class="admin-name">Hello, <?php echo htmlspecialchars($username); ?></span>
                 </div>
             </div>
             <div class="employee-container">
-                <div class="row"> 
+                <div class="row">
                     <div class="col-md-12">
                         <div class="custom-card">
                             <h2 class="card-title">
@@ -199,9 +234,9 @@ header {
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
                                 </div>
-                                
+
                             </div>
-                            
+
                         </div>
                         <div class="col-md-12">
                             <div class="custom-card">
@@ -229,17 +264,18 @@ header {
                         Logout
                     </a>
 
-                    
+
                 </div>
             </div>
         </div>
     </div>
 
-   <footer>
-         <p>&copy; 2024 Nature Ceylon. All Rights Reserved.</p> 
+    <footer>
+        <p>&copy; 2024 Nature Ceylon. All Rights Reserved.</p>
     </footer>
 
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

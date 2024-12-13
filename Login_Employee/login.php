@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } elseif ($role == 'SalesPerson') {
             //Login for the Sales manager
             $_SESSION['EUsername'] = $E_Username;
-            header('Location: ../Employee_Panel/Order.html');
+            header('Location: ../Employee_Panel/Order.php');
 
         } elseif ($role == 'Owner') {
             //Login for the Owner
