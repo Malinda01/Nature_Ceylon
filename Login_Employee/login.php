@@ -79,12 +79,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Location: ../Employee_Panel/POS.php');
 
         } elseif ($role == 'InvCoord') {
-            //Login for the Sales manager
+            //Login for the Inventory Coordinator
             $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Employee_Panel/Returns.html');
 
         } elseif ($role == 'FinManager') {
-            //Login for the Sales manager
+            //Login for the Fincae Manager
             $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Employee_Panel/Finance.php');
 
