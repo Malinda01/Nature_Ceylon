@@ -28,31 +28,43 @@
                     <th>Return Reason</th>
                     <th>Return Date</th>
                     <th>Status</th>
-                    <th>Employee ID</th>
+                    <th>Approve/Decline</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>R001</td>
-                    <td>Damaged package on delivery.</td>
-                    <td>2024-11-20</td>
-                    <td>Processed</td>
-                    <td>EMP101</td>
-                </tr>
-                <tr>
-                    <td>R002</td>
-                    <td>Wrong item received.</td>
-                    <td>2024-11-21</td>
-                    <td>Pending</td>
-                    <td>EMP102</td>
-                </tr>
-                <tr>
-                    <td>R003</td>
-                    <td>Product quality issue.</td>
-                    <td>2024-11-22</td>
-                    <td>Under Review</td>
-                    <td>EMP103</td>
-                </tr>
+                <?php
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "malinda_db";
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                $sql = "SELECT Return_ID, Return_Reason, Return_Date, Return_Status FROM returntable";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . $row["Return_ID"] . "</td>";
+                        echo "<td>" . $row["Return_Reason"] . "</td>";
+                        echo "<td>" . $row["Return_Date"] . "</td>";
+                        echo "<td>" . $row["Return_Status"] . "</td>";
+                        echo '<td><a href="ApproveReturns.php?id=' . htmlspecialchars($row["Return_ID"]) . '" class="btn btn-primary">Approve or Decline</a></td>';
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='4'>No returns found</td></tr>";
+                }
+
+                $conn->close();
+                ?>
             </tbody>
         </table>
     </main>

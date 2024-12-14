@@ -244,23 +244,15 @@ $username = $_SESSION['EUsername'];
                                 </h2>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <button class="custom-btn" onclick="window.location.href='Sales/Returns/View returns.html';">
+                                        <button class="custom-btn" onclick="window.location.href='Sales/Returns/ViewReturns.php';">
                                             <div class="icon-container">
                                                 <i class="fas fa-eye"></i>
                                             </div>
-                                            <span>View returns</span>
+                                            <span>View returns (Approve/ Decline)</span>
                                             <i class="fas fa-arrow-right"></i>
                                         </button>
                                     </div>
-                                    <div class="col-md-6">
-                                        <button class="custom-btn" onclick="window.location.href='Sales/Returns/Approve returns.html';">
-                                            <div class="icon-container">
-                                                <i class="fas fa-check-circle"></i>
-                                            </div>
-                                            <span>Approve returns</span>
-                                            <i class="fas fa-arrow-right"></i>
-                                        </button>
-                                    </div>
+                                    
                                 </div>
                             </div>
                             <!-- End of Return -->
