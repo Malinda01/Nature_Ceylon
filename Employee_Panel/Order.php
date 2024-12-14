@@ -188,6 +188,7 @@ $username = $_SESSION['EUsername'];
                         <span class="dot"></span>
                     </span>
                 </h1>
+                <!-- Profile icon -->
                 <div class="admin-profile">
                     <a href="../Profiles/SalProfile.php">
                         <img src="../Admin_Panel/Managements/assets/pic/admin.png" alt="Admin Profile" class="admin-pic">
@@ -199,6 +200,8 @@ $username = $_SESSION['EUsername'];
             <div class="employee-container">
                 <div class="row">
                     <div class="col-md-12">
+
+                        <!-- Begining of the order section -->
                         <div class="custom-card">
                             <h2 class="card-title">
                                 <i class="fas fa-box-open me-2"></i>
@@ -206,38 +209,23 @@ $username = $_SESSION['EUsername'];
                             </h2>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Order/order/oderview.html';">
+                                    <!-- View Order -->
+                                    <button class="custom-btn" onclick="window.location.href='Order/order/oderview.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-eye"></i>
                                         </div>
-                                        <span>View order</span>
+                                        <span>View order (Approve / Decline)</span>
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
                                 </div>
-                                <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Order/order/updateorder.html';">
-                                        <div class="icon-container">
-                                            <i class="fas fa-pen"></i>
-                                        </div>
-                                        <span>Update order</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </div>
+                                
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Order/order/conformorder.html';">
-                                        <div class="icon-container">
-                                            <i class="fas fa-check-circle"></i>
-                                        </div>
-                                        <span>Confirm order</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </div>
 
-                            </div>
 
                         </div>
+                        <!-- End of the order section -->
+
+                        <!-- Begining of reviews -->
                         <div class="col-md-12">
                             <div class="custom-card">
                                 <h2 class="card-title">
@@ -257,6 +245,7 @@ $username = $_SESSION['EUsername'];
                                 </div>
                             </div>
                         </div>
+                        <!-- End of reviews -->
                     </div>
 
                     <a href="logout.php" class="logout-btn">
