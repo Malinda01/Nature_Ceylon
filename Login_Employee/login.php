@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } elseif ($role == 'InvCoord') {
             //Login for the Inventory Coordinator
             $_SESSION['EUsername'] = $E_Username;
-            header('Location: ../Employee_Panel/Returns.html');
+            header('Location: ../Employee_Panel/Returns.php');
 
         } elseif ($role == 'FinManager') {
             //Login for the Fincae Manager
