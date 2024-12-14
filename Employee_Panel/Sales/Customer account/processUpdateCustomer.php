@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 session_start();
 
 // Get form data
-//$customer_id = $_POST['id'];
+$customer_id = $_POST['id'];
 $first_name = $_POST['fname'];
 $last_name = $_POST['lname'];
 $phone = $_POST['phone'];

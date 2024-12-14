@@ -221,7 +221,8 @@ $username = $_SESSION['EUsername'];
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
                                 </div>
-                                <div class="col-md-6">
+
+                                <!-- <div class="col-md-6">
                                     <button class="custom-btn" onclick="window.location.href='Sales/Customer account/Delete cus acc.html';">
                                         <div class="icon-container">
                                             <i class="fas fa-user-times"></i>
@@ -229,12 +230,13 @@ $username = $_SESSION['EUsername'];
                                         <span>Delete customer account</span>
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
-                                </div>
+                                </div> -->
                             </div>
                             <!-- end of customer -->
 
                         </div>
                         <div class="col-md-12">
+                            <!-- Begining of Return -->
                             <div class="custom-card">
                                 <h2 class="card-title">
                                     <i class="fas fa-undo me-2"></i>
@@ -261,6 +263,8 @@ $username = $_SESSION['EUsername'];
                                     </div>
                                 </div>
                             </div>
+                            <!-- End of Return -->
+                             
                         </div>
                     </div>
 
