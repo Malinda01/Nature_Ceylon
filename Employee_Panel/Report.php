@@ -278,6 +278,8 @@ $username = $_SESSION['EUsername'];
                                             <i class="fas fa-arrow-right"></i>
                                         </button>
                                     </div>
+
+                                    <!-- Begining of Sales Report -->
                                     <div class="col-md-6">
                                         <button class="custom-btn" onclick="window.location.href='Report/Monthly/Sales.php';">
                                             <div class="icon-container">
@@ -287,10 +289,12 @@ $username = $_SESSION['EUsername'];
                                             <i class="fas fa-arrow-right"></i>
                                         </button>
                                     </div>
+                                    <!-- End of Sales Report -->
+
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <button class="custom-btn" onclick="window.location.href='Report/Monthly/Payroll.html';">
+                                        <button class="custom-btn" onclick="window.location.href='Report/Monthly/Payroll.php';">
                                             <div class="icon-container">
                                                 <i class="fas fa-file-alt"></i>
                                             </div>
