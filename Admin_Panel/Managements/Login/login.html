@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Ceylon - Login</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .login-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            perspective: 1000px;
+        }
+
+        .card-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease-in-out;
+            
+        }
+
+        .card-container.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        #adminForm {
+            transform: rotateY(180deg);
+        }
+
+        .logo-container {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 20px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+           
+            
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .form-control {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .form-control:focus {
+            border-color: #71b280;
+            box-shadow: 0 0 0 0.2rem rgba(113, 178, 128, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .btn {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .switch-form {
+            cursor: pointer;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: linear-gradient(45deg, #4CAF50, #8BC34A);
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .switch-form:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .switch-form .icon {
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #134e5e;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .switch-form:hover .icon {
+            transform: rotate(360deg);
+        }
+
+        .form-check-input:checked {
+            background-color: #71b280;
+            border-color: #71b280;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+
+        .form-group {
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+        .form-group:nth-child(2) { animation-delay: 0.1s; }
+        .form-group:nth-child(3) { animation-delay: 0.2s; }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row justify-content-center align-items-center min-vh-100">
+            <div class="col-md-6 col-lg-5">
+                <div class="login-container">
+                    <div class="card-container" id="cardContainer">
+                        <!-- Customer Login Form -->
+                        <div class="card p-4" id="customerForm">
+                            <div class="card-body">
+                                <div class="logo-container">
+                                    <!-- Replace src with your actual logo -->
+                                    <img src="logo2.png" alt="Nature Ceylon Logo">
+                                </div>
+                                <h3 class="text-center mb-1">  Login </h3>
+                                <form onsubmit="handleSubmit(event, 'customer')">
+                                    <div class="form-group mb-2">
+                                        <label for="empname" class="form-label">User Name</label>
+                                        <input type="text" class="form-control" id="empid" required>
+                                    </div>
+                                    <div class="form-group mb-2">
+                                        <label for="customerPassword" class="form-label">Password</label>
+                                        <input type="password" class="form-control" id="customerPassword" required>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-success w-100 mb-4 mt-3">Login </button>
+                                    <div class="text-center">
+                                        <button type="button" class="switch-form" onclick="toggleForms()">
+                                            <span class="icon">F</span>
+                                           Forgot Password ?
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Admin Login Form -->
+                        <div class="card p-4" id="adminForm">
+                            <div class="card-body">
+                                <div class="logo-container">
+                                    <!-- Replace src with your actual logo -->
+                                    <img src="logo2.png" alt="Nature Ceylon Logo">
+                                </div>
+                                <h3 class="text-center mb-1">Admin Login</h3>
+                                <p class="mb-3">
+                                    If you've forgotten your password, don’t worry! Simply contact us at 
+                                    <a href="mailto:admin@naturecylon.lk" class="text-primary fw-bold">admin@naturecylon.lk</a>, and we’ll help you reset it.
+                                </p>
+                                <div class="alert alert-info mt-3">
+                                    <strong>Note:</strong>
+                                    <ul class="mb-0">
+                                        <li>Make sure to provide your registered email address when reaching out for faster assistance.</li>
+                                        <li>For security reasons, we cannot reset passwords without proper verification.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn login-btn w-100 md-10">Reset Password</button>
+                        <div class="text-center">
+                            <a href="#" class="switch-form" onclick="toggleForms()">Back to Login</a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleForms() {
+            const container = document.getElementById('cardContainer');
+            container.classList.toggle('flipped');
+        }
+
+        function handleSubmit(event, type) {
+            event.preventDefault();
+            const form = event.target;
+            const button = form.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            
+            button.disabled = true;
+            button.innerHTML = 'Logging in...';
+            
+            // Simulate API call
+            setTimeout(() => {
+                button.disabled = false;
+                button.innerHTML = originalText;
+            }, 2000);
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function handleSubmit(event, type) {
+    event.preventDefault();
+
+    const username = document.getElementById('empid').value.trim();
+    const password = document.getElementById('customerPassword').value.trim();
+
+    // Get references to the form fields for easy manipulation
+    const usernameField = document.getElementById('empid');
+    const passwordField = document.getElementById('customerPassword');
+
+    // Clear previous error styles and messages
+    usernameField.classList.remove('is-invalid');
+    passwordField.classList.remove('is-invalid');
+    
+    // Define error messages
+    let usernameError = '';
+    let passwordError = '';
+
+    if (username === '') {
+        usernameError = 'Username cannot be empty';
+        usernameField.classList.add('is-invalid');
+    }
+
+    // Password Validation (e.g., minimum length, at least one uppercase letter, one number, one special character)
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+    if (password === '') {
+        passwordError = 'Password cannot be empty';
+        passwordField.classList.add('is-invalid');
+    } else if (password.length < 10) {
+        passwordError = 'Password must be at least 8 characters';
+        passwordField.classList.add('is-invalid');
+    } else if (!passwordRegex.test(password)) {
+        passwordError = 'Password must contain at least one letter, one number, and one special character';
+        passwordField.classList.add('is-invalid');
+    }
+
+    // Show error messages dynamically
+    if (usernameError || passwordError) {
+        // Prevent form submission if validation fails
+        alert(`Validation Error:\n${usernameError}\n${passwordError}`);
+        return;
+    }
+
+    const button = event.target.querySelector('button[type="submit"]');
+    const originalText = button.innerHTML;
+
+    button.disabled = true;
+    button.innerHTML = 'Logging in...';
+
+    // Simulate API call
+    setTimeout(() => {
+        button.disabled = false;
+        button.innerHTML = originalText;
+
+        // Simulate successful login
+        alert(`Logged in successfully as ${username}`);
+    }, 2000);
+}
+
+    </script>
+</body>
+</html>

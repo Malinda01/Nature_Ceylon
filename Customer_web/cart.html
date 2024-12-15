@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | Nature Ceylon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="ASSETS/CSS/main.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-leaf"></i> Nature Ceylon
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="main.html"><i class="bi bi-house"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="ourtea.html"><i class="bi bi-cup"></i> Our Tea</a>
+                    </li>
+                    <!-- Cart Icon -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html"><i class="bi bi-cart"></i> Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutus.html"><i class="bi bi-info-circle"></i> About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="bi bi-envelope"></i> Contact</a>
+                    </li>
+                    <!-- Profile Icon -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html"><i class="bi bi-person-circle"></i> Profile</a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Section -->
+    <section class="cart-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 mt-4">Your Cart</h2>
+            
+            <!-- Cart Table -->
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Cart Item 1 -->
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="ASSETS/IMAGES/ceylon-ice-tea-1.jpg" alt="Ceylon Lemon Ice Tea" class="img-fluid" style="width: 50px; height: 50px; object-fit: cover;">
+                                <span class="ms-3">Ceylon Lemon Ice Tea</span>
+                            </div>
+                        </td>
+                        <td>$5.99</td>
+                        <td>
+                            <input type="number" class="form-control" value="2" min="1">
+                        </td>
+                        <td>$11.98</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Remove</button>
+                        </td>
+                    </tr>
+
+                    <!-- Cart Item 2 -->
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="ASSETS/IMAGES/fruit-tea-1.jpg" alt="Strawberry Fruit Tea" class="img-fluid" style="width: 50px; height: 50px; object-fit: cover;">
+                                <span class="ms-3">Strawberry Fruit Tea</span>
+                            </div>
+                        </td>
+                        <td>$5.99</td>
+                        <td>
+                            <input type="number" class="form-control" value="1" min="1">
+                        </td>
+                        <td>$5.99</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Remove</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Cart Summary -->
+            <div class="row justify-content-end">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Cart Summary</h5>
+                            <p class="card-text">Subtotal: $17.97</p>
+                            <p class="card-text">Shipping: $4.99</p>
+                            <h4 class="card-title">Total: $22.96</h4>
+                            <a href="cheakout.html" class="btn btn-success w-100">Proceed to Checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container text-center text-light">
+            <p>&copy; 2024 Nature Ceylon. All Rights Reserved.</p>
+            <div class="social-links mt-3">
+                <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-white"><i class="bi bi-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
