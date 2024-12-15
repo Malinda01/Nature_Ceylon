@@ -187,7 +187,7 @@
 
         try {
             // Insert into offline_order table
-            $orderQuery = "INSERT INTO Offline_Order (Order_Date) VALUES ('$currentDate')";
+            $orderQuery = "INSERT INTO offline_order (Order_Date) VALUES ('$currentDate')";
             if (!$conn->query($orderQuery)) {
                 throw new Exception("Error inserting order: " . $conn->error);
             }
@@ -198,17 +198,21 @@
                 throw new Exception("Error inserting payment: " . $conn->error);
             }
 
-            // Insert into offline_order_table
-            $orderDetailQuery = $conn->prepare("INSERT INTO offline_order_items (prod_ID, ord_qty, total_price) VALUES (?, ?, ?)");
-            $orderDetailQuery->bind_param("iid", $prodId, $quantity, $totalPrice);
-            if (!$orderDetailQuery->execute()) {
-                throw new Exception("Error inserting order details for product ID: $prodId");
-            }
+            // Get the last inserted offline_order_id
+            $orderId = $conn->insert_id;
 
             // Update product quantities
             foreach ($orderData as $product) {
                 $prodId = intval($product['id']);
                 $quantity = intval($product['quantity']);
+
+                // Insert into offline_order_items table
+                $totalPrice = $quantity * $conn->query("SELECT Prod_Unit_Price FROM Product WHERE Prod_ID = $prodId")->fetch_assoc()['Prod_Unit_Price'];
+                $orderDetailQuery = $conn->prepare("INSERT INTO offline_order_items (offline_order_id, prod_ID, ord_qty, total_price) VALUES (?, ?, ?, ?)");
+                $orderDetailQuery->bind_param("iiid", $orderId, $prodId, $quantity, $totalPrice);
+                if (!$orderDetailQuery->execute()) {
+                    throw new Exception("Error inserting order details for product ID: $prodId");
+                }
 
                 // Check stock availability
                 $stockCheckQuery = "SELECT Prod_Qty FROM Product WHERE Prod_ID = $prodId";

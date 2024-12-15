@@ -72,11 +72,11 @@
                 product.Prod_ID,
                 product.Prod_Name,
                 product.Prod_Unit_Price,
-                online_order_item.Qty,
-                (product.Prod_Unit_Price * online_order_item.Qty) AS Total
+                online_order_items.Qty,
+                (product.Prod_Unit_Price * online_order_items.Qty) AS Total
             FROM product
-            INNER JOIN online_order_item 
-            ON product.Prod_ID = online_order_item.Prod_ID";
+            INNER JOIN online_order_items 
+            ON product.Prod_ID = online_order_items.Prod_ID";
 
     $result = $conn->query($sql);
 

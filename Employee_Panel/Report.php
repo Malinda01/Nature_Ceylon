@@ -269,15 +269,7 @@ $username = $_SESSION['EUsername'];
                                     Monthly reports
                                 </h2>
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <button class="custom-btn" onclick="window.location.href='Report/Monthly/Inventory.html';">
-                                            <div class="icon-container">
-                                                <i class="fas fa-chart-bar"></i>
-                                            </div>
-                                            <span>Inventory reports</span>
-                                            <i class="fas fa-arrow-right"></i>
-                                        </button>
-                                    </div>
+
 
                                     <!-- Begining of Sales Report -->
                                     <div class="col-md-6">
@@ -303,7 +295,7 @@ $username = $_SESSION['EUsername'];
                                         </button>
                                     </div>
                                     <div class="col-md-6">
-                                        <button class="custom-btn" onclick="window.location.href='Report/Monthly/Leave.html';">
+                                        <button class="custom-btn" onclick="window.location.href='Report/Monthly/Leave.php';">
                                             <div class="icon-container">
                                                 <i class="fas fa-file-excel"></i>
                                             </div>
@@ -313,15 +305,7 @@ $username = $_SESSION['EUsername'];
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <button class="custom-btn" onclick="window.location.href='Report/Monthly/Return.html';">
-                                            <div class="icon-container">
-                                                <i class="fas fa-undo-alt"></i>
-                                            </div>
-                                            <span>Return reports</span>
-                                            <i class="fas fa-arrow-right"></i>
-                                        </button>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

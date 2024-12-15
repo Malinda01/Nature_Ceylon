@@ -237,48 +237,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <!-- Sign In Tab -->
                         <div class="tab-pane fade show active" id="signin" role="tabpanel">
                             <!-- Sign In Form -->
-                            <form action="signin.php" method="POST">
-
-                                <!-- Email -->
-                                <div class="mb-3">
-                                    <label for="signinEmail" class="form-label">
-                                        <i class="bi bi-envelope"></i> Email address
-                                    </label>
-                                    <input type="email" class="form-control" id="signinEmail" placeholder="Enter your email" name="mail">
+                            <div class="col-md-6 form-section">
+                                <div class="auth-form">
+                                    <h2 class="text-center">Login</h2>
+                                    <?php if (isset($error)): ?>
+                                        <div class="alert alert-danger" role="alert">
+                                            <?php echo $error; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <form method="post" action="login.php">
+                                        <div class="mb-3">
+                                            <label for="username" class="form-label">
+                                                <i class="bi bi-person"></i> Username
+                                            </label>
+                                            <input type="text" id="username" name="Username" class="form-control" placeholder="Enter your username" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="password" class="form-label">
+                                                <i class="bi bi-lock"></i> Password
+                                            </label>
+                                            <input type="password" id="password" name="Password" class="form-control" placeholder="Enter your password" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                                    </form>
                                 </div>
-
-                                <!-- Password -->
-                                <div class="mb-3">
-                                    <label for="signinPassword" class="form-label">
-                                        <i class="bi bi-lock"></i> Password
-                                    </label>
-                                    <input type="password" class="form-control" id="signinPassword" placeholder="Enter your password" name="passw">
-                                </div>
-
-
-
-                                <!-- Submit button -->
-                                <button type="submit" class="btn btn-primary w-100">Sign In</button>
-
-                                <div class="text-center my-3">
-                                    <span class="text-muted">or sign in with</span>
-                                </div>
-
-                                <!-- <div class="social-login">
-                                    <button class="btn btn-outline-success">
-                                        <i class="bi bi-google"></i>
-                                    </button>
-                                    <button class="btn btn-outline-success">
-                                        <i class="bi bi-facebook"></i>
-                                    </button>
-                                    <button class="btn btn-outline-success">
-                                        <i class="bi bi-apple"></i>
-                                    </button>
-                                </div> -->
-                            </form>
+                            </div>
                             <!-- end of sign in -->
                         </div>
-                        
+
 
                         <!-- Sign Up Tab -->
                         <div class="tab-pane fade" id="signup" role="tabpanel">

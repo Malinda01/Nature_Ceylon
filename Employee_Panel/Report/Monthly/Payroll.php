@@ -68,7 +68,7 @@
     }
 
     // SQL query
-    $sql = "SELECT employee.Emp_ID, employee.E_FName, payroll.Base_Salary, payroll.Bonus, payroll.Deductions, (payroll.Base_Salary + payroll.Bonus - payroll.Deductions) AS Net_Salary FROM employee INNER JOIN payroll ON employee.Emp_ID = payroll.Emp_ID" ;
+    $sql = "SELECT employee.Emp_ID, employee.E_FName, payroll.Base_Salary, payroll.Bonus, payroll.Deductions, (payroll.Base_Salary + payroll.Bonus - payroll.Deductions) AS Net_Salary FROM employee INNER JOIN payroll ON employee.Emp_ID = payroll.Emp_ID";
 
 
     $result = $conn->query($sql);
@@ -80,10 +80,10 @@
                     <th>Employee ID</th>
                     <th>Employee Name</th>
                     <th>Basic Salary</th>
-                    <th>Base Salary</th>
                     <th>Bonus</th>
                     <th>Deductions</th>
                     <th>Net Salary</th>
+
                 </tr>";
         while($row = $result->fetch_assoc()) {
             echo "<tr>
