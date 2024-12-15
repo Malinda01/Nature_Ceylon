@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,20 +15,27 @@
             border: none;
             cursor: pointer;
         }
+
         .product-btn:hover {
             background-color: #45a049;
         }
+
         #order-summary {
             margin-top: 20px;
         }
-        .table th, .table td {
+
+        .table th,
+        .table td {
             text-align: center;
         }
     </style>
 </head>
+
 <body class="bg-light">
     <div class="container">
         <h1 class="my-4 text-center text-success">POS System</h1>
+
+        <!-- Begining of product List -->
         <div id="product-list" class="d-flex flex-wrap justify-content-center">
             <?php
             // Database connection
@@ -42,13 +50,13 @@
             }
 
             // Fetch products from the database
-            $query = "SELECT Prod_ID, Prod_Name, Prod_Unit_Price FROM Product";
+            $query = "SELECT Prod_ID, Prod_Name, Prod_Unit_Price, Prod_Qty FROM Product";
             $result = $conn->query($query);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     echo "<button class='product-btn btn btn-success' data-id='" . htmlspecialchars($row['Prod_ID']) . "' 
                         data-price='" . htmlspecialchars($row['Prod_Unit_Price']) . "'>
-                        " . htmlspecialchars($row['Prod_Name']) . "
+                        " . htmlspecialchars($row['Prod_Name']) . " (Qty: " . htmlspecialchars($row['Prod_Qty']) . ")
                     </button>";
                 }
             } else {
@@ -56,7 +64,9 @@
             }
             ?>
         </div>
+        <!-- End of product list -->
 
+        <!-- Order Summary section -->
         <div id="order-summary" class="mt-4">
             <h2 class="text-center text-success">Order Summary</h2>
             <table id="order-table" class="table table-bordered">
@@ -70,8 +80,9 @@
                 </thead>
                 <tbody></tbody>
             </table>
-            <p class="text-right">Total Amount: $<span id="total-amount-display">0.00</span></p>
+            <p class="text-right">Total Amount: RS: <span id="total-amount-display">0.00</span></p>
         </div>
+        <!-- End of order summary -->
 
         <form id="billing-form" method="POST" class="text-center">
             <input type="hidden" name="order" id="order-data">
@@ -89,7 +100,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+
+    <!-- JS Section -->
     <script>
         function updateTotalAmount() {
             let totalAmount = 0;
@@ -140,7 +152,10 @@
                 const total = parseFloat(row.querySelector('.total').textContent);
                 totalAmount += total;
 
-                order.push({ id: prodId, quantity });
+                order.push({
+                    id: prodId,
+                    quantity
+                });
             });
 
             if (order.length === 0) {
@@ -183,6 +198,13 @@
                 throw new Exception("Error inserting payment: " . $conn->error);
             }
 
+            // Insert into offline_order_table
+            $orderDetailQuery = $conn->prepare("INSERT INTO offline_order_items (prod_ID, ord_qty, total_price) VALUES (?, ?, ?)");
+            $orderDetailQuery->bind_param("iid", $prodId, $quantity, $totalPrice);
+            if (!$orderDetailQuery->execute()) {
+                throw new Exception("Error inserting order details for product ID: $prodId");
+            }
+
             // Update product quantities
             foreach ($orderData as $product) {
                 $prodId = intval($product['id']);
@@ -207,7 +229,10 @@
 
             // Commit transaction
             $conn->commit();
-           // echo "<p>Order successfully processed! Total amount: " . htmlspecialchars($totalAmount) . "</p>";
+            echo "<script>
+                    alert('Billing successful!');
+                    window.location.href = 'POS.php';
+                  </script>";
         } catch (Exception $e) {
             $conn->rollback();
             echo "<p>Error: " . $e->getMessage() . "</p>";
@@ -217,4 +242,5 @@
     $conn->close();
     ?>
 </body>
+
 </html>

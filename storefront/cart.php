@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Insert into order_product table and update product quantities
         foreach ($_SESSION['cart'] as $product_id => $quantity) {
-            $query = "INSERT INTO Online_Order_Item (Online_Order_ID, Prod_ID, Qty) VALUES ($order_id, $product_id, $quantity)";
+            $query = "INSERT INTO online_order_items (online_order_ID, prod_ID, ord_qty) VALUES ($order_id, $product_id, $quantity)";
             mysqli_query($conn, $query);
 
             $query = "UPDATE product SET Prod_Qty = Prod_Qty - $quantity WHERE Prod_ID = $product_id";
