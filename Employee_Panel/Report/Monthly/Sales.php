@@ -72,8 +72,8 @@
                 product.Prod_ID,
                 product.Prod_Name,
                 product.Prod_Unit_Price,
-                online_order_items.Qty,
-                (product.Prod_Unit_Price * online_order_items.Qty) AS Total
+                online_order_items.ord_qty,
+                (product.Prod_Unit_Price * online_order_items.ord_qty) AS Total
             FROM product
             INNER JOIN online_order_items 
             ON product.Prod_ID = online_order_items.Prod_ID";
@@ -95,7 +95,7 @@
                     <td>" . $row["Prod_ID"] . "</td>
                     <td>" . $row["Prod_Name"] . "</td>
                     <td>" . $row["Prod_Unit_Price"] . "</td>
-                    <td>" . $row["Qty"] . "</td>
+                    <td>" . $row["ord_qty"] . "</td>
                     <td>" . $row["Total"] . "</td>
                   </tr>";
         }
