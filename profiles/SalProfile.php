@@ -63,6 +63,45 @@ $id = $_SESSION['Emp_ID'];
 
                 </form>
 
+                <h2>Add Working Experience</h2>
+
+                <form id="experienceForm" action="" method="POST">
+                    <div class="mb-3">
+                        <label for="workingExperience" class="form-label">Working Experience (in years)</label>
+                        <input type="number" class="form-control" id="workingExperience" name="workingExperience" min="0" required>
+                    </div>
+                    <button type="submit" class="btn btn-secondary w-100 mb-2">Add Experience</button>
+                </form>
+
+                <?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['workingExperience'])) {
+                    $workingExperience = $_POST['workingExperience'];
+
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "malinda_db";
+
+                    // Create connection
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+
+                    // Check connection
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+
+                    $sql = "UPDATE finance_manager SET Work_Experience='$workingExperience' WHERE FIN_ID=$id";
+
+                    if ($conn->query($sql) === TRUE) {
+                        echo "<script>alert('Working experience updated successfully');</script>";
+                    } else {
+                        echo "Error updating record: " . $conn->error;
+                    }
+
+                    $conn->close();
+                }
+                ?>
+
                 <!-- PHP for form loading and update the relevant details -->
                 <?php
                 $servername = "localhost";
@@ -72,6 +111,7 @@ $id = $_SESSION['Emp_ID'];
 
                 // Create connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
+
 
                 // Check connection
                 if ($conn->connect_error) {
@@ -96,11 +136,11 @@ $id = $_SESSION['Emp_ID'];
                 }
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $firstName = $_POST['firstName'];
-                    $lastName = $_POST['lastName'];
-                    $phoneNumber = $_POST['phoneNumber'];
-                    $address = $_POST['address'];
-                    $email = $_POST['email'];
+                    $firstName = isset($_POST['firstName']) ? $_POST['firstName'] : '';
+                    $lastName = isset($_POST['lastName']) ? $_POST['lastName'] : '';
+                    $phoneNumber = isset($_POST['phoneNumber']) ? $_POST['phoneNumber'] : '';
+                    $address = isset($_POST['address']) ? $_POST['address'] : '';
+                    $email = isset($_POST['email']) ? $_POST['email'] : '';
 
                     $sql = "UPDATE employee SET E_Fname='$firstName', E_Lname='$lastName', E_Phone='$phoneNumber', E_Address='$address', E_Mail='$email' WHERE Emp_ID=$id";
 
@@ -111,7 +151,7 @@ $id = $_SESSION['Emp_ID'];
                     }
                 }
 
-                $conn->close();
+                //$conn->close();
                 ?>
             </div>
 
@@ -177,7 +217,7 @@ $id = $_SESSION['Emp_ID'];
                     <!-- Submit Button -->
                     <button type="submit" class="btn btn-success w-100">Apply for Leave</button>
                 </form>
-            
+
             </div>
         </div>
     </main>

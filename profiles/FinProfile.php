@@ -63,6 +63,42 @@ $id = $_SESSION['Emp_ID'];
 
                 </form>
 
+                <!-- Add Working Experience Section -->
+                <h2>Add Working Experience</h2>
+
+                <form id="experienceForm" action="" method="POST">
+                    <div class="mb-3">
+                        <label for="workingExperience" class="form-label">Working Experience (in years)</label>
+                        <input type="number" class="form-control" id="workingExperience" name="workingExperience" min="0" required>
+                    </div>
+                    <button type="submit" class="btn btn-secondary w-100 mb-2">Add Experience</button>
+                </form>
+
+                <?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['workingExperience'])) {
+                    $workingExperience = $_POST['workingExperience'];
+
+                    // Create connection
+                    $conn = new mysqli($servername, $username, $password, $malinda_db);
+
+                    // Check connection
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+
+                    $sql = "UPDATE finance_manager SET Working_Experience='$workingExperience' WHERE FIN_ID=$id";
+
+                    if ($conn->query($sql) === TRUE) {
+                        echo "<script>alert('Working experience updated successfully');</script>";
+                    } else {
+                        echo "Error updating record: " . $conn->error;
+                    }
+
+                    $conn->close();
+                }
+                ?>
+                <!-- end of working experience -->
+
                 <!-- PHP for form loading and update the relevant details -->
                 <?php
                 $servername = "localhost";
@@ -111,7 +147,7 @@ $id = $_SESSION['Emp_ID'];
                     }
                 }
 
-                $conn->close();
+                //$conn->close();
                 ?>
             </div>
 
