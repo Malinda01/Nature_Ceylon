@@ -195,8 +195,10 @@
                     <span class="admin-name">New</span>
                 </div>
             </div>
+
+            <!-- Employee Container -->
             <div class="employee-container">
-                
+
                 <div class="row">
                     <div class="col-md-12">
                         <div class="custom-card">
@@ -204,9 +206,11 @@
                                 <i class="fas fa-money-check-alt me-2"></i>
                                 Make payment
                             </h2>
+                            <!-- Make Payment section -->
                             <div class="row">
+                                <!-- Supplier Payment -->
                                 <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Make payment/Supplier.html';">
+                                    <button class="custom-btn" onclick="window.location.href='Finance/Make payment/Supplier.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-truck"></i>
                                         </div>
@@ -214,8 +218,10 @@
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
                                 </div>
+
+                                <!-- Employee Payment -->
                                 <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Make payment/Employee.html';">
+                                    <button class="custom-btn" onclick="window.location.href='Finance/Make payment/Employee.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-user-tie"></i>
                                         </div>
@@ -224,25 +230,16 @@
                                     </button>
                                 </div>
                             </div>
-                            
-                        </div>
-                    </div> 
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="custom-card">
-                            <button class="custom-btn" onclick="window.location.href='Other/GRN.html';">
-                                <div class="icon-container">
-                                    <i class="fas fa-receipt"></i>
-                                </div>
-                                <span>GRN</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
+                            <!-- End of make payment -->
+
                         </div>
                     </div>
+                </div>
+                <div class="row">
+
                     <div class="col-md-6">
                         <div class="custom-card">
-                            <button class="custom-btn" onclick="window.location.href='Other/Payroll reports.html';">
+                            <button class="custom-btn" onclick="window.location.href='Finance/Other/Payroll reports.html';">
                                 <div class="icon-container">
                                     <i class="fas fa-chart-line"></i>
                                 </div>
@@ -253,6 +250,13 @@
                     </div>
                 </div>
             </div>
+
+            <a href="logout.php" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </a>
+
+        </div>
         </div>
     </div>
 

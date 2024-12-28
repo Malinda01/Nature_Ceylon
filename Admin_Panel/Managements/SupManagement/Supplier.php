@@ -196,6 +196,7 @@
                     <span class="admin-name">New User</span>
                 </div>
             </div>
+
             <div class="employee-container">
                 <div class="row">
                     <div class="col-md-12">
@@ -206,28 +207,48 @@
                             </h2>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='addsup/addsup.html';">
+                                    <!-- Add new Supplier button -->
+                                    <button class="custom-btn" onclick="window.location.href='Supplier/addsup/addsup.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-user-plus"></i>
                                         </div>
                                         <span>Add new supplier</span>
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
+                                    <!-- End of add new supplier -->
                                 </div>
+
                                 <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='viewsup/viewsup.html';">
+                                    <!-- View Supplier Buttton -->
+                                    <button class="custom-btn" onclick="window.location.href='Supplier/viewsup/viewsup.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-eye"></i>
                                         </div>
-                                        <span>View supplier</span>
+                                        <span>View (Update / Delete)</span>
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
+                                    <!-- End of view supplier -->
                                 </div>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='upsup/upsup.html';">
+                                    <!-- Add new Supplier invoice -->
+                                    <button class="custom-btn" onclick="window.location.href='Supplier/addSupInvocie.php';">
+                                        <div class="icon-container">
+                                            <i class="fas fa-user-plus"></i>
+                                        </div>
+                                        <span>Add new supplier Invoice</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                    <!-- End of Supplier invoicer -->
+                                </div>
+
+                            </div>
+
+                            <!-- <div class="row">
+                                <div class="col-md-6">
+                                    <button class="custom-btn" onclick="window.location.href='Supplier/upsup/upsup.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-edit"></i>
                                         </div>
@@ -236,7 +257,7 @@
                                     </button>
                                 </div>
                                 <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='delsup/delsup.html';">
+                                    <button class="custom-btn" onclick="window.location.href='Supplier/delsup/delsup.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-trash"></i>
                                         </div>
@@ -244,12 +265,13 @@
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
                                 </div>
-                            </div>        
-                            
+                            </div> -->
+
                         </div>
                     </div>
                 </div>
-            </div>    
+            </div>
+
         </div>
     </div>
 

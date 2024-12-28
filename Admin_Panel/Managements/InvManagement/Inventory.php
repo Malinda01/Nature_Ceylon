@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +20,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .custom-card::before {
             content: '';
             position: absolute;
@@ -29,12 +30,12 @@
             height: 5px;
             background: linear-gradient(90deg, #4CAF50, #8BC34A);
         }
-        
+
         .custom-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
-        
+
         .card-title {
             color: #2c3e50;
             font-size: 1.8rem;
@@ -44,7 +45,7 @@
             position: relative;
             padding-bottom: 15px;
         }
-        
+
         .card-title::after {
             content: '';
             position: absolute;
@@ -56,7 +57,7 @@
             background: linear-gradient(90deg, #4CAF50, #8BC34A);
             border-radius: 2px;
         }
-        
+
         .custom-btn {
             background: linear-gradient(90deg, #4CAF50, #8BC34A);
             color: white;
@@ -75,23 +76,23 @@
             justify-content: space-between;
             overflow: hidden;
         }
-        
+
         .custom-btn:hover {
             background: linear-gradient(90deg, #3d8c40, #7ab23a);
             transform: translateX(5px);
             color: white;
             box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
         }
-        
+
         .custom-btn i {
             font-size: 1.2rem;
             transition: transform 0.3s ease;
         }
-        
+
         .custom-btn:hover i {
             transform: translateX(5px);
         }
-        
+
         .icon-container {
             width: 40px;
             height: 40px;
@@ -102,29 +103,45 @@
             justify-content: center;
             margin-right: 10px;
         }
-        
+
         .custom-btn span {
             flex-grow: 1;
         }
-        
+
         .employee-container {
             padding: 2rem;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         .custom-card {
             animation: fadeIn 0.5s ease forwards;
         }
-        
-        .custom-card:nth-child(1) { animation-delay: 0.1s; }
-        .custom-card:nth-child(2) { animation-delay: 0.2s; }
-        .custom-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .custom-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .custom-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .custom-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="sidebar">
@@ -138,11 +155,11 @@
                 <span class="nav-text">Dashboard</span>
             </a>
 
-            <a href="../EmpManagement/Employee.html" class="nav-item">
+            <a href="../EmpManagement/Employee.php" class="nav-item">
                 <i class="fas fa-user-tie"></i>
                 <span class="nav-text">Employee</span>
             </a>
-            <a href="../InvManagement/Inventory.html" class="nav-item">
+            <a href="../InvManagement/Inventory.php" class="nav-item">
                 <i class="fas fa-boxes"></i>
                 <span class="nav-text">Inventory</span>
             </a>
@@ -170,10 +187,10 @@
                 <i class="fas fa-tags icon-space"></i>
                 <span class="nav-text">Returns</span>
             </a>
-            <a href="../FinanceManagement/Finance.html" class="nav-item">
+            <a href="../FinanceManagement/Finance.php" class="nav-item">
                 <i class="fas fa-money-bill-alt"></i>
                 <span class="nav-text">Finance</span>
-            </a>    
+            </a>
             <a href="logout.php" class="logout-btn">
                 <i class="fas fa-sign-out-alt"></i>
                 Logout
@@ -195,163 +212,186 @@
                     <span class="admin-name">New User</span>
                 </div>
             </div>
-        <div class="employee-container">
-            <div class="row">
-            <div class="col-md-12">
-                <div class="custom-card">
-                    <h2 class="card-title">
-                        <i class="fas fa-tags me-2"></i>
-                        Category
-                    </h2>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <button class="custom-btn" onclick="window.location.href='catagory/addcatogory.html';">
-                                <div class="icon-container">
-                                    <i class="fas fa-folder-plus"></i>
+
+            <!-- Begining of Employee Container -->
+            <div class="employee-container">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <!-- Begining of Category section -->
+                        <div class="custom-card">
+                            <h2 class="card-title">
+                                <i class="fas fa-tags me-2"></i>
+                                Category
+                            </h2>
+                            <div class="row">
+                                <div class="col-md-6">
+
+                                    <!-- Add Category -->
+                                    <button class="custom-btn" onclick="window.location.href='Inventory/catagory/addcategory.php';">
+                                        <div class="icon-container">
+                                            <i class="fas fa-folder-plus"></i>
+                                        </div>
+                                        <span>Add new category</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
+
+                                    <!-- View Category -->
+                                    <button class="custom-btn" onclick="window.location.href='Inventory/catagory/viewcat.php';">
+                                        <div class="icon-container">
+                                            <i class="fas fa-folder-open"></i>
+                                        </div>
+                                        <span>View category (Update/ Delete)</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
                                 </div>
-                                <span>Add new category</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                            <button class="custom-btn" onclick="window.location.href='catagory/viewcat.html';">
-                                <div class="icon-container">
-                                    <i class="fas fa-folder-open"></i>
-                                </div>
-                                <span>View category</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                        <div class="col-md-6">
-                            <button class="custom-btn" onclick="window.location.href='catagory/EditCategory.html';">
-                                <div class="icon-container">
-                                    <i class="fas fa-edit"></i>
-                                </div>
-                                <span>Edit category</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                            <button class="custom-btn" onclick="window.location.href='catagory/Deletecategory.html';">
-                                <div class="icon-container">
-                                    <i class="fas fa-trash-alt"></i>
-                                </div>
-                                <span>Delete category</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-12">
+                    <!-- End of Category section -->
+
+                    <!-- Beginig of Product section -->
                     <div class="custom-card">
                         <h2 class="card-title">
                             <i class="fas fa-box me-2"></i>
-                            Item
+                            Product
                         </h2>
                         <div class="row">
                             <div class="col-md-6">
-                                <button class="custom-btn" onclick="window.location.href='Item/Add item.html';">
+                                <!-- Product Add -->
+                                <button class="custom-btn" onclick="window.location.href='Inventory/Item/addItem.php';">
                                     <div class="icon-container">
                                         <i class="fas fa-box-open"></i>
                                     </div>
-                                    <span>Add new item</span>
+                                    <span>Add new Product</span>
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
-                                <button class="custom-btn" onclick="window.location.href='Item/View item.html';">
+
+                                <!-- View Product -->
+                                <button class="custom-btn" onclick="window.location.href='Inventory/Item/viewItem.php';">
                                     <div class="icon-container">
                                         <i class="fas fa-search"></i>
                                     </div>
-                                    <span>View item</span>
+                                    <span>View Product (Update/ Delete)</span>
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
                             </div>
+
+                        </div>
+                    </div>
+                    <!-- End of Product section -->
+
+                    <!-- Beginig of Inventory section -->
+                    <div class="custom-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-box me-2"></i>
+                            Inventory
+                        </h2>
+                        <div class="row">
                             <div class="col-md-6">
-                                <button class="custom-btn" onclick="window.location.href='Item/Edit item.html';">
+                                <!-- Add Inv -->
+                                <button class="custom-btn" onclick="window.location.href='Inventory/Inv/addInv.php';">
                                     <div class="icon-container">
-                                        <i class="fas fa-edit"></i>
+                                        <i class="fas fa-box-open"></i>
                                     </div>
-                                    <span>Edit item</span>
+                                    <span>Add new Inventory</span>
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
-                                <button class="custom-btn" onclick="window.location.href='Item/Delete item.html';">
+
+                                <!-- View Inventory -->
+                                <button class="custom-btn" onclick="window.location.href='Inventory/Inv/viewInv.php';">
                                     <div class="icon-container">
-                                        <i class="fas fa-trash-alt"></i>
+                                        <i class="fas fa-search"></i>
                                     </div>
-                                    <span>Delete item</span>
+                                    <span>View Inventory (Update/ Delete)</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Begining of Purchase Order section -->
+                    <div class="custom-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-truck-loading me-2"></i>
+                            Purchase Order
+                        </h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button class="custom-btn" onclick="window.location.href='Inventory/PurchaseOrder/addPurchOrd.php';">
+                                    <div class="icon-container">
+                                        <i class="fas fa-folder-plus"></i>
+                                    </div>
+                                    <span>Add new Purchase Order</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                                <button class="custom-btn" onclick="window.location.href='Inventory/PurchaseOrder/viewPurchOrd.php';">
+                                    <div class="icon-container">
+                                        <i class="fas fa-folder-open"></i>
+                                    </div>
+                                    <span>View Purchase Order</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- End of purchae Order section -->
+
+                    <!-- Begining of GRN section -->
+                    <div class="custom-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-truck-loading me-2"></i>
+                            GRN
+                        </h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button class="custom-btn" onclick="window.location.href='Inventory/GRN/addGRN.php';">
+                                    <div class="icon-container">
+                                        <i class="fas fa-folder-plus"></i>
+                                    </div>
+                                    <span>Add new GRN</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                                
+                        </div>
+                    </div>
+                    <!-- End of GRN section -->
+
+                    <!-- Begining of Reports section -->
+                    <div class="custom-card">
+                        <h2 class="card-title">
+                            <i class="fas fa-chart-bar me-2"></i>
+                            Reports
+                        </h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button class="custom-btn" onclick="window.location.href='Inventory/Reports/Generate reports.html';">
+                                    <div class="icon-container">
+                                        <i class="fas fa-file-export"></i>
+                                    </div>
+                                    <span>Generate reports</span>
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="custom-card">
-                                <h2 class="card-title">
-                                    <i class="fas fa-truck-loading me-2"></i>
-                                    GRN
-                                </h2>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <button class="custom-btn" onclick="window.location.href='GRN/ADD grn.html';">
-                                            <div class="icon-container">
-                                                <i class="fas fa-folder-plus"></i>
-                                            </div>
-                                            <span>Add new GRN</span>
-                                            <i class="fas fa-arrow-right"></i>
-                                        </button>
-                                        <button class="custom-btn" onclick="window.location.href='GRN/View grn.html';">
-                                            <div class="icon-container">
-                                                <i class="fas fa-folder-open"></i>
-                                            </div>
-                                            <span>View GRN</span>
-                                            <i class="fas fa-arrow-right"></i>
-                                        </button>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <button class="custom-btn" onclick="window.location.href='GRN/Edit grn.html';">
-                                            <div class="icon-container">
-                                                <i class="fas fa-file-edit"></i>
-                                            </div>
-                                            <span>Edit GRN</span>
-                                            <i class="fas fa-arrow-right"></i>
-                                        </button>
-                                        <button class="custom-btn" onclick="window.location.href='GRN/Delete grn.html';">
-                                            <div class="icon-container">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </div>
-                                            <span>Delete GRN</span>
-                                            <i class="fas fa-arrow-right"></i>
-                                        </button>
-                                    </div>
-                                </div>  
-                            </div>
-                            <div class="col-md-12">
-                                <div class="custom-card">
-                                    <h2 class="card-title">
-                                        <i class="fas fa-chart-bar me-2"></i>
-                                        Reports
-                                    </h2>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <button class="custom-btn" onclick="window.location.href='Reports/Reports.html';">
-                                                <div class="icon-container">
-                                                    <i class="fas fa-file-export"></i>
-                                                </div>
-                                                <span>Generate reports</span>
-                                                <i class="fas fa-arrow-right"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>                
-                    </div>
-                </div>
-                
-            </div>
-            
-            
-        </div>
-        </div>
-        
-    </div>
+                    <!-- End of Reports section -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+                    <!-- Logout button -->
+                    <a href="logout.php" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </div>
+            </div>
+            <!-- End of Employee Container -->
+
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

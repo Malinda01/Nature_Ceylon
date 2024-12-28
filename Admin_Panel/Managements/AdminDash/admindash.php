@@ -238,60 +238,87 @@ $username = $_SESSION['EUsername'];
 
         <!-- Begining of the side bar -->
         <div class="sidebar">
+            <!-- Logo -->
             <div class="logo-container">
                 <div class="logo-frame">
                     <img src="../assets/pic/logo2.png" alt="Company Logo" class="logo">
                 </div>
             </div>
+
+            <!-- Page links -->
+            <!-- Admin Dashboard -->
             <a href="../AdminDash/admindash.php" class="nav-item">
                 <i class="fas fa-gauge"></i>
                 <span class="nav-text">Dashboard</span>
             </a>
+
+            <!-- Employee Dash Board -->
             <a href="../EmpManagement/Employee.php" class="nav-item">
                 <i class="fas fa-user-tie"></i>
                 <span class="nav-text">Employee</span>
             </a>
+
+            <!-- Inventory Management -->
             <a href="../InvManagement/Inventory.php" class="nav-item">
                 <i class="fas fa-boxes"></i>
                 <span class="nav-text">Inventory</span>
             </a>
+
+            <!-- Supplier Management -->
             <a href="../SupManagement/Supplier.php" class="nav-item">
                 <i class="fas fa-truck-loading"></i>
                 <span class="nav-text">Suppliers</span>
             </a>
+
+            <!-- Sales Management -->
             <a href="../SalesManagement/Sales.html" class="nav-item">
                 <i class="fas fa-chart-line icon-space"></i>
                 <span class="nav-text">Sales</span>
             </a>
+
+            <!-- Order Management -->
             <a href="../OrderManagement/Order.html" class="nav-item">
                 <i class="fas fa-shopping-cart icon-space"></i>
                 <span class="nav-text">Order</span>
             </a>
+
+            <!-- Reports - Owner -->
             <a href="../Reports/Report.html" class="nav-item">
                 <i class="fas fa-file-alt"></i>
                 <span class="nav-text">Reports</span>
             </a>
+
+            <!-- POS -->
             <a href="../POS/POS.html" class="nav-item">
                 <i class="fas fa-cash-register"></i>
                 <span class="nav-text">POS</span>
             </a>
+
+            <!-- Returns -->
             <a href="../Returns/Returns.html" class="nav-item">
                 <i class="fas fa-tags icon-space"></i>
                 <span class="nav-text">Returns</span>
             </a>
-            <a href="../FinanceManagement/Finance.html" class="nav-item">
+
+            <!-- Finance Management -->
+            <a href="../FinanceManagement/Finance.php" class="nav-item">
                 <i class="fas fa-money-bill-alt"></i>
                 <span class="nav-text">Finance</span>
             </a>
 
+            <!-- Logout Button -->
             <a href="logout.php" class="logout-btn">
                 <i class="fas fa-sign-out-alt"></i>
                 Logout
             </a>
+
         </div>
         <!-- End of side bar -->
 
+        <!-- Main content -->
         <div class="main-content">
+
+            <!-- Begining of Heading section -->
             <div class="header">
 
                 <h1 class="welcome-text">
@@ -303,7 +330,6 @@ $username = $_SESSION['EUsername'];
                     </span>
                 </h1>
 
-
                 <!-- Begining Admin profile and the username -->
                 <div class="admin-profile">
                     <img src="../assets/pic/admin.png" alt="Admin Profile" class="admin-pic">
@@ -312,7 +338,9 @@ $username = $_SESSION['EUsername'];
                 <!-- End Admin profile and the username -->
 
             </div>
+            <!-- End of Heading section -->
 
+            <!-- Employee Container -->
             <div class="employee-container">
                 <!-- Charts and cards -->
                 <div class="container-fluid p-4">
@@ -352,24 +380,10 @@ $username = $_SESSION['EUsername'];
                             </div>
                         </div>
                     </div>
-
-                    <!-- Charts Section -->
-                    <!-- <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="chart-container">
-                                <h3 class="mb-4">Monthly Performance</h3>
-                                <canvas id="performanceChart" class="chart-small"></canvas>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="chart-container">
-                                <h3 class="mb-4">Product Category Distribution</h3>
-                                <canvas id="productPieChart" class="chart-small"></canvas>
-                            </div>
-                        </div>
-                    </div> -->
+                    <!-- End of overview cards -->
                 </div>
             </div>
+            <!-- End of employee container -->
         </div>
     </div>
 
