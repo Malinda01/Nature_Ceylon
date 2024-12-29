@@ -271,31 +271,31 @@ $username = $_SESSION['EUsername'];
             </a>
 
             <!-- Sales Management -->
-            <a href="../SalesManagement/Sales.html" class="nav-item">
+            <a href="../SalesManagement/Sales.php" class="nav-item">
                 <i class="fas fa-chart-line icon-space"></i>
                 <span class="nav-text">Sales</span>
             </a>
 
             <!-- Order Management -->
-            <a href="../OrderManagement/Order.html" class="nav-item">
+            <a href="../OrderManagement/Order.php" class="nav-item">
                 <i class="fas fa-shopping-cart icon-space"></i>
                 <span class="nav-text">Order</span>
             </a>
 
             <!-- Reports - Owner -->
-            <a href="../Reports/Report.html" class="nav-item">
+            <a href="../Reports/Report.php" class="nav-item">
                 <i class="fas fa-file-alt"></i>
                 <span class="nav-text">Reports</span>
             </a>
 
             <!-- POS -->
-            <a href="../POS/POS.html" class="nav-item">
+            <a href="../POS/POS.php" class="nav-item">
                 <i class="fas fa-cash-register"></i>
                 <span class="nav-text">POS</span>
             </a>
 
             <!-- Returns -->
-            <a href="../Returns/Returns.html" class="nav-item">
+            <a href="../Returns/Returns.php" class="nav-item">
                 <i class="fas fa-tags icon-space"></i>
                 <span class="nav-text">Returns</span>
             </a>

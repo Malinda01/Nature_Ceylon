@@ -197,6 +197,7 @@ $username = $_SESSION['EUsername'];
                     <span class="admin-name">Hello, <?php echo htmlspecialchars($username); ?></span>
                 </div>
             </div>
+            
             <div class="employee-container">
                 <div class="row">
                     <!-- Return init -->

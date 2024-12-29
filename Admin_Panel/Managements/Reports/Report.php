@@ -195,17 +195,18 @@
                     <span class="admin-name">New User</span>
                 </div>
             </div>
+
             <div class="employee-container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="custom-card">
+                        <!-- <div class="custom-card">
                             <h2 class="card-title">
                                 <i class="fas fa-calendar-alt me-2"></i>
                                 Yearly reports
                             </h2>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <button class="custom-btn">
+                                    <button class="custom-btn" onclick="window.location.href='Report/Yearly/Inventory.html';">
                                         <div class="icon-container">
                                             <i class="fas fa-chart-bar"></i>
                                         </div>
@@ -214,7 +215,7 @@
                                     </button>
                                 </div>
                                 <div class="col-md-6">
-                                    <button class="custom-btn">
+                                    <button class="custom-btn" onclick="window.location.href='Report/Yearly/Sales.html';">
                                         <div class="icon-container">
                                             <i class="fas fa-chart-line"></i>
                                         </div>
@@ -225,16 +226,16 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <button class="custom-btn">
+                                    <button class="custom-btn" onclick="window.location.href='Report/Yearly/Payroll.html';">
                                         <div class="icon-container">
                                             <i class="fas fa-file-alt"></i>
                                         </div>
                                         <span>Payroll reports</span>
                                         <i class="fas fa-arrow-right"></i>
-                                    </button>             
+                                    </button>
                                 </div>
                                 <div class="col-md-6">
-                                    <button class="custom-btn">
+                                    <button class="custom-btn" onclick="window.location.href='Report/Yearly/Leave.html';">
                                         <div class="icon-container">
                                             <i class="fas fa-file-excel"></i>
                                         </div>
@@ -245,7 +246,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <button class="custom-btn">
+                                    <button class="custom-btn" onclick="window.location.href='Report/Yearly/Return.html';">
                                         <div class="icon-container">
                                             <i class="fas fa-undo-alt"></i>
                                         </div>
@@ -253,8 +254,10 @@
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
                                 </div>
-                            </div>                      
-                        </div>
+                            </div>
+                        </div> -->
+
+                        <!-- Monthly section -->
                         <div class="col-md-12">
                             <div class="custom-card">
                                 <h2 class="card-title">
@@ -262,17 +265,11 @@
                                     Monthly reports
                                 </h2>
                                 <div class="row">
+
+
+                                    <!-- Begining of Sales Report -->
                                     <div class="col-md-6">
-                                        <button class="custom-btn">
-                                            <div class="icon-container">
-                                                <i class="fas fa-chart-bar"></i>
-                                            </div>
-                                            <span>Inventory reports</span>
-                                            <i class="fas fa-arrow-right"></i>
-                                        </button>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <button class="custom-btn">
+                                        <button class="custom-btn" onclick="window.location.href='Report/Monthly/Sales.php';">
                                             <div class="icon-container">
                                                 <i class="fas fa-chart-line"></i>
                                             </div>
@@ -280,19 +277,21 @@
                                             <i class="fas fa-arrow-right"></i>
                                         </button>
                                     </div>
+                                    <!-- End of Sales Report -->
+
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <button class="custom-btn">
+                                        <button class="custom-btn" onclick="window.location.href='Report/Monthly/Payroll.php';">
                                             <div class="icon-container">
                                                 <i class="fas fa-file-alt"></i>
                                             </div>
                                             <span>Payroll reports</span>
                                             <i class="fas fa-arrow-right"></i>
-                                        </button>             
+                                        </button>
                                     </div>
                                     <div class="col-md-6">
-                                        <button class="custom-btn">
+                                        <button class="custom-btn" onclick="window.location.href='Report/Monthly/Leave.php';">
                                             <div class="icon-container">
                                                 <i class="fas fa-file-excel"></i>
                                             </div>
@@ -302,19 +301,12 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <button class="custom-btn">
-                                            <div class="icon-container">
-                                                <i class="fas fa-undo-alt"></i>
-                                            </div>
-                                            <span>Return reports</span>
-                                            <i class="fas fa-arrow-right"></i>
-                                        </button>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+
+                        <!-- <div class="row">
                             <div class="col-md-12">
                                 <div class="custom-card">
                                     <h2 class="card-title">
@@ -323,14 +315,14 @@
                                     </h2>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <button class="custom-btn">
+                                            <button class="custom-btn" onclick="window.location.href='Report/Weekly/Inventory.html';">
                                                 <div class="icon-container">
                                                     <i class="fas fa-chart-bar"></i>
                                                 </div>
                                                 <span>Inventory reports</span>
                                                 <i class="fas fa-arrow-right"></i>
                                             </button>
-                                            <button class="custom-btn">
+                                            <button class="custom-btn" onclick="window.location.href='Report/Weekly/Sales.html';">
                                                 <div class="icon-container">
                                                     <i class="fas fa-chart-line"></i>
                                                 </div>
@@ -339,14 +331,14 @@
                                             </button>
                                         </div>
                                         <div class="col-md-6">
-                                            <button class="custom-btn">
+                                            <button class="custom-btn" onclick="window.location.href='Report/Weekly/Leave.html';">
                                                 <div class="icon-container">
                                                     <i class="fas fa-file-excel"></i>
                                                 </div>
                                                 <span>Leave reports</span>
                                                 <i class="fas fa-arrow-right"></i>
                                             </button>
-                                            <button class="custom-btn">
+                                            <button class="custom-btn" onclick="window.location.href='Report/Weekly/Return.html';">
                                                 <div class="icon-container">
                                                     <i class="fas fa-undo-alt"></i>
                                                 </div>
@@ -354,13 +346,18 @@
                                                 <i class="fas fa-arrow-right"></i>
                                             </button>
                                         </div>
-                                    </div>    
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
-                    
-                    
+
+                    <a href="logout.php" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+
+
                 </div>
             </div>    
         </div>

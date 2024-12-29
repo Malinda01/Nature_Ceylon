@@ -183,7 +183,7 @@
         <div class="main-content">
             <div class="header">
                 <h1 class="welcome-text">
-                    Sales management system
+                    Returns
                     <span class="loading-dots">
                         <span class="dot"></span>
                         <span class="dot"></span>
@@ -195,120 +195,73 @@
                     <span class="admin-name">New User</span>
                 </div>
             </div>
-
             <div class="employee-container">
                 <div class="row">
-                    <div class="col-md-12">
+                    <!-- Return init -->
+                    <div class="col-md-6">
                         <div class="custom-card">
-                            <h2 class="card-title">
-                                <i class="fas fa-truck me-2"></i>
-                                Supplier
-                            </h2>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Supplier/Add supplier.html';">
-                                        <div class="icon-container">
-                                            <i class="fas fa-user-plus"></i>
-                                        </div>
-                                        <span>Add new supplier</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
+                            <button class="custom-btn" onclick="window.location.href='Returns/Other/InitiateReturn.php';">
+                                <div class="icon-container">
+                                    <i class="fas fa-undo"></i>
                                 </div>
-                                <div class="col-md-6">
-                                    <button class="custom-btn"  onclick="window.location.href='Supplier/View supplier.html';">
-                                        <div class="icon-container">
-                                            <i class="fas fa-eye"></i>
-                                        </div>
-                                        <span>View supplier</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
+                                <span>Initiate return</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="custom-card">
+                            <button class="custom-btn" onclick="window.location.href='Returns/Other/Approve return.html';">
+                                <div class="icon-container">
+                                    <i class="fas fa-check-circle"></i>
                                 </div>
-                            </div>
-                            
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Supplier/Edit supplier.html';">
-                                        <div class="icon-container">
-                                            <i class="fas fa-edit"></i>
-                                        </div>
-                                        <span>Edit supplier</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
+                                <span>Approve return</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="custom-card">
+                            <button class="custom-btn" onclick="window.location.href='Returns/Other/Update inventory.html';">
+                                <div class="icon-container">
+                                    <i class="fas fa-boxes"></i>
                                 </div>
-                                <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Supplier/Delete supplier.html';">
-                                        <div class="icon-container">
-                                            <i class="fas fa-trash"></i>
-                                        </div>
-                                        <span>Delete supplier</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                            </div>        
-                            
+                                <span>Update the inventory</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="custom-card">
-                            <h2 class="card-title">
-                                <i class="fas fa-user me-2"></i>
-                                Customer accounts
-                            </h2>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Customer account/Update cus acc.html';">
-                                        <div class="icon-container">
-                                            <i class="fas fa-user-edit"></i>
-                                        </div>
-                                        <span>Update customer account</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
+                            <button class="custom-btn" onclick="window.location.href='Returns/Other/Make refund.html';">
+                                <div class="icon-container">
+                                    <i class="fas fa-money-bill-wave"></i>
                                 </div>
-                                <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Customer account/Delete cus acc.html';">
-                                        <div class="icon-container">
-                                            <i class="fas fa-user-times"></i>
-                                        </div>
-                                        <span>Delete customer account</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                            </div> 
-                        </div>
-                        <div class="col-md-12">
-                            <div class="custom-card">
-                                <h2 class="card-title">
-                                    <i class="fas fa-undo me-2"></i>
-                                    Returns
-                                </h2>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <button class="custom-btn" onclick="window.location.href='Returns/View returns.html';">
-                                            <div class="icon-container">
-                                                <i class="fas fa-eye"></i>
-                                            </div>
-                                            <span>View returns</span>
-                                            <i class="fas fa-arrow-right"></i>
-                                        </button>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <button class="custom-btn" onclick="window.location.href='Returns/Approve returns.html';">
-                                            <div class="icon-container">
-                                                <i class="fas fa-check-circle"></i>
-                                            </div>
-                                            <span>Approve returns</span>
-                                            <i class="fas fa-arrow-right"></i>
-                                        </button>
-                                    </div>
-                                </div> 
-                            </div>
+                                <span>Make refund</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
                         </div>
                     </div>
-                    
+                    <div class="col-md-6">
+                        <div class="custom-card">
+                            <button class="custom-btn" onclick="window.location.href='Returns/Other/Generate inventory reports.html';">
+                                <div class="icon-container">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <span>Generate inventory reports</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                
+
             </div>    
         </div>
     </div>

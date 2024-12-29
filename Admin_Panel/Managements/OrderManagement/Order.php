@@ -183,7 +183,7 @@
         <div class="main-content">
             <div class="header">
                 <h1 class="welcome-text">
-                    Returns
+                    Order Management System
                     <span class="loading-dots">
                         <span class="dot"></span>
                         <span class="dot"></span>
@@ -196,71 +196,64 @@
                 </div>
             </div>
             <div class="employee-container">
-                
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
+
+                        <!-- Begining of the order section -->
                         <div class="custom-card">
-                            <button class="custom-btn" onclick="window.location.href='Other/Approve return.html';">
-                                <div class="icon-container">
-                                    <i class="fas fa-check-circle"></i>
+                            <h2 class="card-title">
+                                <i class="fas fa-box-open me-2"></i>
+                                Order
+                            </h2>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <!-- View Order -->
+                                    <button class="custom-btn" onclick="window.location.href='Order/order/oderview.php';">
+                                        <div class="icon-container">
+                                            <i class="fas fa-eye"></i>
+                                        </div>
+                                        <span>View order (Approve / Decline)</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
                                 </div>
-                                <span>Approve return</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
+                                
+                            </div>
+
+
                         </div>
-                        
+                        <!-- End of the order section -->
+
+                        <!-- Begining of reviews -->
+                        <div class="col-md-12">
+                            <div class="custom-card">
+                                <h2 class="card-title">
+                                    <i class="fas fa-comments me-2"></i>
+                                    Reviews
+                                </h2>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button class="custom-btn" onclick="window.location.href='Order/review/revieworder.html';">
+                                            <div class="icon-container">
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <span>View reviews</span>
+                                            <i class="fas fa-arrow-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of reviews -->
                     </div>
-                    
-                    <div class="col-md-6">
-                        <div class="custom-card">
-                            <button class="custom-btn" onclick="window.location.href='Other/Update inventory.html';">
-                                <div class="icon-container">
-                                    <i class="fas fa-boxes"></i>
-                                </div>
-                                <span>Update the inventory</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>   
+
+                    <a href="logout.php" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+
+
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="custom-card">
-                            <button class="custom-btn" onclick="window.location.href='Other/Make refund.html';">
-                                <div class="icon-container">
-                                    <i class="fas fa-money-bill-wave"></i>
-                                </div>
-                                <span>Make refund</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="custom-card">
-                            <button class="custom-btn">
-                                <div class="icon-container">
-                                    <i class="fas fa-chart-bar"></i>
-                                </div>
-                                <span>Generate inventory reports</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="custom-card">
-                            <button class="custom-btn" onclick="window.location.href='Other/Initiate return.html';">
-                                <div class="icon-container">
-                                    <i class="fas fa-undo"></i>
-                                </div>
-                                <span>Initiate return</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>    
+            </div>
         </div>
     </div>
 

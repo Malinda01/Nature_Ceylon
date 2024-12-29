@@ -183,7 +183,7 @@
         <div class="main-content">
             <div class="header">
                 <h1 class="welcome-text">
-                    Order Management System
+                    Sales management system
                     <span class="loading-dots">
                         <span class="dot"></span>
                         <span class="dot"></span>
@@ -195,71 +195,76 @@
                     <span class="admin-name">New User</span>
                 </div>
             </div>
+
             <div class="employee-container">
-                <div class="row"> 
+
+                <div class="row">
                     <div class="col-md-12">
                         <div class="custom-card">
                             <h2 class="card-title">
-                                <i class="fas fa-box-open me-2"></i>
-                                Order
+                                <i class="fas fa-user me-2"></i>
+                                Customer accounts
                             </h2>
+
+                            <!-- customer section -->
                             <div class="row">
                                 <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='order/oderview.html';">
+                                    <button class="custom-btn" onclick="window.location.href='Sales/Customer account/updateCust.php';">
                                         <div class="icon-container">
-                                            <i class="fas fa-eye"></i>
+                                            <i class="fas fa-user-edit"></i>
                                         </div>
-                                        <span>View order</span>
+                                        <span>Update customer account</span>
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
                                 </div>
-                                <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='order/updateorder.html';">
+
+                                <!-- <div class="col-md-6">
+                                    <button class="custom-btn" onclick="window.location.href='Sales/Customer account/Delete cus acc.html';">
                                         <div class="icon-container">
-                                            <i class="fas fa-pen"></i>
+                                            <i class="fas fa-user-times"></i>
                                         </div>
-                                        <span>Update order</span>
+                                        <span>Delete customer account</span>
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
-                                </div>
+                                </div> -->
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='order/conformorder.html';">
-                                        <div class="icon-container">
-                                            <i class="fas fa-check-circle"></i>
-                                        </div>
-                                        <span>Confirm order</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </div>
-                                
-                            </div>
-                            
+                            <!-- end of customer -->
+
                         </div>
                         <div class="col-md-12">
+                            <!-- Begining of Return -->
                             <div class="custom-card">
                                 <h2 class="card-title">
-                                    <i class="fas fa-comments me-2"></i>
-                                    Reviews
+                                    <i class="fas fa-undo me-2"></i>
+                                    Returns
                                 </h2>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <button class="custom-btn" onclick="window.location.href='review/revieworder.html';">
+                                        <button class="custom-btn" onclick="window.location.href='Sales/Returns/ViewReturns.php';">
                                             <div class="icon-container">
-                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-eye"></i>
                                             </div>
-                                            <span>View reviews</span>
+                                            <span>View returns (Approve/ Decline)</span>
                                             <i class="fas fa-arrow-right"></i>
                                         </button>
                                     </div>
+                                    
                                 </div>
                             </div>
+                            <!-- End of Return -->
+                             
                         </div>
                     </div>
-                    
+
+                    <a href="logout.php" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+
+
                 </div>
-            </div>
+
+            </div>    
         </div>
     </div>
 
