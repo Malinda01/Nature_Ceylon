@@ -208,7 +208,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <!-- View Order -->
-                                    <button class="custom-btn" onclick="window.location.href='Order/order/oderview.php';">
+                                    <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Order/order/oderview.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-eye"></i>
                                         </div>
@@ -232,7 +232,7 @@
                                 </h2>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <button class="custom-btn" onclick="window.location.href='Order/review/revieworder.html';">
+                                        <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Order/review/revieworder.html';">
                                             <div class="icon-container">
                                                 <i class="fas fa-star"></i>
                                             </div>
