@@ -228,7 +228,7 @@
                                 <div class="col-md-6">
 
                                     <!-- Add Category -->
-                                    <button class="custom-btn" onclick="window.location.href='Inventory/catagory/addcategory.php';">
+                                    <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Inventory/catagory/addcategory.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-folder-plus"></i>
                                         </div>
@@ -237,7 +237,7 @@
                                     </button>
 
                                     <!-- View Category -->
-                                    <button class="custom-btn" onclick="window.location.href='Inventory/catagory/viewcat.php';">
+                                    <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Inventory/catagory/viewcat.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-folder-open"></i>
                                         </div>
@@ -260,7 +260,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <!-- Product Add -->
-                                <button class="custom-btn" onclick="window.location.href='Inventory/Item/addItem.php';">
+                                <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Inventory/Item/addItem.php';">
                                     <div class="icon-container">
                                         <i class="fas fa-box-open"></i>
                                     </div>
@@ -269,7 +269,7 @@
                                 </button>
 
                                 <!-- View Product -->
-                                <button class="custom-btn" onclick="window.location.href='Inventory/Item/viewItem.php';">
+                                <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Inventory/Item/viewItem.php';">
                                     <div class="icon-container">
                                         <i class="fas fa-search"></i>
                                     </div>
@@ -291,7 +291,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <!-- Add Inv -->
-                                <button class="custom-btn" onclick="window.location.href='Inventory/Inv/addInv.php';">
+                                <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Inventory/Inv/addInv.php';">
                                     <div class="icon-container">
                                         <i class="fas fa-box-open"></i>
                                     </div>
@@ -300,7 +300,7 @@
                                 </button>
 
                                 <!-- View Inventory -->
-                                <button class="custom-btn" onclick="window.location.href='Inventory/Inv/viewInv.php';">
+                                <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Inventory/Inv/viewInv.php';">
                                     <div class="icon-container">
                                         <i class="fas fa-search"></i>
                                     </div>
@@ -320,14 +320,15 @@
                         </h2>
                         <div class="row">
                             <div class="col-md-6">
-                                <button class="custom-btn" onclick="window.location.href='Inventory/PurchaseOrder/addPurchOrd.php';">
+                                <!-- Add new Purchase Order -->
+                                <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Inventory/PurchaseOrder/addPurchOrd.php';">
                                     <div class="icon-container">
                                         <i class="fas fa-folder-plus"></i>
                                     </div>
                                     <span>Add new Purchase Order</span>
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
-                                <button class="custom-btn" onclick="window.location.href='Inventory/PurchaseOrder/viewPurchOrd.php';">
+                                <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Inventory/PurchaseOrder/viewPurchOrd.php';">
                                     <div class="icon-container">
                                         <i class="fas fa-folder-open"></i>
                                     </div>
@@ -348,7 +349,7 @@
                         </h2>
                         <div class="row">
                             <div class="col-md-6">
-                                <button class="custom-btn" onclick="window.location.href='Inventory/GRN/addGRN.php';">
+                                <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Inventory/GRN/addGRN.php';">
                                     <div class="icon-container">
                                         <i class="fas fa-folder-plus"></i>
                                     </div>
@@ -368,7 +369,7 @@
                         </h2>
                         <div class="row">
                             <div class="col-md-6">
-                                <button class="custom-btn" onclick="window.location.href='Inventory/Reports/Generate reports.html';">
+                                <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Inventory/Reports/Generate reports.html';">
                                     <div class="icon-container">
                                         <i class="fas fa-file-export"></i>
                                     </div>
