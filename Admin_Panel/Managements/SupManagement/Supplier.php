@@ -208,7 +208,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <!-- Add new Supplier button -->
-                                    <button class="custom-btn" onclick="window.location.href='Supplier/addsup/addsup.php';">
+                                    <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Supplier/addsup/addsup.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-user-plus"></i>
                                         </div>
@@ -220,7 +220,7 @@
 
                                 <div class="col-md-6">
                                     <!-- View Supplier Buttton -->
-                                    <button class="custom-btn" onclick="window.location.href='Supplier/viewsup/viewsup.php';">
+                                    <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Supplier/viewsup/viewsup.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-eye"></i>
                                         </div>
@@ -234,7 +234,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <!-- Add new Supplier invoice -->
-                                    <button class="custom-btn" onclick="window.location.href='Supplier/addSupInvocie.php';">
+                                    <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Supplier/addSupInvocie.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-user-plus"></i>
                                         </div>
