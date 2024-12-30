@@ -200,7 +200,7 @@
                     <!-- Return init -->
                     <div class="col-md-6">
                         <div class="custom-card">
-                            <button class="custom-btn" onclick="window.location.href='Returns/Other/InitiateReturn.php';">
+                            <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Returns/Other/InitiateReturn.php';">
                                 <div class="icon-container">
                                     <i class="fas fa-undo"></i>
                                 </div>
@@ -214,7 +214,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="custom-card">
-                            <button class="custom-btn" onclick="window.location.href='Returns/Other/Approve return.html';">
+                            <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Returns/Other/Approve return.html';">
                                 <div class="icon-container">
                                     <i class="fas fa-check-circle"></i>
                                 </div>
@@ -227,7 +227,7 @@
 
                     <div class="col-md-6">
                         <div class="custom-card">
-                            <button class="custom-btn" onclick="window.location.href='Returns/Other/Update inventory.html';">
+                            <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Returns/Other/Update inventory.html';">
                                 <div class="icon-container">
                                     <i class="fas fa-boxes"></i>
                                 </div>
@@ -240,7 +240,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="custom-card">
-                            <button class="custom-btn" onclick="window.location.href='Returns/Other/Make refund.html';">
+                            <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Returns/Other/Make refund.html';">
                                 <div class="icon-container">
                                     <i class="fas fa-money-bill-wave"></i>
                                 </div>
@@ -251,7 +251,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="custom-card">
-                            <button class="custom-btn" onclick="window.location.href='Returns/Other/Generate inventory reports.html';">
+                            <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Returns/Other/Generate inventory reports.html';">
                                 <div class="icon-container">
                                     <i class="fas fa-chart-bar"></i>
                                 </div>
