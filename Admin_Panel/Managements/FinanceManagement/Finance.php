@@ -210,7 +210,7 @@
                             <div class="row">
                                 <!-- Supplier Payment -->
                                 <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Finance/Make payment/Supplier.php';">
+                                    <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Finance/Make payment/Supplier.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-truck"></i>
                                         </div>
@@ -221,7 +221,7 @@
 
                                 <!-- Employee Payment -->
                                 <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Finance/Make payment/Employee.php';">
+                                    <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Finance/Make payment/Employee.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-user-tie"></i>
                                         </div>
@@ -239,7 +239,7 @@
 
                     <div class="col-md-6">
                         <div class="custom-card">
-                            <button class="custom-btn" onclick="window.location.href='Finance/Other/Payroll reports.html';">
+                            <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Finance/Other/Payroll reports.html';">
                                 <div class="icon-container">
                                     <i class="fas fa-chart-line"></i>
                                 </div>
