@@ -209,7 +209,7 @@
                             <!-- customer section -->
                             <div class="row">
                                 <div class="col-md-6">
-                                    <button class="custom-btn" onclick="window.location.href='Sales/Customer account/updateCust.php';">
+                                    <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Sales/Customer account/updateCust.php';">
                                         <div class="icon-container">
                                             <i class="fas fa-user-edit"></i>
                                         </div>
@@ -240,7 +240,7 @@
                                 </h2>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <button class="custom-btn" onclick="window.location.href='Sales/Returns/ViewReturns.php';">
+                                        <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Sales/Returns/ViewReturns.php';">
                                             <div class="icon-container">
                                                 <i class="fas fa-eye"></i>
                                             </div>
