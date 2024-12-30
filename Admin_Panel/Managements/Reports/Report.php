@@ -269,7 +269,7 @@
 
                                     <!-- Begining of Sales Report -->
                                     <div class="col-md-6">
-                                        <button class="custom-btn" onclick="window.location.href='Report/Monthly/Sales.php';">
+                                        <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Report/Monthly/Sales.php';">
                                             <div class="icon-container">
                                                 <i class="fas fa-chart-line"></i>
                                             </div>
@@ -282,7 +282,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <button class="custom-btn" onclick="window.location.href='Report/Monthly/Payroll.php';">
+                                        <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Report/Monthly/Payroll.php';">
                                             <div class="icon-container">
                                                 <i class="fas fa-file-alt"></i>
                                             </div>
@@ -291,7 +291,7 @@
                                         </button>
                                     </div>
                                     <div class="col-md-6">
-                                        <button class="custom-btn" onclick="window.location.href='Report/Monthly/Leave.php';">
+                                        <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Report/Monthly/Leave.php';">
                                             <div class="icon-container">
                                                 <i class="fas fa-file-excel"></i>
                                             </div>
