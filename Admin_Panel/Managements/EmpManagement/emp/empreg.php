@@ -105,7 +105,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-briefcase"></i></span>
-                <input type="text" class="form-control" id="role" name="role" placeholder="Role" required>
+                <select class="form-control" id="role" name="role" required>
+    <option value="" disabled selected>Select Role</option>
+    <option value="admin">Admin</option>
+    <option value="finance_manager">Finance Manager</option>
+    <option value="inventory_manager">Inventory Manager</option>
+    <option value="sales_manager">Sales Manager</option>
+    <option value="sales_person">Sales Person</option>
+    <option value="supplier_manager">Supplier Manager</option>
+    <option value="owner">Owner</option>
+             </select>
+
             </div>
 
             <div class="input-group">
