@@ -144,6 +144,7 @@
 
 <body>
     <div class="container">
+        <!-- Side bar -->
         <div class="sidebar">
             <div class="logo-container">
                 <div class="logo-frame">

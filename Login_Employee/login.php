@@ -50,8 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } elseif ($role == 'INVManager') {
             // Login for the Inventory Manager
             $_SESSION['EUsername'] = $E_Username;
-            $_SESSION['Emp_ID'] = $id;
-            header('Location: ../Employee_Panel/Inventory.php');
+            //$_SESSION['Emp_ID'] = $id;
+            header('Location: ../Employee_Panel/Inventory.php'); // Redirect to the Inventory page
 
         } elseif ($role == 'SupManager') {
             // Login for the Supplier Manager
