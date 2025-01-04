@@ -207,6 +207,22 @@
                                 <span>Initiate return</span>
                                 <i class="fas fa-arrow-right"></i>
                             </button>
+
+                            <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Returns/Other/Update inventory.html';">
+                                <div class="icon-container">
+                                    <i class="fas fa-boxes"></i>
+                                </div>
+                                <span>Update the inventory</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+
+                            <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Returns/Other/Make refund.html';">
+                                <div class="icon-container">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                <span>Make refund</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -225,7 +241,7 @@
 
                     </div> -->
 
-                    <div class="col-md-6">
+                    <!-- <div class="col-md-6">
                         <div class="custom-card">
                             <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Returns/Other/Update inventory.html';">
                                 <div class="icon-container">
@@ -236,8 +252,8 @@
                             </button>
                         </div>
                     </div>
-                </div>
-                <div class="row">
+                </div> -->
+                <!-- <div class="row">
                     <div class="col-md-6">
                         <div class="custom-card">
                             <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Returns/Other/Make refund.html';">
@@ -248,7 +264,7 @@
                                 <i class="fas fa-arrow-right"></i>
                             </button>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="col-md-6">
                         <div class="custom-card">
                             <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Returns/Other/Generate inventory reports.html';">
