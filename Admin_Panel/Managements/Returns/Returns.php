@@ -211,7 +211,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-6">
                         <div class="custom-card">
                             <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Returns/Other/Approve return.html';">
@@ -223,7 +223,7 @@
                             </button>
                         </div>
 
-                    </div>
+                    </div> -->
 
                     <div class="col-md-6">
                         <div class="custom-card">
@@ -249,7 +249,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <!-- <div class="col-md-6">
                         <div class="custom-card">
                             <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Returns/Other/Generate inventory reports.html';">
                                 <div class="icon-container">
@@ -259,7 +259,7 @@
                                 <i class="fas fa-arrow-right"></i>
                             </button>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
             </div>    
