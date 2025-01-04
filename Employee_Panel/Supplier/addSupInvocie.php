@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <!-- Submit Button -->
-            <input type="submit" value="Register Supplier" class="btn btn-success w-100 mt-3">
+            <input type="submit" value="Add Supplier Invoice" class="btn btn-success w-100 mt-3">
 
         </form>
 

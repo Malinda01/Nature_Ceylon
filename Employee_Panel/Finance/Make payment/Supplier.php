@@ -72,16 +72,25 @@
 
 
         <script>
+            // Define a function named 'pay' that takes a parameter 'grnId'
             function pay(grnId) {
+                // Show a confirmation dialog to the user and check if they confirm
                 if (confirm("Are you sure you want to make the payment for GRN ID " + grnId + "?")) {
+                    // Find the row in the table that contains the button that was clicked
                     const row = document.querySelector(`button[onclick='pay(${grnId})']`).closest('tr');
+                    // Get the payment amount from the third column of the row
                     const paymentAmount = row.querySelector('td:nth-child(3)').textContent;
+                    // Get the supplier ID from the second column of the row
                     const supplierId = row.querySelector('td:nth-child(2)').textContent;
 
+                    // Set the value of the 'grn_id' input field to the GRN ID
                     document.getElementById('grn_id').value = grnId;
+                    // Set the value of the 'payment_amount' input field to the payment amount
                     document.getElementById('payment_amount').value = paymentAmount;
+                    // Set the value of the 'supplier_id' input field to the supplier ID
                     document.getElementById('supplier_id').value = supplierId;
 
+                    // Submit the form with the payment details
                     document.getElementById('paymentForm').submit();
                 }
             }
