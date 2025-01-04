@@ -43,7 +43,7 @@
 <body>
 
 <div class="header">
-    <h1>Monthly Sales Report</h1>
+    <h1>Monthly Payroll Report</h1>
     <p>Nature Ceylon</p>
 </div>
 
