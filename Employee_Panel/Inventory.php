@@ -11,7 +11,6 @@ if (!isset($_SESSION['EUsername'])) {
 // Retrieve the username from the session
 $username = $_SESSION['EUsername'];
 
-
 ?>
 
 <!-- HTML section here -->
@@ -209,7 +208,7 @@ $username = $_SESSION['EUsername'];
                     </span>
                 </h1>
                 <div class="admin-profile">
-                <a href="../Profiles/InvProfile.php">
+                    <a href="../Profiles/InvProfile.php">
                         <img src="../Admin_Panel/Managements/assets/pic/admin.png" alt="Admin Profile" class="admin-pic">
                     </a>
                     <!-- Username -->
@@ -338,7 +337,7 @@ $username = $_SESSION['EUsername'];
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
                             </div>
-                            
+
                         </div>
                     </div>
                     <!-- End of purchae Order section -->
@@ -358,7 +357,7 @@ $username = $_SESSION['EUsername'];
                                     <span>Add new GRN</span>
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
-                                
+                            </div>
                         </div>
                     </div>
                     <!-- End of GRN section -->
@@ -383,13 +382,14 @@ $username = $_SESSION['EUsername'];
                     </div>
                     <!-- End of Reports section -->
 
-                    <!-- Logout button -->
-                    <a href="logout.php" class="logout-btn">
-                        <i class="fas fa-sign-out-alt"></i>
-                        Logout
-                    </a>
+
                 </div>
             </div>
+            <!-- Logout button -->
+            <a href="logout.php" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </a>
         </div>
     </div>
     </div>
