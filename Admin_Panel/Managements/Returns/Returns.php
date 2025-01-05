@@ -207,16 +207,24 @@
                                 <span>Initiate return</span>
                                 <i class="fas fa-arrow-right"></i>
                             </button>
+                        </div>
+                    </div>
 
-                            <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Returns/Other/Update inventory.html';">
+                    <div class="col-md-6">
+                        <div class="custom-card">
+                        <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Returns/Other/Update inventory.html';">
                                 <div class="icon-container">
                                     <i class="fas fa-boxes"></i>
                                 </div>
                                 <span>Update the inventory</span>
                                 <i class="fas fa-arrow-right"></i>
                             </button>
+                        </div>
+                    </div>
 
-                            <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Returns/Other/Make refund.html';">
+                    <div class="col-md-6">
+                        <div class="custom-card">
+                        <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Returns/Other/Make refund.html';">
                                 <div class="icon-container">
                                     <i class="fas fa-money-bill-wave"></i>
                                 </div>

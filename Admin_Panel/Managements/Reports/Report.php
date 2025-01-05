@@ -278,9 +278,6 @@
                                         </button>
                                     </div>
                                     <!-- End of Sales Report -->
-
-                                </div>
-                                <div class="row">
                                     <div class="col-md-6">
                                         <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Report/Monthly/Payroll.php';">
                                             <div class="icon-container">
@@ -290,6 +287,10 @@
                                             <i class="fas fa-arrow-right"></i>
                                         </button>
                                     </div>
+
+                                </div>
+                                <div class="row">
+                                    
                                     <div class="col-md-6">
                                         <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Report/Monthly/Leave.php';">
                                             <div class="icon-container">
@@ -352,10 +353,7 @@
                         </div> -->
                     </div>
 
-                    <a href="logout.php" class="logout-btn">
-                        <i class="fas fa-sign-out-alt"></i>
-                        Logout
-                    </a>
+                    
 
 
                 </div>
