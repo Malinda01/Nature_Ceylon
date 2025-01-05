@@ -236,6 +236,8 @@
                                         <span>Add new category</span>
                                         <i class="fas fa-arrow-right"></i>
                                     </button>
+                                </div>
+                                <div class="col-md-6">
 
                                     <!-- View Category -->
                                     <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Inventory/catagory/viewcat.php';">
@@ -268,6 +270,8 @@
                                     <span>Add new Product</span>
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
+                            </div>
+                            <div class="col-md-6">
 
                                 <!-- View Product -->
                                 <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Inventory/Item/viewItem.php';">
@@ -300,6 +304,8 @@
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
 
+                            </div>
+                            <div class="col-md-6">
                                 <!-- View Inventory -->
                                 <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Inventory/Inv/viewInv.php';">
                                     <div class="icon-container">
@@ -329,6 +335,8 @@
                                     <span>Add new Purchase Order</span>
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
+                            </div>
+                            <div class="col-md-6">
                                 <button class="custom-btn" onclick="window.location.href='../../../Employee_Panel/Inventory/PurchaseOrder/viewPurchOrd.php';">
                                     <div class="icon-container">
                                         <i class="fas fa-folder-open"></i>
@@ -357,7 +365,7 @@
                                     <span>Add new GRN</span>
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
-                                
+                            </div>   
                         </div>
                     </div>
                     <!-- End of GRN section -->
@@ -381,12 +389,6 @@
                         </div>
                     </div>
                     <!-- End of Reports section -->
-
-                    <!-- Logout button -->
-                    <a href="logout.php" class="logout-btn">
-                        <i class="fas fa-sign-out-alt"></i>
-                        Logout
-                    </a>
                 </div>
             </div>
             <!-- End of Employee Container -->

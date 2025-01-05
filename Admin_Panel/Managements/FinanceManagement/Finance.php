@@ -250,12 +250,6 @@
                     </div>
                 </div>
             </div>
-
-            <a href="logout.php" class="logout-btn">
-                <i class="fas fa-sign-out-alt"></i>
-                Logout
-            </a>
-
         </div>
         </div>
     </div>
