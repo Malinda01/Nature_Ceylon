@@ -149,6 +149,60 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         function validateForm() {
+            const nic = document.getElementById("nic").value;
+            const firstName = document.getElementById("firstName").value;
+            const lastName = document.getElementById("lastName").value;
+            const phoneNumber = document.getElementById("phoneNumber").value;
+            const address = document.getElementById("address").value;
+            const email = document.getElementById("email").value;
+            const role = document.getElementById("role").value;
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Validate NIC
+            if (!nic.match(/^\d{9}[vVxX]$/)) {
+                alert("Invalid NIC format. It should be 9 digits followed by 'v', 'V', 'x' or 'X'.");
+                return false;
+            }
+
+            // Validate First Name and Last Name
+            if (!firstName.match(/^[a-zA-Z]+$/) || !lastName.match(/^[a-zA-Z]+$/)) {
+                alert("First Name and Last Name should only contain letters.");
+                return false;
+            }
+
+            // Validate Phone Number
+            if (!phoneNumber.match(/^\d{10}$/)) {
+                alert("Invalid Phone Number. It should be 10 digits.");
+                return false;
+            }
+
+            // Validate Email
+            if (!email.match(/^\S+@\S+\.\S+$/)) {
+                alert("Invalid Email format.");
+                return false;
+            }
+
+            // Validate Role
+            if (role === "") {
+                alert("Please select a Role.");
+                return false;
+            }
+
+            // Validate Username
+            if (!username.match(/^[a-zA-Z0-9_]+$/)) {
+                alert("Username should only contain letters, numbers and underscores.");
+                return false;
+            }
+
+            // Validate Password
+            if (!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)) {
+                alert("Password should be at least 8 characters long and should contain at least one lowercase letter, one uppercase letter and one number.");
+                return false;
+            }
+
+            return true;
+        }
             const checkbox = document.getElementById("confirmationCheckbox");
             if (!checkbox.checked) {
                 alert("You must confirm that the information is true.");
@@ -156,6 +210,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             return true;
         }
+             
+ 
+
     </script>
+
+
 </body>
 </html>
