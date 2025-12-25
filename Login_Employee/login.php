@@ -1,43 +1,45 @@
 <?php
-// Session for catch the username
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    //Retrieve the field values from the form
-    $E_Username = $_POST['EUsername']; //Name in the username field
-    $E_Password = $_POST['EPassword']; //Name in the password field
+    $E_Username = $_POST['EUsername'];
+    $E_Password = $_POST['EPassword'];
 
-    //Database connection
     $servername = "localhost";
     $username = "root";
     $password = "";
     $dbname = "malinda_db";
 
-    // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    //SQL query to retrieve the role of the employee table
-    $query = "SELECT Role, Emp_ID FROM employee WHERE E_Username = '$E_Username' AND E_Password = '$E_Password'";
+    $stmt = $conn->prepare("SELECT Role, Emp_ID FROM employee WHERE E_Username = ? AND E_Password = ?");
 
-    // Execution
-    $result = $conn->query($query);
+    if (!$stmt) {
+        die("Database Error: " . $conn->error);
+    }
+
+    $stmt->bind_param("ss", $E_Username, $E_Password);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows == 1) {
-
         $row = $result->fetch_assoc();
-        $role = $row['Role'];
-        $id = $row['Emp_ID']; // Employee ID for fk
-        // die(var_dump($id));
+
+        // --- THE FIX ---
+        // 1. trim(): Removes hidden spaces (e.g., "admin " becomes "admin")
+        // 2. strtolower(): Makes it case-insensitive (e.g., "Admin" becomes "admin")
+        $role = strtolower(trim($row['Role']));
+        $id = $row['Emp_ID'];
+
         $_SESSION['Emp_ID'] = $id;
 
         // Redirect based on the user's role
-        if ($role == 'admin') {
+        if ($role == 'Admin') {
             // Login for the admin
             $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Admin_Panel/Managements/AdminDash/admindash.php');
@@ -80,9 +82,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Employee_Panel/Finance.php');
         } else {
-            echo "Invalid role";
+            // Debugging: The brackets [] will help you see if there are hidden spaces
+            echo "Login failed. The database role is: [" . $row['Role'] . "]";
         }
     } else {
         echo "Invalid username or password";
     }
+
+    $stmt->close();
+    $conn->close();
 }
