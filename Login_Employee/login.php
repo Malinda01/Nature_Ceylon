@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['Emp_ID'] = $id;
 
         // Redirect based on the user's role
-        if ($role == 'Admin') {
+        if ($role == 'admin') {
             // Login for the admin
             $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Admin_Panel/Managements/AdminDash/admindash.php');
