@@ -2,9 +2,9 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Database configuration
     $servername = "localhost"; // Replace with your server name
-    $username = "root"; 
-    $password = ""; 
-    $dbname = "malinda_db"; 
+    $username = "root";
+    $password = "";
+    $dbname = "malinda_db";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -44,8 +44,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Registration - Nature Ceylon</title>
     <!-- Google Font -->
@@ -56,18 +57,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/form.css">
 
-       
-        
+
+
 </head>
+
 <body>
     <header>
         <button id="backButton" onclick="location.href='../Employee.php'">Back</button>
         <h1>Nature Ceylon</h1>
     </header>
     <main>
-        <form action="" method = "post" employeeForm" onsubmit="return validateForm()">
+        <form action="" method="post" employeeForm" onsubmit="return validateForm()">
             <h2>Employee Registration</h2>
-<!--             
+            <!--             
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
                 <input type="text" class="form-control" id="employeeId" name="employeeId" placeholder="Employee ID">
@@ -106,15 +108,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-briefcase"></i></span>
                 <select class="form-control" id="role" name="role" required>
-    <option value="" disabled selected>Select Role</option>
-    <option value="admin">Admin</option>
-    <option value="finance_manager">Finance Manager</option>
-    <option value="inventory_manager">Inventory Manager</option>
-    <option value="sales_manager">Sales Manager</option>
-    <option value="sales_person">Sales Person</option>
-    <option value="supplier_manager">Supplier Manager</option>
-    <option value="owner">Owner</option>
-             </select>
+                    <option value="" disabled selected>Select Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="finance_manager">Finance Manager</option>
+                    <option value="inventory_manager">Inventory Manager</option>
+                    <option value="sales_manager">Sales Manager</option>
+                    <option value="sales_person">Sales Person</option>
+                    <option value="supplier_manager">Supplier Manager</option>
+                    <option value="owner">Owner</option>
+                </select>
 
             </div>
 
@@ -203,18 +205,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             return true;
         }
-            const checkbox = document.getElementById("confirmationCheckbox");
-            if (!checkbox.checked) {
-                alert("You must confirm that the information is true.");
-                return false;
-            }
-            return true;
+        const checkbox = document.getElementById("confirmationCheckbox");
+        if (!checkbox.checked) {
+            alert("You must confirm that the information is true.");
+            return false;
         }
-             
- 
-
+        return true;
     </script>
 
 
 </body>
+
 </html>

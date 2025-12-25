@@ -1,83 +1,65 @@
 <?php
-// Session for catch the username
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    //Retrieve the field values from the form
-    $E_Username = $_POST['EUsername']; //Name in the username field
-    $E_Password = $_POST['EPassword']; //Name in the password field
+    $E_Username = $_POST['EUsername'];
+    $E_Password = $_POST['EPassword'];
 
-    //Database connection
     $servername = "localhost";
     $username = "root";
     $password = "";
     $dbname = "malinda_db";
 
-    // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Use Prepared Statements to prevent SQL errors and Injection
     $stmt = $conn->prepare("SELECT Role, Emp_ID FROM employee WHERE E_Username = ? AND E_Password = ?");
 
-    // Check if preparation failed (e.g., if table or columns don't exist)
-    if ($stmt === false) {
-        die("Query failed: " . $conn->error);
+    if (!$stmt) {
+        die("Database Error: " . $conn->error);
     }
 
-    // Bind parameters (s = string)
     $stmt->bind_param("ss", $E_Username, $E_Password);
-
-    // Execution
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows == 1) {
-
         $row = $result->fetch_assoc();
-        $role = $row['Role'];
-        $id = $row['Emp_ID']; // Employee ID for fk
+
+        // --- THE FIX ---
+        // 1. trim(): Removes hidden spaces (e.g., "admin " becomes "admin")
+        // 2. strtolower(): Makes it case-insensitive (e.g., "Admin" becomes "admin")
+        $role = strtolower(trim($row['Role']));
+        $id = $row['Emp_ID'];
 
         $_SESSION['Emp_ID'] = $id;
+        $_SESSION['EUsername'] = $E_Username;
 
-        // Redirect based on the user's role
-        if ($role == 'Admin') {
-            $_SESSION['EUsername'] = $E_Username;
+        if ($role == 'admin') {
             header('Location: ../Admin_Panel/Managements/AdminDash/admindash.php');
-        } elseif ($role == 'EmpRelManager') {
-            $_SESSION['EUsername'] = $E_Username;
-            header('Location: ../Employee_Panel/Employee.php');
-        } elseif ($role == 'INVManager') {
-            $_SESSION['EUsername'] = $E_Username;
-            header('Location: ../Employee_Panel/Inventory.php');
-        } elseif ($role == 'SupManager') {
-            $_SESSION['EUsername'] = $E_Username;
-            header('Location: ../Employee_Panel/Supplier.php');
-        } elseif ($role == 'SalesManager') {
-            $_SESSION['EUsername'] = $E_Username;
-            header('Location: ../Employee_Panel/Sales.php');
-        } elseif ($role == 'SalesPerson') {
-            $_SESSION['EUsername'] = $E_Username;
-            header('Location: ../Employee_Panel/Order.php');
-        } elseif ($role == 'Owner') {
-            $_SESSION['EUsername'] = $E_Username;
-            header('Location: ../Employee_Panel/Report.php');
-        } elseif ($role == 'Cashier') {
-            $_SESSION['EUsername'] = $E_Username;
-            header('Location: ../Employee_Panel/POS.php');
-        } elseif ($role == 'InvCoord') {
-            $_SESSION['EUsername'] = $E_Username;
-            header('Location: ../Employee_Panel/Returns.php');
-        } elseif ($role == 'FinManager') {
-            $_SESSION['EUsername'] = $E_Username;
+        } elseif ($role == 'finance_manager') {
             header('Location: ../Employee_Panel/Finance.php');
+        } elseif ($role == 'inventory_manager') {
+            header('Location: ../Employee_Panel/Inventory.php');
+        } elseif ($role == 'supplier_manager') {
+            header('Location: ../Employee_Panel/Supplier.php');
+        } elseif ($role == 'sales_manager') {
+            header('Location: ../Employee_Panel/Sales.php');
+        } elseif ($role == 'sales_person') {
+            header('Location: ../Employee_Panel/Order.php');
+        } elseif ($role == 'owner') {
+            header('Location: ../Employee_Panel/Report.php');
+        } elseif ($role == 'cashier') {
+            header('Location: ../Employee_Panel/POS.php');
+        } elseif ($role == 'inv_coord') {
+            header('Location: ../Employee_Panel/Returns.php');
         } else {
-            echo "Invalid role";
+            // Debugging: The brackets [] will help you see if there are hidden spaces
+            echo "Login failed. The database role is: [" . $row['Role'] . "]";
         }
     } else {
         echo "Invalid username or password";
