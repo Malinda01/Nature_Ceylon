@@ -14,16 +14,12 @@
 - [Installation & Setup](#installation--setup)
 - [Database Configuration](#database-configuration)
 
----
-
 ## 🚀 Project Overview
 
 This solution serves two main user groups:
 
 1.  **Administrators & Staff:** A powerful dashboard to manage day-to-day business activities including POS (Point of Sale), inventory control, supplier relations, and financial reporting.
 2.  **Customers:** An engaging e-commerce platform where users can browse Ceylon tea collections, manage their profiles, and place orders online.
-
----
 
 ## ✨ Key Features
 
@@ -58,8 +54,6 @@ A responsive e-commerce website located in `storefront/` (and `Customer_web/`).
 - **About & Contact:** Information about the brand's heritage and contact forms.
 - **Responsive Design:** Built with Bootstrap 5 for mobile-friendly navigation.
 
----
-
 ## 💻 Tech Stack
 
 - **Backend:** PHP
@@ -68,8 +62,6 @@ A responsive e-commerce website located in `storefront/` (and `Customer_web/`).
 - **Frameworks & Libraries:** \* Bootstrap 5 (UI Styling)
   - Chart.js (Data Visualization)
   - FontAwesome & Bootstrap Icons (Iconography)
-
----
 
 ## 📂 Folder Structure
 
@@ -87,10 +79,6 @@ Nature_Ceylon/
 ├── tea-shop/              # Alternate/Legacy shop files
 └── Login_Employee/        # Login interface for employees
 ```
-
-````
-
----
 
 ## ⚙️ Installation & Setup
 
@@ -134,6 +122,3 @@ $dbname = "malinda_db";
 ## 📝 License
 
 This project is developed for educational and business management purposes.
-
-
-````
