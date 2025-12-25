@@ -1,6 +1,3 @@
-Here is a comprehensive `README.md` file for your **Nature Ceylon** project, generated based on the codebase structure, administrative features, and customer-facing components identified in your files.
-
-````markdown
 # Nature Ceylon - Tea Outlet Management System
 
 **Nature Ceylon** is a comprehensive web-based application designed to manage the operations of a premium tea outlet. The system bridges the gap between backend business management and a customer-facing digital storefront, ensuring seamless operations for inventory, sales, employees, and online retail.
@@ -90,6 +87,7 @@ Nature_Ceylon/
 ├── tea-shop/              # Alternate/Legacy shop files
 └── Login_Employee/        # Login interface for employees
 ```
+
 ````
 
 ---
@@ -137,6 +135,5 @@ $dbname = "malinda_db";
 
 This project is developed for educational and business management purposes.
 
-```
 
-```
+````
