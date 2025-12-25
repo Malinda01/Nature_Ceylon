@@ -37,16 +37,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['Emp_ID'] = $id;
 
         // Redirect based on the user's role
-        if ($role == 'Admin') {
+        if ($role == 'admin') {
             // Login for the admin
             $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Admin_Panel/Managements/AdminDash/admindash.php');
-
         } elseif ($role == 'EmpRelManager') {
             // Login for the Employee Relation Manager  
             $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Employee_Panel/Employee.php');
-
         } elseif ($role == 'INVManager') {
             // Login for the Inventory Manager
             $_SESSION['EUsername'] = $E_Username;
@@ -57,37 +55,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Login for the Supplier Manager
             $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Employee_Panel/Supplier.php');
-
         } elseif ($role == 'SalesManager') {
             //Login for the Sales manager
             $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Employee_Panel/Sales.php');
-
         } elseif ($role == 'SalesPerson') {
             //Login for the Sales manager
             $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Employee_Panel/Order.php');
-
         } elseif ($role == 'Owner') {
             //Login for the Owner
             $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Employee_Panel/Report.php');
-            
         } elseif ($role == 'Cashier') {
             // POS for the cashier
             $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Employee_Panel/POS.php');
-
         } elseif ($role == 'InvCoord') {
             //Login for the Inventory Coordinator
             $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Employee_Panel/Returns.php');
-
         } elseif ($role == 'FinManager') {
             //Login for the Fincae Manager
             $_SESSION['EUsername'] = $E_Username;
             header('Location: ../Employee_Panel/Finance.php');
-
         } else {
             echo "Invalid role";
         }
